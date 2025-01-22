@@ -1,0 +1,139 @@
+/* Sorry ) Пажажа простите меня, я понимаю что сделал кал. Я не трогал ваш код */
+
+.hero-question {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px 20px;
+    padding-top: 60px;
+    font-family: Arial, sans-serif;
+}
+
+.section-title-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #f0f0f0;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+/* Sorry  PLS */
+
+.section-question-image {
+    display: flex;
+    max-width: 320px;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: auto;
+    object-position: right;
+}
+@media (max-width: 984px) {
+    .section-question-image {
+        display: none;
+    }
+}
+
+.text-h1-question {
+    border-radius: 9px;
+    background-color: #b9ff66;
+    color: black;
+    display: inline;
+    padding: 5px;
+}
+
+.text_ivent {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 30px;
+}
+
+.container-question {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.radio-group input[type="radio"] {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid #888;
+    outline: none;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    margin-right: 8px;
+}
+
+
+.radio-group input[type="radio"]:checked {
+    border-color: #44c767;
+}
+
+.radio-group input[type="radio"]:checked::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #44c767;
+}
+
+.radio-group label {
+    padding-top: 10px;
+    padding-right: 20px;
+    margin-left: 5px;
+    font-weight: 300;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 120%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+button[type="submit"] {
+    all: unset;
+    display: block;
+    width: 115%;
+    padding: 12px 20px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #6cee42;
+}
