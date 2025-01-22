@@ -29,12 +29,14 @@
     align-items: flex-start;
     height: auto;
     object-position: right;
+    overflow: hidden;
 }
 @media (max-width: 984px) {
     .section-question-image {
         display: none;
     }
 }
+
 
 .text-h1-question {
     border-radius: 9px;
