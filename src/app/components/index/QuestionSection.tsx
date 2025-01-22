@@ -28,7 +28,7 @@ export default function HeroSection() {
                     </form>
                     <div className='section-question-image'>
                         <img src="/images/imgre.svg" alt="Мегафон" /> 
-                    </div> 
+                    </div>        
                 </div>
             </div>
         </section>
