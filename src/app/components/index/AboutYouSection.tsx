@@ -74,7 +74,7 @@ export default function AboutYouSection() {
                         />
                     </div>
                     <div className="about-you-href">
-                        <a href="#">Подробнее</a>
+                        <a href="#" className="href-button">Подробнее</a>
                     </div>
                 </div>
             </div>

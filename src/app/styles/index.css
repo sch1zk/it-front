@@ -1,3 +1,39 @@
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.href-plain {
+  text-decoration: none;
+  color: #000;
+}
+
+.href-button {
+  display: inline-block;
+  border-radius: var(--border-radius-small);
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  padding: var(--button-padding);
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+}
+
+.href-button:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
 .section-title {
   display: flex;
   align-items: center;
@@ -6,54 +42,34 @@
 }
 
 .section-title h2 {
-  font-size: 32px;
-  text-align: center;
+  font-size: var(--heading-font-size);
   padding: 5px 15px;
-  background-color: #b9ff66;
-  border-radius: 9px;
-  color: black;
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius-small);
+  color: var(--text-color);
   display: inline-block;
 }
 
 .section-title p {
-  font-size: 18px;
+  font-size: var(--subheading-font-size);
   line-height: 1.5;
 }
 
 .hero-content {
-  padding: 50px 0;
   display: flex;
   align-items: center; /* Выравнивание по вертикали */
   justify-content: space-between; /* Равномерное распределение текста и изображения */
   gap: 20px; /* Расстояние между текстом и изображением */
 }
 
-.hero-content div {
-  max-width: 50%; /* Ограничиваем ширину текстового блока */
-}
-
 .hero-content h1 {
   font-size: 60px; /* Крупный шрифт для главного заголовка */
-  margin: 20px 0; /* Унифицированные отступы */
   max-width: 500px; /* Ограничиваем ширину текста */
 }
 
 .hero-content p {
   font-size: 20px;
-  line-height: 1.6; /* Комфортное расстояние между строками */
-  margin-bottom: 30px;
   max-width: 500px;
-}
-
-.hero-content button {
-  border-radius: 14px; /* Округлённые углы */
-  background-color: #000; /* Основной фон */
-  color: #fff; /* Цвет текста */
-  border: none;
-  padding: 20px 35px 20px 35px; /* Отступы внутри кнопки */
-  font-size: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* Плавный переход при наведении */
 }
 
 .hero-content img {
@@ -61,11 +77,6 @@
   height: auto; /* Сохраняем пропорции */
   user-select: none; /* Запрещаем выделение изображения */
   pointer-events: none; /* Убираем возможность взаимодействия */
-}
-
-.events-content {
-  padding: 50px 0;
-  background-color: #fff;
 }
 
 .events-grid {
@@ -86,8 +97,6 @@
 }
 
 .event-card a {
-  text-decoration: none;
-  color: #000;
   font-size: 20px;
   display: flex;
   gap: 16px;
@@ -117,28 +126,12 @@
   margin-bottom: 20px;
 }
 
-.volunteering-content button {
-  background-color: #000;
-  border-radius: 9px;
-  color: #fff;
-  border: none;
-  padding: 15px 30px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
 .volunteering-content img {
   max-width: 100%;
   margin-top: -2rem; /* Картинка выйдет вверх */
   margin-bottom: -2rem; /* Картинка выйдет вниз */
   position: relative;
   right: 20%;
-}
-
-.self-discovery-content {
-  padding: 50px 0;
-  background-color: #fff;
 }
 
 .self-discovery-grid {
@@ -154,17 +147,17 @@
   background-color: transparent;
   color: #fff;
   border-radius: 10px;
-  padding: 20px;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
+  gap: 10px;
 }
 
 .self-discovery-card a {
   text-decoration: none;
   color: #90EE90;
-  font-size: 20px;
   display: flex;
   align-items: center;
 }
@@ -177,9 +170,7 @@
 
 .self-discovery-card p {
   font-size: 16px;
-  margin-bottom: 20px;
   max-width: 300px;
-  position: relative;
 }
 
 .self-discovery-card:not(:last-child)::after {
@@ -245,19 +236,14 @@
   font-family: "Space Grotesk", sans-serif;
 }
 
-.six-steps-card-content {
+.six-steps-card-content p {
   border-top: 2px solid #000;
   font-size: 16px;
-  line-height: 1.6;
+  padding-top: 20px;
 }
 
 .six-steps-card-content.hidden {
   display: none;
-}
-
-.about-you {
-  position: relative;
-  padding: 50px 0;
 }
 
 .about-you-grid {
@@ -288,23 +274,17 @@
   font-size: 20px;
   margin-bottom: 1px;
   text-align: left;
-  margin: 0;
-  padding: 0;
   line-height: 1.2;
 }
 
 .about-you-card p {
   font-size: 18px;
   text-align: left;
-  margin-bottom: 1px;
-  margin: 0;
-  padding: 0;
   line-height: 1.2;
 }
 
 .about-you-card hr {
   width: 100%;
-  border: 0;
   border-top: 1px solid #000;
   margin: 10px 0;
 }
@@ -318,18 +298,6 @@
   margin-top: 40px;
   display: flex;
   justify-content: flex-end;
-}
-
-.about-you-href a {
-  text-decoration: none;
-  border-radius: 14px; /* Округлённые углы */
-  background-color: #000; /* Основной фон */
-  color: #fff; /* Цвет текста */
-  border: none;
-  padding: 20px 35px 20px 35px; /* Отступы внутри кнопки */
-  font-size: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* Плавный переход при наведении */
 }
 
 .linkedin-icon {
@@ -348,4 +316,50 @@
   width: 30px;
   height: 30px;
   padding: 0;
+}
+
+.user-reviews-carousel {
+  padding: 50px;
+  background-color: #191a23;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden; 
+}
+
+.user-review-card {
+  display: inline-grid;
+  justify-items: center;
+  width: 100%;
+}
+
+.user-review-card h3 {
+  color: #fff;
+  text-align: left;
+  margin-top: 10px;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.user-review-card p {
+  color: #fff;
+  text-align: left;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.user-review-card-content {
+  width: 100%;
+  box-sizing: border-box;  /* Учитываем отступы и границы в ширине */
+  padding: 0 20px;  /* Отступы по бокам */
+}
+
+.user-review-card-top {
+  border: 1px solid #b9ff66;
+  padding: 20px;
+  border-radius: 30px;
 }

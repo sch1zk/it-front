@@ -7,19 +7,21 @@ import VolunteeringSection from "./components/index/VolunteeringSection";
 import SelfDiscoverySection from "./components/index/SelfDiscoverySection";
 import SixStepsSection from "./components/index/SixSteps";
 import AboutYouSection from "./components/index/AboutYouSection";
+import UserReviewsSection from "./components/index/UserReviewsSection";
 
 
 export default function Home() {
   return (
     <>
-      <Header />
+      <Header/>
       <main>
-        <HeroSection />
-        <EventsSection />
-        <VolunteeringSection />
-        <SelfDiscoverySection />
-        <SixStepsSection />
-        <AboutYouSection />
+        <HeroSection/>
+        <EventsSection/>
+        <VolunteeringSection/>
+        <SelfDiscoverySection/>
+        <SixStepsSection/>
+        <AboutYouSection/>
+        <UserReviewsSection/>
       </main>
     </>
   );

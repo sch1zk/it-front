@@ -8,7 +8,7 @@ export default function VolunteeringSection() {
                     <div>
                         <h2>Волонтёрство - это важно!</h2>
                         <p>Каждый из нас должен принимать участие в волонтёрских мероприятиях, не становись исключением!</p>
-                        <button>Принять участие</button>
+                        <a href="#" className="href-button">Принять участие</a>
                     </div>
                     <div>
                         <img src="/images/volunteering-image.svg"/>

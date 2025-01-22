@@ -1,4 +1,19 @@
 :root {
+  --primary-color: #000;
+  --secondary-color: #b9ff66;
+  --bg-color: #fff;
+  --card-bg-color: #f3f3f3;
+  --text-color: #000;
+  --font-family: 'Space Grotesk', sans-serif;
+
+  --heading-font-size: 32px;
+  --subheading-font-size: 18px;
+  --paragraph-font-size: 16px;
+  --button-padding: 20px 35px;
+
+  --border-radius-small: 9px;
+  --border-radius-large: 29px;
+  
   font-family: "Inter", sans-serif; /* По умолчанию используем Inter */
 }
 
@@ -11,5 +26,5 @@ body {
 .container {
   max-width: 1200px; /* Ограничиваем максимальную ширину */
   margin: 0 auto; /* Центрируем контейнер */
-  padding: 0 20px; /* Отступы по бокам */
+  padding: 25px 20px; /* Отступы по бокам */
 }
