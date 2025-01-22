@@ -1,0 +1,43 @@
+.header-content {
+    display: flex; /* Используем flexbox для выравнивания элементов */
+    justify-content: space-between; /* Пространство между лого и навигацией */
+    align-items: center; /* Выравнивание элементов по центру по вертикали */
+    padding: 20px 0px; /* Отступы вокруг содержимого */
+    background-color: #fff; /* Цвет фона хедера (можно изменить) */
+}
+
+.logo {
+    font-size: 100px; /* Размер шрифта для логотипа */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+.logo a {
+    font-family: "Space Grotesk", sans-serif;
+    text-decoration: none; /* Убираем подчеркивание у ссылки */
+    color: #7d61eb; /* Цвет текста */
+}
+
+.nav {
+    list-style: none; /* Убираем маркеры списка */
+    display: flex; /* Расставляем элементы навигации горизонтально */
+    gap: 27px; /* Расстояние между ссылками */
+    align-items: center; /* Выравнивание элементов по вертикали */
+}
+
+.nav a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #000; /* Цвет текста */
+    font-size: 20px; /* Размер шрифта */
+}
+
+.nav a:hover {
+    color: #90EE90; /* Цвет текста при наведении */
+}
+
+/* Рамка вокруг кнопки "Личный кабинет" */
+.profile-link {
+    border: 1px solid #000; /* Цвет рамки */
+    border-radius: 14px; /* Округление углов */
+    padding: 20px 35px 20px 35px; /* Отступы внутри кнопки */
+    display: inline-flex;
+}
