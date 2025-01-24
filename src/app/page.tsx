@@ -8,6 +8,7 @@ import SelfDiscoverySection from "./components/index/SelfDiscoverySection";
 import SixStepsSection from "./components/index/SixSteps";
 import AboutYouSection from "./components/index/AboutYouSection";
 import UserReviewsSection from "./components/index/UserReviewsSection";
+import Footer from "./components/Footer";
 
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
         <AboutYouSection/>
         <UserReviewsSection/>
       </main>
+      <Footer/>
     </>
   );
 }
