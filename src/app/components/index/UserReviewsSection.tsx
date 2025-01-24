@@ -5,6 +5,7 @@ import Slider from 'react-slick';
 import '../../styles/index.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import SectionTitle from './SectionTitle';
 
 interface UserReviewCardProps {
     content: string;
@@ -14,15 +15,34 @@ interface UserReviewCardProps {
 
 const UserReviewCard: React.FC<UserReviewCardProps> = ({ content, name, role }) => {
     return (
-        <div className="user-review-card">
-            <div className="user-review-card-content">
-                <div className="user-review-card-top">
-                    <p>{content}</p>
-                </div>
-                <div>
-                    <h3>{name}</h3>
-                    <p>{role}</p>
-                </div>
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+            margin: "0 20px"
+        }}>
+            <div style={{
+                color: "#fff",
+                padding: "0 var(--border-radius-medium)"
+            }}>
+                <p>{role}</p>
+                <h3 style={{ 
+                    fontSize: "20px",
+                    color: "var(--color-primary)"
+                }}>
+                    {name}
+                </h3>
+            </div>
+            <div style={{
+                padding: "20px 45px",
+                border: "1px solid var(--color-primary)",
+                borderRadius: "var(--border-radius-medium)",
+                color: "#fff",
+                height: "75px",
+                display: "flex",
+                alignItems: "center"
+            }}>
+                <p style={{ textAlign: "center" }}>{content}</p>
             </div>
         </div>
     );
@@ -35,7 +55,6 @@ export default function UserReviewsSection() {
         { content: 'Сервис значительно упростил мою работу.', name: 'Алексей Смирнов', role: 'Разработчик' },
         { content: 'Сервис значительно упростил мою работу.', name: 'Алексей Смирнов', role: 'Разработчик' },
         { content: 'Сервис значительно упростил мою работу.', name: 'Алексей Смирнов', role: 'Разработчик' },
-        { content: 'Сервис значительно упростил мою работу.', name: 'Алексей Смирнов', role: 'Разработчик' },
     ];
 
     const sliderSettings = {
@@ -44,29 +63,41 @@ export default function UserReviewsSection() {
         speed: 500, // Скорость перехода (мс)
         slidesToShow: 3, // Количество отображаемых слайдов
         slidesToScroll: 1, // Количество слайдов за один прокрут
+        arrows: false,
+        dotsClass: "review-dots",
+        appendDots: (dots: React.ReactNode) => (
+            <div
+              style={{
+                
+              }}
+            >
+              <ul style={{ margin: "0px" }}> {dots} </ul>
+            </div>
+          )
     };
 
     return (
-        <section className="user-reviews">
-            <div className="container">
-                <div className="user-reviews-content">
-                    <div className="section-title">
-                        <h2>Отзывы наших пользователей</h2>
-                        <p>Каждый из вас очень важен для нас!</p>
-                    </div>
-                    <div className="user-reviews-carousel">
-                        <Slider {...sliderSettings}>
-                            {reviews.map((review, index) => (
-                                <UserReviewCard
-                                    key={index}
-                                    content={review.content}
-                                    name={review.name}
-                                    role={review.role}
-                                />
-                            ))}
-                        </Slider>
-                    </div>
-                </div>
+        <section className="container">
+            <SectionTitle
+                title="Отзывы наших пользователей"
+                description="Каждый из вас очень важен для нас!"
+                max_width="500px"
+            />
+            <div style={{
+                padding: "35px 50px 50px 50px",
+                backgroundColor: "var(--color-bg)",
+                borderRadius: "var(--border-radius-large)"
+            }}>
+                <Slider {...sliderSettings}>
+                    {reviews.map((review, index) => (
+                        <UserReviewCard
+                            key={index}
+                            content={review.content}
+                            name={review.name}
+                            role={review.role}
+                        />
+                    ))}
+                </Slider>
             </div>
         </section>
     );

@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Roboto, Space_Grotesk } from "next/font/google";
 import "./styles/globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-extra",
 })
 
-const inter = Inter({
+const roboto = Roboto({
   subsets: ["latin", "cyrillic"],
-  variable: "--font-inter",
+  variable: "--font-roboto",
+  weight: ["100", "300", "400", "500", "700", "900"]
 })
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <body className={`${roboto.variable} ${spaceGrotesk.variable}`}>
         {children}
       </body>
     </html>

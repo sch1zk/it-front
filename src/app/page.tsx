@@ -1,5 +1,3 @@
-import Image from "next/image";
-import styles from "./styles/page.module.css";
 import Header from "./components/Header";
 import HeroSection from "./components/index/HeroSection";
 import EventsSection from "./components/index/EventsSection";
@@ -10,12 +8,15 @@ import AboutYouSection from "./components/index/AboutYouSection";
 import UserReviewsSection from "./components/index/UserReviewsSection";
 import Footer from "./components/Footer";
 
-
 export default function Home() {
   return (
     <>
       <Header/>
-      <main>
+      <main style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "50px"
+      }}>
         <HeroSection/>
         <EventsSection/>
         <VolunteeringSection/>

@@ -1,4 +1,16 @@
 :root {
+  --color-primary: #B9FF66;
+  --color-secondary: #7B5FEB;
+  --color-bg: #191A23;
+  --color-bg-card: #F3F3F3;
+
+  --font-main: "Inter", sans-serif;
+  --font-extra: "Space Grotesk", sans-serif;
+
+  --border-radius-large: 20px;
+  --border-radius-medium: 14px;
+  --border-radius-small: 7px;
+
   --primary-color: #000;
   --secondary-color: #b9ff66;
   --bg-color: #fff;
@@ -10,11 +22,8 @@
   --subheading-font-size: 18px;
   --paragraph-font-size: 16px;
   --button-padding: 20px 35px;
-
-  --border-radius-small: 9px;
-  --border-radius-large: 29px;
   
-  font-family: "Inter", sans-serif; /* По умолчанию используем Inter */
+  font-family: "Roboto"; /* По умолчанию используем Inter */
 }
 
 body {
@@ -26,5 +35,5 @@ body {
 .container {
   max-width: 1200px; /* Ограничиваем максимальную ширину */
   margin: 0 auto; /* Центрируем контейнер */
-  padding: 25px 20px; /* Отступы по бокам */
+  width: 100%;
 }
