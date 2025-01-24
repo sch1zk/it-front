@@ -80,7 +80,7 @@ export default function SixStepsSection() {
     return (
         <section className="container">
             <SectionTitle
-                title="Шесть этапов поиска себя в современном мире"
+                title="Шесть этапов поиска себя"
                 description="по версии психотерапевта Екатерины Сигитовой:"
                 max_width="500px"
             />

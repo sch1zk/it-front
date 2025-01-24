@@ -39,7 +39,7 @@ export default function SelfDiscoverySection() {
     return (
         <section className="container">
             <SectionTitle
-                title="Найди себя в обществе!"
+                title="Найди себя в обществе"
                 description="Если ты до сих пор не нашёл себя, мы поможем тебе!"
                 max_width="500px"
             />

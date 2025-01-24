@@ -34,10 +34,7 @@ export default function Footer() {
                         color: "#fff"
                     }}>
                         <h3 style={{
-                            padding: "0 7px",
-                            backgroundColor: "var(--color-primary)",
-                            borderRadius: "var(--border-radius-small)",
-                            color: "#000"
+                            color: "var(--color-primary)"
                         }}>
                             Контакты
                         </h3>

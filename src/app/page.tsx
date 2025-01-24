@@ -15,7 +15,7 @@ export default function Home() {
       <main style={{
         display: "flex",
         flexDirection: "column",
-        gap: "50px"
+        gap: "150px"
       }}>
         <HeroSection/>
         <EventsSection/>

@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Header() {
     return (
-        <header className="container" style={{ marginBottom: "25px" }}>
+        <header className="container" style={{ marginBottom: "50px" }}>
             <div style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -31,7 +31,7 @@ export default function Header() {
                     <Link href="/rating" className="href-plain">Рейтинг</Link>
                     <Link href="/profile" className="href-plain" style={{
                         border: "1px solid #000",
-                        borderRadius: "var(--border-radius-large)",
+                        borderRadius: "var(--border-radius-medium)",
                         padding: "20px 35px"
                     }}>Личный кабинет</Link>
                 </nav>

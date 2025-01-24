@@ -42,7 +42,7 @@ export default function EventsSection() {
         <section className="container">
             <SectionTitle
                 title="Топовые события"
-                description="Стань участником самых крутых событий, которые проходят на территории нашей страны!"
+                description="Стань участником самых крутых событий и ивентов!"
                 max_width="450px"
             />
             <div style={{

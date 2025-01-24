@@ -64,7 +64,7 @@ export default function AboutYouSection() {
     return (
         <section className="container">
             <SectionTitle
-                title="Расскажи о себе!"
+                title="Расскажи о себе"
                 description="Не бойся рассказывать о своих сильных сторонах, стесняться тут нечего, это наоборот очень круто!"
                 max_width="500px"
             />
