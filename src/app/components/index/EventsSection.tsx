@@ -1,5 +1,6 @@
-import '../../styles/index.css';
+import '@/styles/index.css';
 import SectionTitle from './SectionTitle';
+import Image from 'next/image';
 
 interface EventCardProps {
     background_сolor: string;
@@ -29,10 +30,7 @@ const EventCard: React.FC<EventCardProps> = ({ background_сolor, text_color, ar
                 <img src={arrow_image_path}/>
                 <p style={{ color: text_color, alignSelf: "center" }}>Узнать подробнее</p>
             </a>
-            <img src={right_image_path} style={{
-                width: "220px",
-                height: "220px"
-            }}/>
+            <Image src={right_image_path} alt="События" width={220} height={220}/>
         </div>
     );
 };

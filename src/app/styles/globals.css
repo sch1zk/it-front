@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   --color-primary: #B9FF66;
   --color-secondary: #7B5FEB;
@@ -11,6 +13,10 @@
   --border-radius-medium: 14px;
   --border-radius-small: 7px;
 
+  --button-padding: 20px 35px;
+
+  --text-color-secondary: "#696969";
+
   --primary-color: #000;
   --secondary-color: #b9ff66;
   --bg-color: #fff;
@@ -21,7 +27,6 @@
   --heading-font-size: 32px;
   --subheading-font-size: 18px;
   --paragraph-font-size: 16px;
-  --button-padding: 20px 35px;
   
   font-family: "Roboto"; /* По умолчанию используем Inter */
 }

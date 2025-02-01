@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Slider from 'react-slick';
-import '../../styles/index.css';
+import '@/styles/index.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import SectionTitle from './SectionTitle';
