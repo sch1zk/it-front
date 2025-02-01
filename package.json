@@ -1,5 +1,5 @@
 {
-  "name": "doka-front",
+  "name": "it-front",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -27,5 +27,8 @@
     "eslint": "^9",
     "eslint-config-next": "15.1.5",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=22.13.1"
   }
 }
