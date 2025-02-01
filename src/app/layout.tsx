@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto, Space_Grotesk } from "next/font/google";
-import "./styles/globals.css";
+import "@/styles/globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -14,7 +16,7 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "Doka",
+  title: "IT сфера",
   description: "Молодежный портал услуг",
 };
 
@@ -26,7 +28,9 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={`${roboto.variable} ${spaceGrotesk.variable}`}>
-        {children}
+        <Header/>
+        <main>{children}</main>
+        <Footer/>
       </body>
     </html>
   );
