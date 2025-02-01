@@ -1,4 +1,5 @@
-import '../../styles/index.css';
+import '@/styles/index.css';
+import Image from 'next/image';
 
 export default function VolunteeringSection() {
     return (
@@ -25,7 +26,7 @@ export default function VolunteeringSection() {
                     <a href="#" className="href-button">Принять участие</a>
                 </div>
 
-                <img src="/images/index/volunteering.svg" style={{
+                <Image src="/images/index/volunteering.svg" alt="Волонтёрство" width={359} height={395} style={{
                     maxWidth: "100%",
                     marginTop: "-80px",
                     marginBottom: "-80px",

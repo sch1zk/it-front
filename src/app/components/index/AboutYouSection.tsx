@@ -1,5 +1,6 @@
-import '../../styles/index.css';
+import '@/styles/index.css';
 import SectionTitle from './SectionTitle';
+import Image from 'next/image';
 
 interface AboutYouCardProps {
     image_path: string;
@@ -29,7 +30,7 @@ const AboutYouCard: React.FC<AboutYouCardProps> = ({ image_path, name, role, con
                         alignItems: "flex-end",
                         gap: "12px"
                     }}>
-                        <img src={image_path} style={{ 
+                        <Image src={image_path} alt="О вас" width={98} height={98} style={{ 
                                 filter: "drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.9))",
                                 width: "auto",
                                 height: "70px"
