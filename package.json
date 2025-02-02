@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.7.0-rc.0",
     "@tailwindcss/postcss": "^4.0.2",
     "next": "^15.1.6",
     "postcss": "^8.5.1",
