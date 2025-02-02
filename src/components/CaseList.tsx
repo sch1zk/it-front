@@ -28,7 +28,7 @@ const CaseList: React.FC = () => {
 
   const fetchCases = async (page: number = 1, limit: number = 10) => {
     try {
-      const { data } = await axios.get("http://localhost:8081/api/cases?page=1&limit=10", {
+      const { data } = await axios.get("/api/cases", {
         params: { page, limit },
       });
       setCases(data.cases);
