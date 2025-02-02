@@ -1,15 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
+import axios from "axios";
 
-export default function CasePage() {
+interface Case {
+  id: number;
+  title: string;
+  description: string;
+}
+
+interface CaseEditorProps {
+  case_id: string;
+}
+
+const CaseEditor: React.FC<CaseEditorProps> = ({ case_id }) => {
+  const [caseData, setCaseData] = useState<Case | null>(null);
   const [language, setLanguage] = useState("python");
   const [code, setCode] = useState("// Напишите код здесь...");
   const [output, setOutput] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  async function runCode() {
+  const fetchCaseData = async () => {
+    try {
+      const { data } = await axios.get(`/api/cases/${case_id}`);
+      setCaseData(data);
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const runCode = async () => {
     setOutput(null);
     setError(null);
 
@@ -28,11 +52,27 @@ export default function CasePage() {
     }
   }
 
+  useEffect(() => {
+    fetchCaseData();
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
+  if (!caseData) {
+    return <p>No case found</p>;
+  }
+
   return (
     <div className="flex h-screen p-6 gap-6">
       <div className="w-1/3 p-4 border rounded bg-gray-100">
-        <h1 className="text-2xl font-bold mb-2">Кейс </h1>
-        <p>Описание задачи...</p>
+        <h1 className="text-2xl font-bold mb-2">{caseData.title}</h1>
+        <p>{caseData.description}</p>
       </div>
 
       <div className="w-2/3 flex flex-col">
@@ -80,3 +120,4 @@ export default function CasePage() {
   );
 };
 
+export default CaseEditor

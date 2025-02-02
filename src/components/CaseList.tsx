@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 interface Case {
   id: number;
@@ -57,7 +58,9 @@ const CaseList: React.FC = () => {
       <ul>
         {cases.map((caseItem) => (
           <li key={caseItem.id}>
-            <h2>{caseItem.title}</h2>
+            <Link href={`/cases/${caseItem.id}`}>
+              <h2 className="underline">{caseItem.title}</h2>
+            </Link>
             <p>{caseItem.description}</p>
           </li>
         ))}
