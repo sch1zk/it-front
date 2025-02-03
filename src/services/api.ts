@@ -26,7 +26,8 @@ export const fetchCase = async (case_id: string) => {
 
 export const runCode = async (case_id: string, code: string, lang: string) => {
   try {
-    const response = await api.post(`/cases/${case_id}/run`, { code, lang });
+    const { data } = await api.post(`/cases/${case_id}/run`, { code, lang });
+    return data
   } catch (err) {
     throw new Error('Failed to run code');
   }
