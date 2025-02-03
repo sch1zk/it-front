@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { fetchCases } from "@/services/api";
+import { fetchArticles } from "@/services/api";
 
-interface Case {
+interface Article {
   id: number;
   title: string;
   description: string;
@@ -16,16 +16,16 @@ interface Meta {
   limit: number;
 }
 
-const CaseList: React.FC = () => {
-  const [cases, setCases] = useState<Case[]>([]);
+const ArticlesList: React.FC = () => {
+  const [articles, setArticles] = useState<Article[]>([]);
   const [meta, setMeta] = useState<Meta | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const getCasesList = async (page: number = 1, limit: number = 10) => {
+  const getArticlesList = async (page: number = 1, limit: number = 10) => {
     try {
-      const data = await fetchCases(page, limit);
-      setCases(data.cases);
+      const data = await fetchArticles(page, limit);
+      setArticles(data.articles);
       setMeta(data.meta);
     } catch (err: any) {
       setError(err.message);
@@ -35,7 +35,7 @@ const CaseList: React.FC = () => {
   };
 
   useEffect(() => {
-    getCasesList(1, 10);
+    getArticlesList(1, 10);
   }, []);
 
   if (loading) {
@@ -49,12 +49,11 @@ const CaseList: React.FC = () => {
   return (
     <div>
       <ul>
-        {cases.map((caseItem) => (
-          <li key={caseItem.id}>
-            <Link href={`/cases/${caseItem.id}`}>
-              <h2 className="underline">{caseItem.title}</h2>
+        {articles.map((article) => (
+          <li key={article.id}>
+            <Link href={`/media/${article.id}`}>
+              <h2 className="underline">{article.title}</h2>
             </Link>
-            <p>{caseItem.description}</p>
           </li>
         ))}
       </ul>
@@ -62,11 +61,11 @@ const CaseList: React.FC = () => {
         <div className="flex gap-2.5">
           <p>Page: {meta.page}</p>
           <p>Limit: {meta.limit}</p>
-          <p>Total Cases: {meta.total}</p>
+          <p>Total Articles: {meta.total}</p>
         </div>
       )}
     </div>
   );
 };
 
-export default CaseList;
+export default ArticlesList;

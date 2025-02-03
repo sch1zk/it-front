@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
-import { fetchCase, runCode } from "@/servives/api";
+import { fetchCase, runCode } from "@/services/api";
 
 interface Testcase {
   input: any;
@@ -34,7 +34,6 @@ const TestcasesView: React.FC<TestcasesViewProps> = ({ testcases }) => {
           <button
             key={index}
             onClick={() => setActiveTab(index)}
-            // className={activeTab === index ? 'active' : ''}
             className={`cursor-pointer px-4 py-2 rounded ${activeTab === index ? 'font-bold bg-blue-500 text-white' : ''}`}
           >
             Case {index + 1}
@@ -70,7 +69,7 @@ const TabbedView: React.FC<TabbedViewProps> = ({ output, testcases }) => {
   const [activeTestcase, setActiveTestcase] = useState(0);
 
   return (
-    <div className="flex flex-col h-full gap-6 border rounded bg-gray-100">
+    <div className="flex flex-col h-full border rounded bg-gray-100">
       <div className="flex border-b">
         <button
           className={`p-4 w-full text-center ${activeTab === 'testcases' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-600'}`}
@@ -92,7 +91,7 @@ const TabbedView: React.FC<TabbedViewProps> = ({ output, testcases }) => {
         )}
 
         {activeTab === 'testresult' && (
-          <div className="p-6 w-full">
+          <div className="w-full">
             <p>Input</p>
             <p></p>
             <p>Output</p>
@@ -210,27 +209,9 @@ const CaseEditor: React.FC<CaseEditorProps> = ({ case_id }) => {
           </div>
 
           <TabbedView output={output} testcases={caseDetails.testcases || null} />
-
-          {/* <div className="flex flex-row h-full gap-6 pt-6">
-            <div className="p-6 border rounded bg-gray-100 w-full">
-              <h1>Testcase</h1>
-              <p></p>
-            </div>
-            <div className="p-6 border rounded bg-gray-100 w-full">
-              <h1>Test Result</h1>
-              <p>Input</p>
-              <p></p>
-              <p>Output</p>
-              <p>{output}</p>
-              <p>Expected</p>
-              <p></p>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>
-
-    
   );
 };
 
