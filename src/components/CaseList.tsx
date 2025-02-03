@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
+import { fetchCases } from "@/servives/api";
 
 interface Case {
   id: number;
@@ -27,11 +28,9 @@ const CaseList: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchCases = async (page: number = 1, limit: number = 10) => {
+  const getCasesList = async (page: number = 1, limit: number = 10) => {
     try {
-      const { data } = await axios.get("/api/cases", {
-        params: { page, limit },
-      });
+      const { data } = await fetchCases(page, limit);
       setCases(data.cases);
       setMeta(data.meta);
     } catch (err: any) {
@@ -42,7 +41,7 @@ const CaseList: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchCases(1, 10);
+    getCasesList(1, 10);
   }, []);
 
   if (loading) {

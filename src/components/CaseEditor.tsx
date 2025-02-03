@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
 import axios from "axios";
+import { fetchCase, runCode } from "@/servives/api";
 
 interface Case {
   id: number;
@@ -15,17 +16,17 @@ interface CaseEditorProps {
 }
 
 const CaseEditor: React.FC<CaseEditorProps> = ({ case_id }) => {
-  const [caseData, setCaseData] = useState<Case | null>(null);
+  const [caseDetails, setCaseDetails] = useState<Case | null>(null);
   const [language, setLanguage] = useState("python");
   const [code, setCode] = useState("// Напишите код здесь...");
   const [output, setOutput] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchCaseData = async () => {
+  const getCaseDetails = async () => {
     try {
-      const { data } = await axios.get(`/api/cases/${case_id}`);
-      setCaseData(data);
+      const { data } = await fetchCase(case_id!);
+      setCaseDetails(data);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -33,28 +34,20 @@ const CaseEditor: React.FC<CaseEditorProps> = ({ case_id }) => {
     }
   };
 
-  const runCode = async () => {
+  const handleRunCode = async () => {
     setOutput(null);
     setError(null);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/run-code", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code, language }),
-      });
-
-      const data = await res.json();
-      if (data.error) setError(data.error);
-      else setOutput(data.output);
-    } catch (err) {
-      setError("Ошибка соединения с сервером");
+      const response = await runCode(case_id, code, language );
+    } catch (err: any) {
+      setError(err.message);
     }
   }
 
   useEffect(() => {
-    fetchCaseData();
-  }, []);
+    getCaseDetails();
+  }, [case_id]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -64,15 +57,15 @@ const CaseEditor: React.FC<CaseEditorProps> = ({ case_id }) => {
     return <p>Error: {error}</p>;
   }
 
-  if (!caseData) {
+  if (!caseDetails) {
     return <p>No case found</p>;
   }
 
   return (
     <div className="flex h-screen p-6 gap-6">
       <div className="w-1/3 p-4 border rounded bg-gray-100">
-        <h1 className="text-2xl font-bold mb-2">{caseData.title}</h1>
-        <p>{caseData.description}</p>
+        <h1 className="text-2xl font-bold mb-2">{caseDetails.title}</h1>
+        <p>{caseDetails.description}</p>
       </div>
 
       <div className="w-2/3 flex flex-col">
@@ -104,7 +97,7 @@ const CaseEditor: React.FC<CaseEditorProps> = ({ case_id }) => {
         />
         <button
           className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
-          onClick={runCode}
+          onClick={handleRunCode}
         >
           Run
         </button>
