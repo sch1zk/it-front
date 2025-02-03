@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8081/api',
+  baseURL: 'http://localhost:8081',
 });
 
 export const fetchCases = async (page: number = 1, limit: number = 10) => {
@@ -24,9 +24,9 @@ export const fetchCase = async (case_id: string) => {
   }
 };
 
-export const runCode = async (case_id: string, code: string, language: string) => {
+export const runCode = async (case_id: string, code: string, lang: string) => {
   try {
-    const response = await api.post(`/cases/${case_id}/run`, { code, language });
+    const response = await api.post(`/cases/${case_id}/run`, { code, lang });
   } catch (err) {
     throw new Error('Failed to run code');
   }

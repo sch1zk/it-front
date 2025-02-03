@@ -17,7 +17,7 @@ interface CaseEditorProps {
 
 const CaseEditor: React.FC<CaseEditorProps> = ({ case_id }) => {
   const [caseDetails, setCaseDetails] = useState<Case | null>(null);
-  const [language, setLanguage] = useState("python");
+  const [lang, setLang] = useState("python");
   const [code, setCode] = useState("// Напишите код здесь...");
   const [output, setOutput] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -25,7 +25,7 @@ const CaseEditor: React.FC<CaseEditorProps> = ({ case_id }) => {
 
   const getCaseDetails = async () => {
     try {
-      const { data } = await fetchCase(case_id!);
+      const data = await fetchCase(case_id!);
       setCaseDetails(data);
     } catch (err: any) {
       setError(err.message);
@@ -35,11 +35,12 @@ const CaseEditor: React.FC<CaseEditorProps> = ({ case_id }) => {
   };
 
   const handleRunCode = async () => {
+    console.log("LOSCHARA");
     setOutput(null);
     setError(null);
 
     try {
-      const response = await runCode(case_id, code, language );
+      const response = await runCode(case_id, code, lang);
     } catch (err: any) {
       setError(err.message);
     }
@@ -71,9 +72,9 @@ const CaseEditor: React.FC<CaseEditorProps> = ({ case_id }) => {
       <div className="w-2/3 flex flex-col">
         <select
           className="mb-4 p-2 border rounded"
-          value={language}
+          value={lang}
           onChange={(e) => {
-            setLanguage(e.target.value);
+            setLang(e.target.value);
             setCode(
               e.target.value === "python"
                 ? "# Напишите код здесь..."
@@ -90,7 +91,7 @@ const CaseEditor: React.FC<CaseEditorProps> = ({ case_id }) => {
 
         <Editor
           height="300px"
-          language={language === "cpp" ? "cpp" : language}
+          language={lang === "cpp" ? "cpp" : lang}
           theme="vs-dark"
           value={code}
           onChange={(val) => setCode(val || "")}

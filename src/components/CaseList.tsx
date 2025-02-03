@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Link from "next/link";
 import { fetchCases } from "@/servives/api";
 
@@ -17,11 +16,6 @@ interface Meta {
   limit: number;
 }
 
-interface CaseListResponse {
-  cases: Case[];
-  meta: Meta;
-}
-
 const CaseList: React.FC = () => {
   const [cases, setCases] = useState<Case[]>([]);
   const [meta, setMeta] = useState<Meta | null>(null);
@@ -30,7 +24,7 @@ const CaseList: React.FC = () => {
 
   const getCasesList = async (page: number = 1, limit: number = 10) => {
     try {
-      const { data } = await fetchCases(page, limit);
+      const data = await fetchCases(page, limit);
       setCases(data.cases);
       setMeta(data.meta);
     } catch (err: any) {
