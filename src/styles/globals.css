@@ -130,3 +130,12 @@ body {
  
   
 }
+.bg-\[url\(\/images\/index\/cart-steps\.svg\)\] { 
+  background-image: url('/images/index/cart-steps.svg');
+}
+.bg-\[url\(\/images\/index\/main-bg\.jpg\)\] { 
+  background-image: url('/images/index/main-bg.jpg');
+}
+.bg-\[url\(\/images\/index\/trending_bottem\.svg\)\] { 
+  background-image: url('/images/index/trending_bottem.svg');
+}

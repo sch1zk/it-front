@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${roboto.variable} ${spaceGrotesk.variable}`}>
+      <body className={`bg-[url(/images/index/main-bg.jpg)] ${roboto.variable} ${spaceGrotesk.variable}`}>
         <Header/>
         <main>{children}</main>
         <Footer/>
