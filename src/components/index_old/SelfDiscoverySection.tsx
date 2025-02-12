@@ -44,8 +44,8 @@ export default function SelfDiscoverySection() {
                 max_width="500px"
             />
             <div style={{
-                borderRadius: "var(--border-radius-large)",
-                backgroundColor: "var(--color-bg)",
+                borderRadius: "20px",
+                backgroundColor: "#191A23",
                 display: "flex",
                 padding: "50px 75px",
                 alignItems: "stretch",

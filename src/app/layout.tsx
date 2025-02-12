@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Sans, Roboto, Space_Grotesk } from "next/font/google";
 import "@/styles/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -15,6 +15,12 @@ const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"]
 })
 
+const ibm = IBM_Plex_Sans({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-ibm",
+  weight: ["100", "200", "300", "400", "500", "600", "700"]
+})
+
 export const metadata: Metadata = {
   title: "IT сфера",
   description: "Молодежный портал услуг",
@@ -27,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${roboto.variable} ${spaceGrotesk.variable}`}>
+      <body className={`${ibm.variable}`}>
         <Header/>
         <main>{children}</main>
         <Footer/>

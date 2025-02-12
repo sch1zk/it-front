@@ -25,8 +25,8 @@ const SixStepsCard: React.FC<SixStepsCardProps> = ({ number, title, content }) =
             gap: "25px",
             border: "1px solid #000",
             boxShadow: "0px 5px 0px #000",
-            backgroundColor: "var(--color-bg-card)",
-            borderRadius: "var(--border-radius-large)"
+            backgroundColor: "#F3F3F3",
+            borderRadius: "20px"
         }}>
             <div style={{
                 display: "flex",
@@ -42,7 +42,7 @@ const SixStepsCard: React.FC<SixStepsCardProps> = ({ number, title, content }) =
                     </h3>
                 </div>
                 <button onClick={toggleContent} style={{
-                    backgroundColor: "var(--color-bg-card)",
+                    backgroundColor: "#F3F3F3",
                     border: "2px solid #333",
                     borderRadius: "50%",
                     width: "50px",

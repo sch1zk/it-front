@@ -1,44 +1,72 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #BADE4F;
+  --color-secondary: #83D216;
+  --background-color-main: #1C1C1C;
+  --background-color-alt: #242424;
+  --background-color-panel: #383838;
+  --background-color-panel-alt: #4D4D4D;
+  --text-color-main: #F2F2F2;
+  --text-color-muted: #868686;
+  --text-color-light: #1C1C1C;
+  --border-color-main: #F2F2F2;
+  --border-color-alt: #4D4D4D;
+  --radius-lg: 20px;
+  --radius-md: 10px;
+}
+
 :root {
-  --color-primary: #B9FF66;
-  --color-secondary: #7B5FEB;
-  --color-bg: #191A23;
-  --color-bg-card: #F3F3F3;
-
-  --font-main: "Inter", sans-serif;
-  --font-extra: "Space Grotesk", sans-serif;
-
-  --border-radius-large: 20px;
-  --border-radius-medium: 14px;
-  --border-radius-small: 7px;
-
-  --button-padding: 20px 35px;
-
-  --text-color-secondary: "#696969";
-
-  --primary-color: #000;
-  --secondary-color: #b9ff66;
-  --bg-color: #fff;
-  --card-bg-color: #f3f3f3;
-  --text-color: #000;
-  --font-family: 'Space Grotesk', sans-serif;
-
-  --heading-font-size: 32px;
-  --subheading-font-size: 18px;
-  --paragraph-font-size: 16px;
-  
-  font-family: "Roboto"; /* По умолчанию используем Inter */
+  --font-ibm: 'IBM Plex Sans', 'IBM Plex Sans Fallback';
+  font-family: var(--font-ibm);
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: inherit;
+  color: var(--text-color-main);
+  background-color: var(--bg-color-main);
 }
 
 .container {
-  max-width: 1200px; /* Ограничиваем максимальную ширину */
-  margin: 0 auto; /* Центрируем контейнер */
+  max-width: 1200px;
+  margin: 0 auto;
   width: 100%;
 }
+
+.hr-mute {
+  border-color: var(--background-color-panel);
+}
+
+/* .bg-main {
+  background-color: var(--color-bg-main);
+}
+
+.bg-alt {
+  background-color: var(--color-bg-alt);
+}
+
+.panel {
+  background-color: var(--color-panel);
+}
+
+.panel-alt {
+  background-color: var(--color-panel-alt);
+}
+
+.border-main {
+  border-color: #F2F2F2;
+}
+
+.text-main {
+  color: var(--text-color-body);
+}
+
+.text-mute {
+  color: var(--text-color-muted);
+}
+
+.text-light {
+  color: var(--text-color-light);
+} */

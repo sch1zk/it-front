@@ -17,7 +17,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title, description, max_wid
             <h2 style={{
                 fontSize: "40px",
                 padding: "0 15px",
-                backgroundColor: "var(--secondary-color)",
+                backgroundColor: "#b9ff66",
                 whiteSpace: "nowrap"
             }}>{title}</h2>
             <p style={{ fontSize: "18px", maxWidth: max_width }}>{description}</p>
