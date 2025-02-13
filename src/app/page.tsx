@@ -58,7 +58,7 @@ export default function HomePage() {
         </div>
       </div>
       <div className="mb-10">
-        <p className="text-[50px] sm:text-[70px] md:text-[100px] lg:text-[120px] xl:text-[165px] leading-none text-[#F2F2F2] font-semibold">Найди работу в  <span className="text-[#BADE4F]"> <span className="cov_left">IT СФЕРЕ</span ></span></p>
+        <p className="text-[50px] sm:text-[70px] md:text-[100px] lg:text-[145px] xl:text-[180px] leading-none text-[#F2F2F2] font-semibold">Найди работу в  <span className="text-[#BADE4F]"> <span className="cov_left">IT СФЕРЕ</span ></span></p>
       </div>
       <div className="flex justify-center mb-30">
         <div className="text-center flex flex-col max-w-max">
@@ -79,14 +79,14 @@ export default function HomePage() {
             <p className="text-4xl md:text-5xl xl:text-7xl text-white font-semibold">Всего <span className="text-[#BADE4F]">4</span> шага до успеха</p>
         </div>
          
-         <div className="flex xl:flex-nowrap flex-wrap gap-10 mb-10 items-center justify-center">
-             <div className="w-[100%] md:w-[45%] xl:w-[25%] h-[260px] max-w-[100%] md:max-w-[45%] xl:max-w-[25%]  bg-contain relative bg-no-repeat">
+         <div className="flex xl:flex-nowrap flex-wrap gap-5 mb-10 items-center justify-center">
+             <div className="w-[90%] md:w-[40%] lg:w-[33%] xl:w-[24%] h-[310px] md:h-[280px] lg:h-[320px] xl:h-[245px] max-w-[100%] md:max-w-[45%] xl:max-w-[25%]  bg-contain bg-[url(/images/index/cart-steps.svg)] relative bg-no-repeat">
                 <div>
                     <div className="absolute">
-                       <span className="text-4xl md:text-5xl xl:text-7xl text-[#BADE4F]">01</span>
+                       <span className="text-6xl md:text-5xl lg:text-6xl text-[#BADE4F]">01</span>
                     </div>
-                    <div className="absolute top-[-20px] right-[-20px]">
-                       
+                    <div className="absolute top-[-35px] right-[-20px]">
+                    <Image src="/images/index/tabler_location-filled1.svg" width={174} height={174} alt="Логотип ITsphera" />
                     </div>
                 </div>
                 <div className="flex items-end min-h-[65%] px-5">
@@ -95,16 +95,20 @@ export default function HomePage() {
                 <div className="absolute bottom-5 w-full px-3">
                     <button className="border-[#BADE4F] w-full bg-[#BADE4F] text-2xl border-2 border-solid rounded-[10px] px-2 py-2 transition-all duration-300 hover:border-[1px] hover:border-solid hover:border-[#BADE4F] hover:cursor-pointer hover:bg-[#ffffff00] hover:text-[#bade4f]">Направления</button>
                 </div>
+                
              </div>
+              <div className='rotate-90 md:rotate-0'>
+                <Image src="/images/index/arrow.svg" width={30} height={50} alt="Логотип ITsphera" />
+              </div>
              
-             <div className="w-[100%] md:w-[45%] xl:w-[25%] h-[260px] max-w-[100%] md:max-w-[45%] xl:max-w-[25%] bg-contain relative bg-no-repeat">
+             <div className="w-[90%] md:w-[40%] xl:w-[24%] lg:w-[33%] h-[310px] md:h-[280px] lg:h-[320px] xl:h-[245px] max-w-[100%] md:max-w-[45%] xl:max-w-[25%] bg-[url(/images/index/cart-steps.svg)] bg-contain relative bg-no-repeat">
           
                 <div>
                     <div className="absolute">
-                       <span className="text-4xl md:text-5xl xl:text-7xl text-[#BADE4F]">02</span>
+                       <span className="text-6xl md:text-5xl lg:text-6xl text-[#BADE4F]">02</span>
                     </div>
-                    <div className="absolute top-[-20px] right-[-20px]" >
-                  
+                    <div className="absolute top-[-35px] right-[-20px]" >
+                    <Image src="/images/index/tabler_location-filled2.svg" className='h-[174px]' width={174} height={174} alt="Логотип ITsphera" />
                     </div>
                 </div>
                 <div className="flex items-end min-h-[65%] px-5">
@@ -113,15 +117,19 @@ export default function HomePage() {
                 <div className="absolute bottom-5 w-full px-3">
                     <button className="border-[#BADE4F] w-full bg-[#BADE4F] text-2xl border-2 border-solid rounded-[10px] px-2 py-2 transition-all duration-300 hover:border-[1px] hover:border-solid hover:border-[#BADE4F] hover:cursor-pointer hover:bg-[#ffffff00] hover:text-[#bade4f]">Направления</button>
                 </div>
+                
+             </div>
+             <div className='md:hidden xl:block rotate-90 md:rotate-0'>
+              <Image src="/images/index/arrow.svg" width={30} height={50} alt="Логотип ITsphera" />
              </div>
         
-             <div className="w-[100%] md:w-[45%] xl:w-[25%] h-[260px] max-w-[100%] md:max-w-[45%] xl:max-w-[25%] bg-contain relative bg-no-repeat">
+             <div className="w-[90%] md:w-[40%] lg:w-[33%] xl:w-[24%] h-[310px] md:h-[280px] lg:h-[320px] xl:h-[245px] max-w-[100%] md:max-w-[45%] xl:max-w-[25%] bg-[url(/images/index/cart-steps.svg)] bg-contain relative bg-no-repeat">
                 <div>
                     <div className="absolute">
-                       <span className="text-4xl md:text-5xl xl:text-7xl text-[#BADE4F]">03</span>
+                       <span className="text-6xl md:text-5xl lg:text-6xl text-[#BADE4F]">03</span>
                     </div>
-                    <div className="top-[-20px] right-[-20px] absolute ">
-                       
+                    <div className="top-[-35px] right-[-20px] absolute ">
+                    <Image src="/images/index/tabler_location-filled3.svg" width={174} height={174} alt="Логотип ITsphera" />
                     </div>
                 </div>
                 <div className="flex items-end min-h-[65%] px-5">
@@ -130,13 +138,18 @@ export default function HomePage() {
                 <div className="absolute bottom-5 w-full px-3">
                     <button className="border-[#BADE4F] w-full bg-[#BADE4F] text-2xl border-2 border-solid rounded-[10px] px-2 py-2 transition-all duration-300 hover:border-[1px] hover:border-solid hover:border-[#BADE4F] hover:cursor-pointer hover:bg-[#ffffff00] hover:text-[#bade4f]">Направления</button>
                 </div>
+               
              </div>
-             <div className="w-[100%] md:w-[45%] xl:w-[25%] h-[260px] max-w-[100%] md:max-w-[45%] xl:max-w-[25%] bg-contain relative bg-no-repeat">
+             <div>
+              <Image className='rotate-90 md:rotate-0' src="/images/index/arrow.svg" width={30} height={50} alt="Логотип ITsphera" />
+             </div>
+             <div className="w-[90%] md:w-[40%] lg:w-[33%] xl:w-[24%] h-[310px] md:h-[280px] xl:h-[245px] lg:h-[320px] max-w-[100%] md:max-w-[45%] xl:max-w-[25%] bg-[url(/images/index/cart-steps.svg)] bg-contain relative bg-no-repeat">
                 <div>
                     <div className="absolute">
-                       <span className="text-4xl md:text-5xl xl:text-7xl text-[#BADE4F]">04</span>
+                       <span className="text-6xl md:text-5xl lg:text-6xl text-[#BADE4F]">04</span>
                     </div>
-                    <div className="absolute top-[-20px] right-[-20px]">
+                    <div className="absolute top-[-35px] right-[-20px]">
+                    <Image src="/images/index/tabler_location-filled4.svg" width={174} height={174} alt="Логотип ITsphera" />
                     </div>
                 </div>
                 <div className="flex items-end min-h-[65%] px-5">
@@ -146,17 +159,18 @@ export default function HomePage() {
                     <button className="border-[#BADE4F] w-full bg-[#BADE4F] text-2xl border-2 border-solid rounded-[10px] px-2 py-2 transition-all duration-300 hover:border-[1px] hover:border-solid hover:border-[#BADE4F] hover:cursor-pointer hover:bg-[#ffffff00] hover:text-[#bade4f]">Направления</button>
                 </div>
              </div>
+        
          </div>
         
     </section>
 
     {/* Features */}
-    <section className="mt-20 mb-20 container mx-auto">
+    <section className="mt-20 mb-10 md:mb-20 container mx-auto">
         <div className="text-center mb-20">
             <p className="text-4xl md:text-5xl xl:text-7xl text-white font-semibold">Почему мы?</p>
         </div>
-        <div className="flex gap-5 lg:gap-10 xl:gap-15">
-            <div className="border-r border-[#F2F2F2] pr-[50px] pt-[30px] pb-[30px] w-1/2 text-right">
+        <div className="flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-15">
+            <div className="border-b md:border-b-0  md:border-r border-[#F2F2F2] pr-[50px] pt-[30px] pb-[20px] md:pb-[30px] w-full md:w-1/2 text-right">
                <p className="text-[#BADE4F] text-2xl md:text-3xl xl:text-4xl text_mob_features font-semibold mb-5">Реальные кейсы</p>
                <p className="text-white text-xl lg:text-2xl text_mob_features mb-5">Мы создаём задачи, максимально приближенные к реальным условиям работы.</p>
                <p className="text-[#BADE4F] font-semibold text-xl lg:text-2xl md:text-3xl xl:text-4xl mb-5 text_mob_features">От новичка до профи</p>
@@ -166,7 +180,7 @@ export default function HomePage() {
                <p className="text-[#BADE4F] font-semibold text-xl lg:text-2xl md:text-3xl xl:text-4xl mb-5 text_mob_features">Актуальные вакансии</p>
                <p className="text-white text-xl lg:text-2xl text_mob_features mb-5">Каждый день компании публикуют новые вакансии для специалистов любого грейда.</p>
             </div>
-            <div className="w-1/2 text-left pt-[50px] pb-[30px]">
+            <div className="w-full md:ml-[30px] lg:ml-px md:w-1/2 text-left pt-[20px] md:pt-[50px] pb-[30px]">
                 <p className="text-[#BADE4F] font-semibold text-xl lg:text-2xl md:text-3xl xl:text-4xl mb-5 text_mob_features">10 000+ задач</p>
                 <p className="text-white text-xl lg:text-2xl text_mob_features mb-5">охватывающих самые популярные направления в IT, уже на платформе.</p>
                 <p className="text-[#BADE4F] font-semibold text-xl lg:text-2xl md:text-3xl xl:text-4xl mb-5 text_mob_features">100 000+ разработчиков</p>
@@ -180,14 +194,14 @@ export default function HomePage() {
     </section>
 
     {/* Trending */}
-    <section className="mt-20 mb-20 container mx-auto">
+    <section className="mt-10 md:mt-20 mb-20 container mx-auto">
         <div className="text-center mb-20">
             <p className="text-4xl md:text-5xl xl:text-7xl text-white font-semibold">Топовые направления</p>
         </div>
-        <div className="flex flex-wrap md:flex-nowrap  mb-10 gap-10">
+        <div className="flex flex-wrap md:flex-nowrap mb-10 gap-10">
             <div className="w-full md:w-1/2 bg-[#242424] rounded-[10px]">
                <div className="p-3 md:p-5 xl:p-10">
-                 <Image src="/images/index/desktop_windows.svg" alt="Логотип ITsphera" width={200} height={50} />
+                 <Image src="/images/index/desktop_windows.svg" alt="Логотип ITsphera" width={50} height={50} />
                
                  <h3 className="mb-3 font-semibold text-4xl text-white">Frontend</h3>
                  <p className="mb-3 text-white text-xl lg:text-2xl">Разрабатывай серверную часть приложений, обрабатывай данные и создавай API. Прокачивай навыки на Python, Java, Node.js и других языках.</p>
@@ -195,43 +209,45 @@ export default function HomePage() {
             </div>
             <div className="w-full md:w-1/2 bg-[#242424] rounded-[10px]">
                 <div className="p-3 md:p-5 xl:p-10">
-                <Image src="/images/index/desktop_windows.svg" alt="Логотип ITsphera" width={200} height={50} />
+                <Image className='mb-3' src="/images/index/backend.svg" alt="Логотип ITsphera" width={50} height={50} />
                     <h3 className="font-semibold text-4xl mb-3 text-white">Backend</h3>
-                    <p className="text-white mb-3 text-xl lg:text-2xl">Оживляй пользовательские интерфейсы с помощью HTML, CSS и JavaScript. Работай с популярными фреймворками, такими как React, Angular и Vue.</p>
+                    <p className="text-white mb-3 text-xl lg:text-xl">Оживляй пользовательские интерфейсы с помощью HTML, CSS и JavaScript. Работай с популярными фреймворками, такими как React, Angular и Vue.</p>
                 </div>
             </div>
         </div>
-        <div className="flex flex-wrap xl:flex-nowrap xl:gap-10 mb-10">
-            <div className="w-full md:w-[50%] lg:w-1/3 bg-[#242424] rounded-[10px]">
+        <div className="flex flex-wrap xl:flex-nowrap gap-10 mb-10">
+            <div className="w-full md:w-[47%] lg:w-[30%] xl:w-1/3 bg-[#242424] rounded-[10px]">
                <div className="p-3 md:p-5 xl:p-10">
-               <Image src="/images/index/desktop_windows.svg" alt="Логотип ITsphera" width={200} height={50} />
+               <Image className='mb-3' src="/images/index/data_science.svg" alt="Логотип ITsphera" width={50} height={50} />
                  <h3 className="mb-3 font-semibold text-4xl text-white">Data Science</h3>
-                 <p className="mb-3 text-white text-xl lg:text-2xl">Анализируй данные, работай с алгоритмами машинного обучения и находи инсайты. Применяй Python, R и SQL для решения сложных задач.</p>
+                 <p className="mb-3 text-white text-xl lg:text-xl">Анализируй данные, работай с алгоритмами машинного обучения и находи инсайты. Применяй Python, R и SQL для решения сложных задач.</p>
                </div>
             </div>
-            <div className="w-full md:w-[50%] lg:w-1/3 bg-[#242424] rounded-[10px]">
+            <div className="w-full md:w-[47%] lg:w-[30%] xl:w-1/3 bg-[#242424] rounded-[10px]">
                 <div className="p-3 md:p-5 xl:p-10">
-                    <Image src="/images/desktop_windows.svg" alt="Логотип ITsphera" width={200} height={50} />
+                    <Image className='mb-3' src="/images/index/dev-ops.svg" alt="Логотип ITsphera" width={50} height={50} />
                     <h3 className="font-semibold text-4xl mb-3 text-white">DevOps</h3>
-                    <p className="text-white mb-3 text-xl lg:text-2xl">Автоматизируй процессы, настраивай CI/CD пайплайны и работай с облачными инфраструктурами, такими как AWS, Azure или Google Cloud.</p>
+                    <p className="text-white mb-3 text-xl lg:text-xl">Автоматизируй процессы, настраивай CI/CD пайплайны и работай с облачными инфраструктурами, такими как AWS, Azure или Google Cloud.</p>
                </div>
             </div>
-             <div className="w-full md:w-[50%] lg:w-1/3 bg-[#242424] rounded-[10px]">
+             <div className="w-full md:w-[47%] lg:w-[30%] xl:w-1/3 bg-[#242424] rounded-[10px]">
                 <div className="p-3 md:p-5 xl:p-10">
-                   <Image src="/images/desktop_windows.svg" alt="Логотип ITsphera" width={200} height={50} />
+                   <Image className='mb-3' src="/images/index/mobile.svg" alt="Логотип ITsphera" width={50} height={50} />
                     <h3 className="font-semibold text-4xl mb-3 text-white">Mobile</h3>
-                    <p className="text-white mb-3 text-xl lg:text-2xl">Создавай мобильные приложения для iOS и Android. Работай с Kotlin, Swift, Flutter или React Native.</p>
+                    <p className="text-white mb-3 text-xl lg:text-xl">Создавай мобильные приложения для iOS и Android. Работай с Kotlin, Swift, Flutter или React Native.</p>
                </div>
             </div>
         </div>
         <div className="mb-10">
+            <div className="h-[12px] max-w-full bg-[url(/images/index/trending_bottem.svg)]">
+            </div>
         </div>
         <div className="bg-[#242424] rounded-[10px]">
             <div className="px-7 py-10 flex items-center">
                 <div className="w-full lg:w-3/4">
                     <div className="flex flex-wrap xl:flex-nowrap gap-8 items-center">
                          <div className=''>
-                         <Image src="/images/question_mark.svg" alt="Логотип ITsphera" width={200} height={50} />
+                         <Image src="/images/index/question_mark.svg" alt="Логотип ITsphera" width={50} height={50} />
                          </div>
                         <div className="font-semibold text-2xl lg:text-4xl text-white">
                             Не можешь выбрать направление в IT?
@@ -243,7 +259,7 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className='hidden lg:block'>
-                  <Image src="/images/pazl.svg" alt="Логотип ITsphera" width={200} height={50} />
+                  <Image src="/images/index/pazl.svg" alt="Логотип ITsphera" width={200} height={50} />
 
                 </div>
             </div>
@@ -264,7 +280,7 @@ export default function HomePage() {
                   
                         <div className="flex px-10 py-12">
                         <div className="w-1/4 flex justify-center">
-                           <Image src="/images/women.svg" alt="Логотип ITsphera" width={200} height={50} />
+                           <Image src="/images/index/women.svg" alt="Логотип ITsphera" width={200} height={50} />
                           </div>
                           <div className="w-3/4">
                              <p className="text-white text-xl font-semibold">Екатерина Мельникова</p>
@@ -277,7 +293,7 @@ export default function HomePage() {
                    <div className="hidden bg-[#242424] rounded-[10px] duration-700 ease-in-out" data-carousel-item>
                         <div className="flex px-10 py-12">
                           <div className="w-1/4 flex justify-center">
-                           <Image src="/images/women.svg" alt="Логотип ITsphera" width={200} height={50} />
+                           <Image src="/images/index/women.svg" alt="Логотип ITsphera" width={200} height={50} />
                           </div>
                           <div className="w-3/4">
                              <p className="text-white text-xl font-semibold">Екатерина Мельникова</p>
@@ -291,17 +307,43 @@ export default function HomePage() {
                    
                         <div className="flex px-10 py-12">
                         <div className="w-1/4 flex justify-center">
-                           <Image src="/images/women.svg" alt="Логотип ITsphera" width={200} height={50} />
+                           <Image src="/images/index/women.svg" alt="Логотип ITsphera" width={200} height={50} />
                           </div>
                           <div className="w-3/4">
                              <p className="text-white text-xl font-semibold">Екатерина Мельникова</p>
-                             <p className="text-[#BADE4F] text-xl ">Екатерина Мельникова</p>
                              <p className="text-white text-xl">Обожаю этот сервис за реальные задачи, которые помогают не только улучшить навыки, но и чувствовать себя частью чего-то большого. Особенно нравится, что можно сразу получить обратную связь по решениям. Это помогает учиться быстрее. А система рейтингов и достижений мотивирует расти. Советую всем, кто хочет начать карьеру в IT!</p>
                           </div>
                         </div>
+                        
                    </div>
+                   <div className="hidden bg-[#242424] inset-px[!important] rounded-[10px] duration-700 ease-in-out" data-carousel-item>
                    
+                        <div className="flex px-10 py-12">
+                        <div className="w-1/4 flex justify-center">
+                           <Image src="/images/index/women.svg" alt="Логотип ITsphera" width={200} height={50} />
+                          </div>
+                          <div className="w-3/4">
+                             <p className="text-white text-xl font-semibold">Екатерина Мельникова</p>
+                             <p className="text-white text-xl">Обожаю этот сервис за реальные задачи, которые помогают не только улучшить навыки, но и чувствовать себя частью чего-то большого. Особенно нравится, что можно сразу получить обратную связь по решениям. Это помогает учиться быстрее. А система рейтингов и достижений мотивирует расти. Советую всем, кто хочет начать карьеру в IT!</p>
+                          </div>
+                        </div>
+                        
+                   </div>
+                   <div className="hidden bg-[#242424] inset-px[!important] rounded-[10px] duration-700 ease-in-out" data-carousel-item>
+                   
+                        <div className="flex px-10 py-12">
+                        <div className="w-1/4 flex justify-center">
+                           <Image src="/images/index/women.svg" alt="Логотип ITsphera" width={200} height={50} />
+                          </div>
+                          <div className="w-3/4">
+                             <p className="text-white text-xl font-semibold">Екатерина Мельникова</p>
+                             <p className="text-white text-xl">Обожаю этот сервис за реальные задачи, которые помогают не только улучшить навыки, но и чувствовать себя частью чего-то большого. Особенно нравится, что можно сразу получить обратную связь по решениям. Это помогает учиться быстрее. А система рейтингов и достижений мотивирует расти. Советую всем, кто хочет начать карьеру в IT!</p>
+                          </div>
+                        </div>
+                        
+                   </div>
                </div>
+
                 <div>
                     <button type="button" className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
                         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
