@@ -8,8 +8,8 @@ export default function VolunteeringSection() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                backgroundColor: "var(--color-bg-card)",
-                borderRadius: "var(--border-radius-large)",
+                backgroundColor: "#F3F3F3",
+                borderRadius: "20px",
                 padding: "40px 80px"
             }}>
                 <div style={{

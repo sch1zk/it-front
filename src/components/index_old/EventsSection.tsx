@@ -13,7 +13,7 @@ const EventCard: React.FC<EventCardProps> = ({ background_сolor, text_color, ar
     return (
         <div style={{
                 backgroundColor: background_сolor,
-                borderRadius: "var(--border-radius-large)",
+                borderRadius: "20px",
                 padding: "0 50px",
                 display: "flex",
                 justifyContent: "space-between",

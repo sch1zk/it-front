@@ -23,7 +23,7 @@ const UserReviewCard: React.FC<UserReviewCardProps> = ({ content, name, role }) 
         }}>
             <div style={{
                 color: "#fff",
-                padding: "0 var(--border-radius-medium)"
+                padding: "0 14px"
             }}>
                 <p>{role}</p>
                 <h3 style={{ 
@@ -36,7 +36,7 @@ const UserReviewCard: React.FC<UserReviewCardProps> = ({ content, name, role }) 
             <div style={{
                 padding: "20px 45px",
                 border: "1px solid var(--color-primary)",
-                borderRadius: "var(--border-radius-medium)",
+                borderRadius: "14px",
                 color: "#fff",
                 height: "75px",
                 display: "flex",
@@ -85,8 +85,8 @@ export default function UserReviewsSection() {
             />
             <div style={{
                 padding: "35px 50px 50px 50px",
-                backgroundColor: "var(--color-bg)",
-                borderRadius: "var(--border-radius-large)"
+                backgroundColor: "#191A23",
+                borderRadius: "20px"
             }}>
                 <Slider {...sliderSettings}>
                     {reviews.map((review, index) => (

@@ -14,8 +14,8 @@ const AboutYouCard: React.FC<AboutYouCardProps> = ({ image_path, name, role, con
         <div style={{
             border: "1px solid #000",
             boxShadow: "0px 5px 0px #000",
-            backgroundColor: "var(--color-bg-card)",
-            borderRadius: "var(--border-radius-large)",
+            backgroundColor: "#F3F3F3",
+            borderRadius: "20px",
             padding: "0 20px",
             display: "flex",
             flexDirection: "column",
