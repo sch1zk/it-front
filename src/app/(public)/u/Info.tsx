@@ -1,5 +1,5 @@
-import CollapsablePanel from '@/components/CollapsablePanel';
-import ComboBox, { ComboBoxItem } from '@/components/ComboBox';
+import CollapsablePanel from '@/components/ui/CollapsablePanel';
+import ComboBox, { ComboBoxItem } from '@/components/ui/ComboBox';
 import { Button } from '@headlessui/react';
 import Image from 'next/image';
 import { MdEdit, MdDownload, MdAttachFile } from "react-icons/md";
