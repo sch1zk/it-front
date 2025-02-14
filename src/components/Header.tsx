@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function Header() {
   return (
    <header className="container p-5 mx-auto" style={{ height: "var(--header-height)" }}>
-    <div className="flex justify-between items-center h-full relative text-lg">
+    <div className="relative flex items-center justify-between h-full text-lg">
         <Link href="/" className="relative">
             <Image src="/images/it-logo_indent.svg" alt="Логотип" width={220} height={80} className="pointer-events-none select-none"/>
         </Link>
