@@ -48,7 +48,7 @@ const HeroSegment: React.FC = () => {
           <button
             className={clsx(
               "bg-primary text-2xl py-4 px-8 w-full text-light rounded-md cursor-pointer border border-primary",
-              "transition-color",
+              "transition-all",
               "shadow-glow shadow-primary/20 hover:shadow-none",
               "hover:bg-transparent hover:text-primary"
             )}
@@ -100,7 +100,7 @@ const FourStepsCard: React.FC<FourStepsProps> = ({
           href="#"
           className={clsx(
             "bg-primary py-2 text-center text-lg text-light rounded-md cursor-pointer border border-primary",
-            "transition-all",
+            "transition-colors",
             "hover:bg-transparent hover:text-primary"
           )}
         >
@@ -335,7 +335,7 @@ const TrendingSegment: React.FC = () => {
             <button
               className={clsx(
                 "bg-primary text-xl w-fit py-2.5 px-7 text-light rounded-md cursor-pointer border border-primary",
-                "transition-color",
+                "transition-colors",
                 "hover:bg-transparent hover:text-primary"
               )}
             >
@@ -447,7 +447,7 @@ const CallToActionSegment: React.FC = () => {
         <button
           className={clsx(
             "bg-primary text-2xl py-4 px-8 text-light rounded-md cursor-pointer border border-primary",
-            "transition-color",
+            "transition-all",
             "shadow-glow shadow-primary/20 hover:shadow-none",
             "hover:bg-transparent hover:text-primary"
           )}
