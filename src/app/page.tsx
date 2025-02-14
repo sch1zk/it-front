@@ -372,7 +372,7 @@ const UserReviewCard: React.FC<UserReviewCardProps> = ({
   imagePath,
 }) => {
   return (
-    <div className="flex items-center gap-10 p-10 mx-5 rounded-lg bg-alt">
+    <div className="flex items-center gap-10 p-10">
       <div className="flex-shrink-0 px-4">
         <Image src={imagePath} alt={name} width={150} height={150} />
       </div>
@@ -425,10 +425,10 @@ const UserReviewsSegment: React.FC = () => {
 
   return (
     <section className="container flex flex-col mb-40">
-      <p className="text-4xl text-center mb-25 title md:text-5xl xl:text-7xl ">
+      <p className="text-center mb-25 title text-7xl ">
         Что о нас говорят?
       </p>
-      <div>
+      <div className="noise-overlay rounded-lg bg-alt">
         <Carousel content={reviewCards} />
       </div>
     </section>

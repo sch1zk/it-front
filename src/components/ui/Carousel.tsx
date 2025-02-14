@@ -1,80 +1,72 @@
 "use client"
 
-import Slider from 'react-slick';
-import { useRef } from 'react';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import '@/styles/slick.css';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
-
-interface CarouselArrowProps {
-  onClick: () => void;
-}
-
-const CarouselArrowNext: React.FC<CarouselArrowProps> = ({ onClick }) => {
-  return (
-    <button
-      onClick={onClick}
-      
-      className="absolute block transform -translate-y-1/2 cursor-pointer text-primary -right-2 top-1/2"
-    >
-      <MdNavigateNext size={60} />
-    </button>
-  );
-};
-
-const CarouselArrowPrev: React.FC<CarouselArrowProps> = ({ onClick }) => {
-  return (
-    <button
-      onClick={onClick}
-      className="absolute block transform -translate-y-1/2 cursor-pointer text-primary -left-2 top-1/2"
-    >
-      <MdNavigateBefore size={60} />
-    </button>
-  );
-};
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
+import clsx from 'clsx';
+import { useState } from 'react';
 
 interface CarouselProps {
   content: React.ReactNode[];
 }
 
 const Carousel: React.FC<CarouselProps> = ({ content }) => {
-  const sliderRef = useRef<Slider>(null); // создаем реф для Slider
+  const [itemAnimation, setItemAnimation] = useState(false);
+  const [itemIndex, setItemIndex] = useState(0);
 
-  const handleNextClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext();
+  const canSlideNext = () => itemIndex < content.length - 1;
+
+  const canSlidePrev = () => itemIndex > 0;
+
+  const slideNext = () => {
+  if (!itemAnimation && canSlideNext()) {
+      setItemAnimation(true);
+      setItemIndex(itemIndex + 1);
     }
   };
 
-  const handlePrevClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPrev(); 
+  const slidePrev = () => {
+    if (!itemAnimation && canSlidePrev()) {
+      setItemAnimation(true);
+      setItemIndex(itemIndex - 1);
     }
   };
 
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: <CarouselArrowNext onClick={handleNextClick} />,
-    prevArrow: <CarouselArrowPrev onClick={handlePrevClick} />,
-    dotsClass: "review-dots",
-    appendDots: (dots: React.ReactNode) => (
-      <div>
-        <ul style={{ margin: "0px" }}>{dots}</ul>
-      </div>
-    ),
+  const onSlideChanged = () => {
+    setItemAnimation(false);
   };
 
   return (
-    <Slider ref={sliderRef} {...sliderSettings} className="p-10">
-      {content.map((node, index) => (
-        <div key={index}>{node}</div>
-      ))}
-    </Slider>
+    <div className="relative">
+      <AliceCarousel
+        activeIndex={itemIndex}
+        disableDotsControls
+        disableButtonsControls
+        onSlideChanged={onSlideChanged}
+        mouseTracking={false}
+        items={content}
+      />
+      <button
+        onClick={slidePrev}
+        disabled={!canSlidePrev()}
+        className={clsx(
+          "absolute block transform -translate-y-1/2 cursor-pointer text-primary -left-0 top-1/2",
+          !canSlidePrev() && "opacity-25"
+        )}
+      >
+        <MdNavigateBefore size={60} />
+      </button>
+      <button
+        onClick={slideNext}
+        disabled={!canSlideNext()}
+        className={clsx(
+          "absolute block transform -translate-y-1/2 cursor-pointer text-primary -right-0 top-1/2",
+          !canSlideNext() && "opacity-25"
+        )}
+      >
+        <MdNavigateNext size={60} />
+      </button>
+    </div>
   );
 };
 
