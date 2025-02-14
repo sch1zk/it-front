@@ -268,9 +268,9 @@ const TrendingSegment: React.FC = () => {
         Топовые направления
       </p>
 
-      <div>
-        <div className="flex gap-10 mb-10">
-          <a className="flex flex-col w-full gap-2 px-10 py-8 rounded-lg bg-alt">
+      <div className="grid grid-cols-1 lg:grid-cols-6 grid-rows-[auto] gap-10">
+        {/* <div className="flex gap-10 mb-10"> */}
+          <a className="panel flex flex-col w-full gap-2 lg:col-span-3">
             <MdOutlineDesktopWindows size={40} color="var(--color-primary)" />
             <p className="text-3xl font-semibold">Frontend</p>
             <p className="text-xl">
@@ -279,7 +279,7 @@ const TrendingSegment: React.FC = () => {
               Angular и Vue.
             </p>
           </a>
-          <a className="flex flex-col w-full gap-2 px-10 py-8 rounded-lg bg-alt">
+          <a className="panel flex flex-col w-full gap-2 lg:col-span-3">
             <MdOutlineDns size={40} color="var(--color-primary)" />
             <p className="text-3xl font-semibold">Backend</p>
             <p className="text-xl">
@@ -288,10 +288,10 @@ const TrendingSegment: React.FC = () => {
               языках.
             </p>
           </a>
-        </div>
+        {/* </div> */}
 
-        <div className="flex gap-10 mb-10">
-          <a className="flex flex-col w-full gap-2 px-10 py-8 border-2 rounded-lg bg-main border-panel">
+        {/* <div className="flex gap-10 mb-10"> */}
+          <a className="panel-inv flex flex-col w-full gap-2 lg:col-span-2">
             <MdOutlineDataset size={40} color="var(--color-primary)" />
             <p className="text-3xl font-semibold">Data Science</p>
             <p className="text-xl">
@@ -300,7 +300,7 @@ const TrendingSegment: React.FC = () => {
               задач.
             </p>
           </a>
-          <a className="flex flex-col w-full gap-2 px-10 py-8 border-2 rounded-lg bg-main border-panel">
+          <a className="panel-inv flex flex-col w-full gap-2 lg:col-span-2">
             <MdOutlineCloud size={40} color="var(--color-primary)" />
             <p className="text-3xl font-semibold">DevOps</p>
             <p className="text-xl">
@@ -309,7 +309,7 @@ const TrendingSegment: React.FC = () => {
               Cloud.
             </p>
           </a>
-          <a className="flex flex-col w-full gap-2 px-10 py-8 border-2 rounded-lg bg-main border-panel">
+          <a className="panel-inv flex flex-col w-full gap-2 lg:col-span-2">
             <MdOutlinePhoneAndroid size={40} color="var(--color-primary)" />
             <p className="text-3xl font-semibold">Mobile</p>
             <p className="text-xl">
@@ -317,16 +317,16 @@ const TrendingSegment: React.FC = () => {
               Swift, Flutter или React Native.
             </p>
           </a>
-        </div>
+        {/* </div> */}
 
-        <div className="flex px-10 py-8 rounded-lg bg-alt">
-          <div className="flex flex-col gap-5">
+        <div className="panel flex lg:col-span-6">
+          <div className="flex flex-col gap-5 max-w-[750px]">
             <MdHelpCenter size={40} color="var(--color-primary)" />
             <span className="text-3xl font-semibold">
               Не можешь выбрать направление в IT?
             </span>
 
-            <p className="text-xl w-[750px]">
+            <p className="text-xl">
               Пройди бесплатный тест на нашем сервисе и узнай, какой путь в IT
               подходит именно тебе. Мы поможем выявить твои сильные стороны и
               подскажем, какие кейсы и навыки стоит развивать для успешного
@@ -343,7 +343,7 @@ const TrendingSegment: React.FC = () => {
             </button>
           </div>
 
-          <div className="flex items-center justify-end w-full">
+          <div className="hidden lg:flex items-center justify-end w-full">
             <Image
               src="/images/index/puzzle_piece.svg"
               alt="Кусочек паззла"

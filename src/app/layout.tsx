@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       {/* <body className={`bg-[url(/images/index/main-bg.jpg)] ${ibm.className} ${dela.variable}`}> */}
-      <body className={`${ibm.className} ${dela.variable}`}>
+      <body className={`noise-overlay ${ibm.className} ${dela.variable}`}>
         <Header/>
         <main>{children}</main>
         <Footer/>
