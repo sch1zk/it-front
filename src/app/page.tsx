@@ -1,401 +1,473 @@
-// import Header from "@/components/Header";
-// import HeroSection from "@/components/index/HeroSection";
-// import EventsSection from "@/components/index/EventsSection";
-// import VolunteeringSection from "@/components/index/VolunteeringSection";
-// import SelfDiscoverySection from "@/components/index/SelfDiscoverySection";
-// import SixStepsSection from "@/components/index/SixSteps";
-// import AboutYouSection from "@/components/index/AboutYouSection";
-// import UserReviewsSection from "@/components/index/UserReviewsSection";
-// import Footer from "@/components/Footer";
-import Image from 'next/image';
+import Carousel from "@/components/ui/Carousel";
+import TypingSpan from "@/components/ui/TypingSpan";
+import clsx from "clsx";
+import Image from "next/image";
+import {
+  MdArrowForwardIos,
+  MdHelpCenter,
+  MdOutlineCloud,
+  MdOutlineDataset,
+  MdOutlineDesktopWindows,
+  MdOutlineDns,
+  MdOutlinePhoneAndroid,
+} from "react-icons/md";
 
-interface MainYouCardProps {
-    image_main: string;
-    name: string;
-    role: string;
-    content: string;
+const HeroSegment: React.FC = () => {
+  return (
+    <section
+      className="container flex"
+      style={{ minHeight: "calc(100vh - var(--header-height))" }}
+    >
+      <div
+        className="m-auto w-fit"
+        style={{ paddingBottom: "var(--header-height)" }}
+      >
+        <div className="flex justify-between mb-6 text-lg text-primary">
+          <span className={"max-w-[350px]"}>
+            Прокачивай свои навыки, находи новые возможности и реализуйся в IT
+            сфере.
+          </span>
+          <span className={"max-w-[350px] text-right"}>
+            Решай реальные кейсы, получай ачивки и становись лидером своей
+            профессии.
+          </span>
+        </div>
+        <div className="flex flex-col items-center gap-5 mb-10 title text-8xl">
+          <span className="tracking-wide">Найди работу</span>
+          <span>
+            в{" "}
+            <span className="text-primary">
+              {"< "}IT СФЕРЕ{" >"}
+            </span>
+          </span>
+        </div>
+        <div className="mx-auto w-fit">
+          <p className="mb-4 text-xl text-primary">
+            {"<p> "}Путь к карьере в IT начинается здесь{" </p>"}
+          </p>
+          <button
+            className={clsx(
+              "bg-primary text-2xl py-4 px-8 w-full text-light rounded-md cursor-pointer border border-primary",
+              "transition-color",
+              "shadow-glow shadow-primary/20 hover:shadow-none",
+              "hover:bg-transparent hover:text-primary"
+            )}
+          >
+            НАЧАТЬ СЕЙЧАС
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+interface FourStepsProps {
+  number: string;
+  imagePath: string;
+  alt: string;
+  description: string[];
+  hrefTitle: string;
 }
 
-const MainYouCard: React.FC<MainYouCardProps> = ({ image_main, }) => {
-    return (
+const FourStepsCard: React.FC<FourStepsProps> = ({
+  number,
+  imagePath,
+  alt,
+  description,
+  hrefTitle,
+}) => {
+  return (
+    <div className="flex flex-col w-[240px] h-[240px] bg-contain bg-[url(/images/index/steps_card.svg)]">
+      <div className="flex w-fill">
+        <div className="flex justify-center items-center w-[80px] h-[70px]">
+          <span className="text-5xl text-primary">{number}</span>
+        </div>
+        <Image
+          src={imagePath}
+          width={60}
+          height={60}
+          alt={alt}
+          className="mx-auto h-[140px] filter drop-shadow-[0_0_15px_rgba(186,222,79,0.7)]"
+        />
+      </div>
+      <div className="inline-flex flex-col justify-end h-full max-h-[80px] m-2.5">
+        <div className="mb-2 text-center text-lg/6">
+          {description.map((text, index) => (
+            <p key={index}>{text}</p>
+          ))}
+        </div>
+        <a
+          href="#"
+          className={clsx(
+            "bg-primary py-2 text-center text-lg text-light rounded-md cursor-pointer border border-primary",
+            "transition-all",
+            "hover:bg-transparent hover:text-primary"
+          )}
+        >
+          {hrefTitle}
+        </a>
+      </div>
+    </div>
+  );
+};
 
+const FourStepsSegment: React.FC = () => {
+  return (
+    <section className="container flex flex-col mb-40">
+      <p className="text-center mb-25 title text-7xl">
+        Всего <span className="text-primary">4</span> шага до успеха
+      </p>
+      <div className="flex flex-wrap items-center justify-center gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <FourStepsCard
+            number="01"
+            imagePath="/images/index/steps_card_1.svg"
+            alt=""
+            description={["Выбери направление"]}
+            hrefTitle="НАПРАВЛЕНИЯ"
+          />
+          <MdArrowForwardIos
+            size={40}
+            color="var(--color-primary)"
+            className="hidden xl:inline"
+          />
+          <FourStepsCard
+            number="02"
+            imagePath="/images/index/steps_card_2.svg"
+            alt=""
+            description={["Решай разные кейсы и", "получай за них бонусы"]}
+            hrefTitle="КЕЙСЫ"
+          />
+        </div>
+        <MdArrowForwardIos
+          size={40}
+          color="var(--color-primary)"
+          className="hidden xl:inline"
+        />
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <FourStepsCard
+            number="03"
+            imagePath="/images/index/steps_card_3.svg"
+            alt=""
+            description={["Достигай большего", "и расти в рейтинге"]}
+            hrefTitle="РЕЙТИНГ"
+          />
+          <MdArrowForwardIos
+            size={40}
+            color="var(--color-primary)"
+            className="hidden xl:inline"
+          />
+          <FourStepsCard
+            number="04"
+            imagePath="/images/index/steps_card_4.svg"
+            alt=""
+            description={["Стань заметным", "для IT-компаний"]}
+            hrefTitle="ВАКАНСИИ"
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
 
-                        <Image src={image_main} alt="О вас" width={98} height={98} style={{
-                                filter: "drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.9))",
-                                width: "auto",
-                                height: "70px"
-                            }}/>
+const WhyAreWeSegment: React.FC = () => {
+  return (
+    <section className="container flex flex-col mb-40">
+      <p className="text-4xl text-center mb-25 title md:text-5xl xl:text-7xl ">
+        Почему мы?
+      </p>
+      <div className="flex flex-col justify-center">
+        <div className="flex flex-wrap justify-center gap-5 mx-auto">
+          <div className="w-[450px] text-right">
+            <p className="mb-3 text-3xl font-semibold text-primary">
+              Реальные кейсы
+            </p>
+            <p className="text-xl">
+              Мы создаём задачи, максимально приближенные к реальным условиям
+              работы.
+            </p>
+          </div>
+          <div className="border-r hr-mute" />
+          <div className="w-[450px] mb-5">
+            <p className="mb-3 text-3xl font-semibold text-primary">
+              10 000+ задач
+            </p>
+            <p className="text-xl">
+              охватывающих самые популярные направления в IT, уже на платформе.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-wrap justify-center gap-5 mx-auto">
+          <div className="w-[450px] text-right">
+            <p className="mb-3 text-3xl font-semibold text-primary">
+              От новичка до профи
+            </p>
+            <p className="text-xl">
+              Любой юзер найдет задачи под свой уровень и сможет развить навыки.
+            </p>
+          </div>
+          <div className="border-r hr-mute" />
+          <div className="w-[450px] mb-5">
+            <p className="mb-3 text-3xl font-semibold text-primary">
+              100 000+ разработчиков
+            </p>
+            <p className="text-xl">
+              уже объединены нашей платформой, и их количество только продолжает
+              расти.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-wrap justify-center gap-5 mx-auto">
+          <div className="w-[450px] text-right">
+            <p className="mb-3 text-3xl font-semibold text-primary">
+              Достижения, рейтинги
+            </p>
+            <p className="text-xl">
+              Чем больше достижений ты собираешь,тем выше твой рейтинг.
+            </p>
+          </div>
+          <div className="border-r hr-mute" />
+          <div className="w-[450px] mb-5">
+            <p className="mb-3 text-3xl font-semibold text-primary">
+              10 000+ вакансий
+            </p>
+            <p className="text-xl">
+              в IT-компаниях уже нашли своих соискателей на нашей платформе.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-wrap justify-center gap-5 mx-auto">
+          <div className="w-[450px] text-right">
+            <p className="mb-3 text-3xl font-semibold text-primary">
+              Актуальные вакансии
+            </p>
+            <p className="text-xl">
+              Каждый день компании публикуют новые вакансии для специалистов
+              любого грейда.
+            </p>
+          </div>
+          <div className="border-r hr-mute" />
+          <div className="w-[450px] mb-5">
+            <p className="mb-3 text-3xl font-semibold text-primary">
+              150+ IT-компаний
+            </p>
+            <p className="text-xl">
+              уже с нами в поисках талантливых сотрудников.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
+const TrendingSegment: React.FC = () => {
+  return (
+    <section className="container flex flex-col mb-40">
+      <p className="text-4xl text-center mb-25 title md:text-5xl xl:text-7xl ">
+        Топовые направления
+      </p>
 
-    );
+      <div>
+        <div className="flex gap-10 mb-10">
+          <a className="flex flex-col w-full gap-2 px-10 py-8 rounded-lg bg-alt">
+            <MdOutlineDesktopWindows size={40} color="var(--color-primary)" />
+            <p className="text-3xl font-semibold">Frontend</p>
+            <p className="text-xl">
+              Оживляй пользовательские интерфейсы с помощью HTML, CSS и
+              JavaScript. Работай с популярными фреймворками, такими как React,
+              Angular и Vue.
+            </p>
+          </a>
+          <a className="flex flex-col w-full gap-2 px-10 py-8 rounded-lg bg-alt">
+            <MdOutlineDns size={40} color="var(--color-primary)" />
+            <p className="text-3xl font-semibold">Backend</p>
+            <p className="text-xl">
+              Разрабатывай серверную часть приложений, обрабатывай данные и
+              создавай API. Прокачивай навыки на Python, Java, Node.js и других
+              языках.
+            </p>
+          </a>
+        </div>
+
+        <div className="flex gap-10 mb-10">
+          <a className="flex flex-col w-full gap-2 px-10 py-8 border-2 rounded-lg bg-main border-panel">
+            <MdOutlineDataset size={40} color="var(--color-primary)" />
+            <p className="text-3xl font-semibold">Data Science</p>
+            <p className="text-xl">
+              Анализируй данные, работай с алгоритмами машинного обучения и
+              находи инсайты. Применяй Python, R и SQL для решения сложных
+              задач.
+            </p>
+          </a>
+          <a className="flex flex-col w-full gap-2 px-10 py-8 border-2 rounded-lg bg-main border-panel">
+            <MdOutlineCloud size={40} color="var(--color-primary)" />
+            <p className="text-3xl font-semibold">DevOps</p>
+            <p className="text-xl">
+              Автоматизируй процессы, настраивай CI/CD пайплайны и работай с
+              облачными инфраструктурами, такими как AWS, Azure или Google
+              Cloud.
+            </p>
+          </a>
+          <a className="flex flex-col w-full gap-2 px-10 py-8 border-2 rounded-lg bg-main border-panel">
+            <MdOutlinePhoneAndroid size={40} color="var(--color-primary)" />
+            <p className="text-3xl font-semibold">Mobile</p>
+            <p className="text-xl">
+              Создавай мобильные приложения для iOS и Android. Работай с Kotlin,
+              Swift, Flutter или React Native.
+            </p>
+          </a>
+        </div>
+
+        <div className="flex px-10 py-8 rounded-lg bg-alt">
+          <div className="flex flex-col gap-5">
+            <MdHelpCenter size={40} color="var(--color-primary)" />
+            <span className="text-3xl font-semibold">
+              Не можешь выбрать направление в IT?
+            </span>
+
+            <p className="text-xl w-[750px]">
+              Пройди бесплатный тест на нашем сервисе и узнай, какой путь в IT
+              подходит именно тебе. Мы поможем выявить твои сильные стороны и
+              подскажем, какие кейсы и навыки стоит развивать для успешного
+              старта в выбранной области.
+            </p>
+            <button
+              className={clsx(
+                "bg-primary text-xl w-fit py-2.5 px-7 text-light rounded-md cursor-pointer border border-primary",
+                "transition-color",
+                "hover:bg-transparent hover:text-primary"
+              )}
+            >
+              Пройти тест
+            </button>
+          </div>
+
+          <div className="flex items-center justify-end w-full">
+            <Image
+              src="/images/index/puzzle_piece.svg"
+              alt="Кусочек паззла"
+              width={200}
+              height={200}
+              className="filter drop-shadow-[0_0_30px_rgba(186,222,79,0.2)]"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+interface UserReviewCardProps {
+  name: string;
+  role: string;
+  message: string;
+  imagePath: string;
+}
+
+const UserReviewCard: React.FC<UserReviewCardProps> = ({
+  name,
+  role,
+  message,
+  imagePath,
+}) => {
+  return (
+    <div className="flex items-center gap-10 p-10 mx-5 rounded-lg bg-alt">
+      <div className="flex-shrink-0 px-4">
+        <Image src={imagePath} alt={name} width={150} height={150} />
+      </div>
+      <div className="flex flex-col gap-2.5 text-xl">
+        <p className="font-semibold">{name}</p>
+        <p className="text-primary">{role}</p>
+        <p>{message}</p>
+      </div>
+    </div>
+  );
+};
+
+const UserReviewsSegment: React.FC = () => {
+  const reviews = [
+    {
+      name: "Екатерина Мельникова",
+      role: "Data Scientist",
+      imagePath: "/images/index/review_1.png",
+      message: `Обожаю этот сервис за реальные задачи, которые помогают не только улучшить навыки, но и чувствовать себя частью чего-то большого.
+        Особенно нравится, что можно сразу получить обратную связь по решениям. Это помогает учиться быстрее.
+        А система рейтингов и достижений мотивирует расти. Советую всем, кто хочет начать карьеру в IT!`,
+    },
+    {
+      name: "Екатерина Мельникова",
+      role: "Data Scientist",
+      imagePath: "/images/index/review_1.png",
+      message: `Обожаю этот сервис за реальные задачи, которые помогают не только улучшить навыки, но и чувствовать себя частью чего-то большого.
+        Особенно нравится, что можно сразу получить обратную связь по решениям. Это помогает учиться быстрее.
+        А система рейтингов и достижений мотивирует расти. Советую всем, кто хочет начать карьеру в IT!`,
+    },
+    {
+      name: "Екатерина Мельникова",
+      role: "Data Scientist",
+      imagePath: "/images/index/review_1.png",
+      message: `Обожаю этот сервис за реальные задачи, которые помогают не только улучшить навыки, но и чувствовать себя частью чего-то большого.
+        Особенно нравится, что можно сразу получить обратную связь по решениям. Это помогает учиться быстрее.
+        А система рейтингов и достижений мотивирует расти. Советую всем, кто хочет начать карьеру в IT!`,
+    },
+  ];
+
+  const reviewCards = reviews.map((review, index) => (
+    <UserReviewCard
+      key={index}
+      name={review.name}
+      role={review.role}
+      message={review.message}
+      imagePath={review.imagePath}
+    />
+  ));
+
+  return (
+    <section className="container flex flex-col mb-40">
+      <p className="text-4xl text-center mb-25 title md:text-5xl xl:text-7xl ">
+        Что о нас говорят?
+      </p>
+      <div>
+        <Carousel content={reviewCards} />
+      </div>
+    </section>
+  );
+};
+
+const CallToActionSegment: React.FC = () => {
+  return (
+    <section className="container flex flex-col items-start justify-center min-h-[50vh] mb-40">
+      <div className="mb-20 font-semibold text-left text-7xl max-w-[550px]">
+        <TypingSpan
+          text="Начни свой путь в IT сфере уже сегодня"
+        />
+      </div>
+      <div className="flex justify-center">
+        <button
+          className={clsx(
+            "bg-primary text-2xl py-4 px-8 text-light rounded-md cursor-pointer border border-primary",
+            "transition-color",
+            "shadow-glow shadow-primary/20 hover:shadow-none",
+            "hover:bg-transparent hover:text-primary"
+          )}
+        >
+          РЕШИТЬ СВОЙ ПЕРВЫЙ КЕЙС
+        </button>
+      </div>
+    </section>
+  );
 };
 
 export default function HomePage() {
   return (
-    // <>
-    //   <Header/>
-    //   <main className="flex flex-col gap-[150px]">
-    //     <HeroSection/>
-    //     <EventsSection/>
-    //     <VolunteeringSection/>
-    //     <SelfDiscoverySection/>
-    //     <SixStepsSection/>
-    //     <AboutYouSection/>
-    //     <UserReviewsSection/>
-    //   </main>
-    //   <Footer/>
-    // </>
-
     <>
-      {/* Hero */}
-      <section className="container mx-auto">
-      <div className="flex gap-4 md:gap-0 mb-8">
-        <div className="w-1/2">
-          <p className="text-[#BADE4F] text_hero_block text-xl">Прокачивай свои навыки, находи новые возможности и реализуйся в IT сфере. </p>
-        </div>
-        <div className="w-1/2">
-          <p className="text-[#BADE4F] text-xl text_hero_block text-right">Решай реальные кейсы, получай ачивки и становись лидером своей профессии. </p>
-        </div>
-      </div>
-      <div className="mb-10">
-        <p className="text-[50px] sm:text-[70px] md:text-[100px] lg:text-[145px] xl:text-[180px] leading-none text-[#F2F2F2] font-semibold">Найди работу в  <span className="text-[#BADE4F]"> <span className="cov_left">IT СФЕРЕ</span ></span></p>
-      </div>
-      <div className="flex justify-center mb-30">
-        <div className="text-center flex flex-col max-w-max">
-            <span className="text-[#BADE4F] text-xl mb-3">
-                
-                Путь к карьере в IT начинается здесь
-               
-            </span>
-            <button className="shadow-[0_0_60px_60px_rgba(186,222,79,0.2)] border-[#BADE4F] bg-[#BADE4F] text-2xl border-2 border-solid rounded-[10px] px-5 py-4 transition-all duration-300 hover:border-[1px] hover:border-solid hover:border-[#BADE4F] hover:shadow-none hover:cursor-pointer hover:bg-[#ffffff00] hover:text-[#bade4f]">Войти</button>
-          </div>
-      </div>
-      
-    </section>
-      
-      {/* steps */}
-      <section className="mt-20 mb-20 container mx-auto">
-        <div className="text-center mb-20">
-            <p className="text-4xl md:text-5xl xl:text-7xl text-white font-semibold">Всего <span className="text-[#BADE4F]">4</span> шага до успеха</p>
-        </div>
-         
-         <div className="flex xl:flex-nowrap flex-wrap gap-5 mb-10 items-center justify-center">
-             <div className="w-[90%] md:w-[40%] lg:w-[33%] xl:w-[24%] h-[310px] md:h-[280px] lg:h-[320px] xl:h-[245px] max-w-[100%] md:max-w-[45%] xl:max-w-[25%]  bg-contain bg-[url(/images/index/cart-steps.svg)] relative bg-no-repeat">
-                <div>
-                    <div className="absolute">
-                       <span className="text-6xl md:text-5xl lg:text-6xl text-[#BADE4F]">01</span>
-                    </div>
-                    <div className="absolute top-[-35px] right-[-20px]">
-                    <Image src="/images/index/tabler_location-filled1.svg" width={174} height={174} alt="Логотип ITsphera" />
-                    </div>
-                </div>
-                <div className="flex items-end min-h-[65%] px-5">
-                    <p className="text-white">Выбери направление</p>
-                </div>
-                <div className="absolute bottom-5 w-full px-3">
-                    <button className="border-[#BADE4F] w-full bg-[#BADE4F] text-2xl border-2 border-solid rounded-[10px] px-2 py-2 transition-all duration-300 hover:border-[1px] hover:border-solid hover:border-[#BADE4F] hover:cursor-pointer hover:bg-[#ffffff00] hover:text-[#bade4f]">Направления</button>
-                </div>
-                
-             </div>
-              <div className='rotate-90 md:rotate-0'>
-                <Image src="/images/index/arrow.svg" width={30} height={50} alt="Логотип ITsphera" />
-              </div>
-             
-             <div className="w-[90%] md:w-[40%] xl:w-[24%] lg:w-[33%] h-[310px] md:h-[280px] lg:h-[320px] xl:h-[245px] max-w-[100%] md:max-w-[45%] xl:max-w-[25%] bg-[url(/images/index/cart-steps.svg)] bg-contain relative bg-no-repeat">
-          
-                <div>
-                    <div className="absolute">
-                       <span className="text-6xl md:text-5xl lg:text-6xl text-[#BADE4F]">02</span>
-                    </div>
-                    <div className="absolute top-[-35px] right-[-20px]" >
-                    <Image src="/images/index/tabler_location-filled2.svg" className='h-[174px]' width={174} height={174} alt="Логотип ITsphera" />
-                    </div>
-                </div>
-                <div className="flex items-end min-h-[65%] px-5">
-                    <p className="text-white">Решай разные кейсы и получай за них бонусы</p>
-                </div>
-                <div className="absolute bottom-5 w-full px-3">
-                    <button className="border-[#BADE4F] w-full bg-[#BADE4F] text-2xl border-2 border-solid rounded-[10px] px-2 py-2 transition-all duration-300 hover:border-[1px] hover:border-solid hover:border-[#BADE4F] hover:cursor-pointer hover:bg-[#ffffff00] hover:text-[#bade4f]">Направления</button>
-                </div>
-                
-             </div>
-             <div className='md:hidden xl:block rotate-90 md:rotate-0'>
-              <Image src="/images/index/arrow.svg" width={30} height={50} alt="Логотип ITsphera" />
-             </div>
-        
-             <div className="w-[90%] md:w-[40%] lg:w-[33%] xl:w-[24%] h-[310px] md:h-[280px] lg:h-[320px] xl:h-[245px] max-w-[100%] md:max-w-[45%] xl:max-w-[25%] bg-[url(/images/index/cart-steps.svg)] bg-contain relative bg-no-repeat">
-                <div>
-                    <div className="absolute">
-                       <span className="text-6xl md:text-5xl lg:text-6xl text-[#BADE4F]">03</span>
-                    </div>
-                    <div className="top-[-35px] right-[-20px] absolute ">
-                    <Image src="/images/index/tabler_location-filled3.svg" width={174} height={174} alt="Логотип ITsphera" />
-                    </div>
-                </div>
-                <div className="flex items-end min-h-[65%] px-5">
-                    <p className="text-white">Достигай большего и расти в рейтинге</p>
-                </div>
-                <div className="absolute bottom-5 w-full px-3">
-                    <button className="border-[#BADE4F] w-full bg-[#BADE4F] text-2xl border-2 border-solid rounded-[10px] px-2 py-2 transition-all duration-300 hover:border-[1px] hover:border-solid hover:border-[#BADE4F] hover:cursor-pointer hover:bg-[#ffffff00] hover:text-[#bade4f]">Направления</button>
-                </div>
-               
-             </div>
-             <div>
-              <Image className='rotate-90 md:rotate-0' src="/images/index/arrow.svg" width={30} height={50} alt="Логотип ITsphera" />
-             </div>
-             <div className="w-[90%] md:w-[40%] lg:w-[33%] xl:w-[24%] h-[310px] md:h-[280px] xl:h-[245px] lg:h-[320px] max-w-[100%] md:max-w-[45%] xl:max-w-[25%] bg-[url(/images/index/cart-steps.svg)] bg-contain relative bg-no-repeat">
-                <div>
-                    <div className="absolute">
-                       <span className="text-6xl md:text-5xl lg:text-6xl text-[#BADE4F]">04</span>
-                    </div>
-                    <div className="absolute top-[-35px] right-[-20px]">
-                    <Image src="/images/index/tabler_location-filled4.svg" width={174} height={174} alt="Логотип ITsphera" />
-                    </div>
-                </div>
-                <div className="flex items-end min-h-[65%] px-5">
-                    <p className="text-white">Стань знаменитым для IT-компаний</p>
-                </div>
-                <div className="absolute bottom-5 w-full px-3">
-                    <button className="border-[#BADE4F] w-full bg-[#BADE4F] text-2xl border-2 border-solid rounded-[10px] px-2 py-2 transition-all duration-300 hover:border-[1px] hover:border-solid hover:border-[#BADE4F] hover:cursor-pointer hover:bg-[#ffffff00] hover:text-[#bade4f]">Направления</button>
-                </div>
-             </div>
-        
-         </div>
-        
-    </section>
-
-    {/* Features */}
-    <section className="mt-20 mb-10 md:mb-20 container mx-auto">
-        <div className="text-center mb-20">
-            <p className="text-4xl md:text-5xl xl:text-7xl text-white font-semibold">Почему мы?</p>
-        </div>
-        <div className="flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-15">
-            <div className="border-b md:border-b-0  md:border-r border-[#F2F2F2] pr-[50px] pt-[30px] pb-[20px] md:pb-[30px] w-full md:w-1/2 text-right">
-               <p className="text-[#BADE4F] text-2xl md:text-3xl xl:text-4xl text_mob_features font-semibold mb-5">Реальные кейсы</p>
-               <p className="text-white text-xl lg:text-2xl text_mob_features mb-5">Мы создаём задачи, максимально приближенные к реальным условиям работы.</p>
-               <p className="text-[#BADE4F] font-semibold text-xl lg:text-2xl md:text-3xl xl:text-4xl mb-5 text_mob_features">От новичка до профи</p>
-               <p className="text-white text-xl lg:text-2xl text_mob_features mb-5">Любой юзер найдет задачи под свой уровень и сможет развить  навыки.</p>
-               <p className="text-[#BADE4F] font-semibold text-xl lg:text-2xl md:text-3xl xl:text-4xl mb-5 text_mob_features">Достижения, рейтинги</p>
-               <p className="text-white text-xl lg:text-2xl text_mob_features mb-5">Чем больше достижений ты собираешь, тем выше твой рейтинг.</p>
-               <p className="text-[#BADE4F] font-semibold text-xl lg:text-2xl md:text-3xl xl:text-4xl mb-5 text_mob_features">Актуальные вакансии</p>
-               <p className="text-white text-xl lg:text-2xl text_mob_features mb-5">Каждый день компании публикуют новые вакансии для специалистов любого грейда.</p>
-            </div>
-            <div className="w-full md:ml-[30px] lg:ml-px md:w-1/2 text-left pt-[20px] md:pt-[50px] pb-[30px]">
-                <p className="text-[#BADE4F] font-semibold text-xl lg:text-2xl md:text-3xl xl:text-4xl mb-5 text_mob_features">10 000+ задач</p>
-                <p className="text-white text-xl lg:text-2xl text_mob_features mb-5">охватывающих самые популярные направления в IT, уже на платформе.</p>
-                <p className="text-[#BADE4F] font-semibold text-xl lg:text-2xl md:text-3xl xl:text-4xl mb-5 text_mob_features">100 000+ разработчиков</p>
-                <p className="text-white text-xl lg:text-2xl text_mob_features mb-5">уже объединены нашей платформой, и их количество только продолжает расти.</p>
-                <p className="text-[#BADE4F] font-semibold text-2xl md:text-3xl xl:text-4xl mb-5 text_mob_features">10 000+ вакансий</p>
-                <p className="text-white text-xl lg:text-2xl text_mob_features mb-5">в IT-компаниях уже нашли своих соискателей на нашей платформе.</p>
-                <p className="text-[#BADE4F] font-semibold text-xl lg:text-2xl md:text-3xl xl:text-4xl mb-5 text_mob_features">150+ IT-компаний</p>
-                <p className="text-white text-xl lg:text-2xl text_mob_features mb-5">уже с нами в поисках талантливых сотрудников.</p>
-            </div>
-        </div>
-    </section>
-
-    {/* Trending */}
-    <section className="mt-10 md:mt-20 mb-20 container mx-auto">
-        <div className="text-center mb-20">
-            <p className="text-4xl md:text-5xl xl:text-7xl text-white font-semibold">Топовые направления</p>
-        </div>
-        <div className="flex flex-wrap md:flex-nowrap mb-10 gap-10">
-            <div className="w-full md:w-1/2 bg-[#242424] rounded-[10px]">
-               <div className="p-3 md:p-5 xl:p-10">
-                 <Image src="/images/index/desktop_windows.svg" alt="Логотип ITsphera" width={50} height={50} />
-               
-                 <h3 className="mb-3 font-semibold text-4xl text-white">Frontend</h3>
-                 <p className="mb-3 text-white text-xl lg:text-2xl">Разрабатывай серверную часть приложений, обрабатывай данные и создавай API. Прокачивай навыки на Python, Java, Node.js и других языках.</p>
-               </div>
-            </div>
-            <div className="w-full md:w-1/2 bg-[#242424] rounded-[10px]">
-                <div className="p-3 md:p-5 xl:p-10">
-                <Image className='mb-3' src="/images/index/backend.svg" alt="Логотип ITsphera" width={50} height={50} />
-                    <h3 className="font-semibold text-4xl mb-3 text-white">Backend</h3>
-                    <p className="text-white mb-3 text-xl lg:text-xl">Оживляй пользовательские интерфейсы с помощью HTML, CSS и JavaScript. Работай с популярными фреймворками, такими как React, Angular и Vue.</p>
-                </div>
-            </div>
-        </div>
-        <div className="flex flex-wrap xl:flex-nowrap gap-10 mb-10">
-            <div className="w-full md:w-[47%] lg:w-[30%] xl:w-1/3 bg-[#242424] rounded-[10px]">
-               <div className="p-3 md:p-5 xl:p-10">
-               <Image className='mb-3' src="/images/index/data_science.svg" alt="Логотип ITsphera" width={50} height={50} />
-                 <h3 className="mb-3 font-semibold text-4xl text-white">Data Science</h3>
-                 <p className="mb-3 text-white text-xl lg:text-xl">Анализируй данные, работай с алгоритмами машинного обучения и находи инсайты. Применяй Python, R и SQL для решения сложных задач.</p>
-               </div>
-            </div>
-            <div className="w-full md:w-[47%] lg:w-[30%] xl:w-1/3 bg-[#242424] rounded-[10px]">
-                <div className="p-3 md:p-5 xl:p-10">
-                    <Image className='mb-3' src="/images/index/dev-ops.svg" alt="Логотип ITsphera" width={50} height={50} />
-                    <h3 className="font-semibold text-4xl mb-3 text-white">DevOps</h3>
-                    <p className="text-white mb-3 text-xl lg:text-xl">Автоматизируй процессы, настраивай CI/CD пайплайны и работай с облачными инфраструктурами, такими как AWS, Azure или Google Cloud.</p>
-               </div>
-            </div>
-             <div className="w-full md:w-[47%] lg:w-[30%] xl:w-1/3 bg-[#242424] rounded-[10px]">
-                <div className="p-3 md:p-5 xl:p-10">
-                   <Image className='mb-3' src="/images/index/mobile.svg" alt="Логотип ITsphera" width={50} height={50} />
-                    <h3 className="font-semibold text-4xl mb-3 text-white">Mobile</h3>
-                    <p className="text-white mb-3 text-xl lg:text-xl">Создавай мобильные приложения для iOS и Android. Работай с Kotlin, Swift, Flutter или React Native.</p>
-               </div>
-            </div>
-        </div>
-        <div className="mb-10">
-            <div className="h-[12px] max-w-full bg-[url(/images/index/trending_bottem.svg)]">
-            </div>
-        </div>
-        <div className="bg-[#242424] rounded-[10px]">
-            <div className="px-7 py-10 flex items-center">
-                <div className="w-full lg:w-3/4">
-                    <div className="flex flex-wrap xl:flex-nowrap gap-8 items-center">
-                         <div className=''>
-                         <Image src="/images/index/question_mark.svg" alt="Логотип ITsphera" width={50} height={50} />
-                         </div>
-                        <div className="font-semibold text-2xl lg:text-4xl text-white">
-                            Не можешь выбрать направление в IT?
-                        </div>
-                    </div>
-                     <p className="text-white py-8 text-xl lg:text-2xl">Пройди бесплатный тест на нашем сервисе и узнай, какой путь в IT подходит именно тебе. Мы поможем выявить твои сильные стороны и подскажем, какие кейсы и навыки стоит развивать для успешного старта в выбранной области.</p>
-                    <div>
-                        <button className="border-[#BADE4F] bg-[#BADE4F] text-xl lg:text-2xl border-2 border-solid rounded-[10px] px-7 py-4 transition-all duration-300 hover:border-[1px] hover:border-solid hover:border-[#BADE4F] hover:cursor-pointer hover:bg-[#ffffff00] hover:text-[#bade4f]">Пройти тест</button>
-                    </div>
-                </div>
-                <div className='hidden lg:block'>
-                  <Image src="/images/index/pazl.svg" alt="Логотип ITsphera" width={200} height={50} />
-
-                </div>
-            </div>
-        </div>
-    </section>
-    
-      {/* User Reviews */}
-      <section className="mt-20 mb-20 container xl:max-w-screen-xl mx-auto">
-        <div className="text-center mb-20">
-            <p className="text-4xl md:text-5xl xl:text-7xl text-white font-semibold">Что о нас говорят?</p>
-        </div>
-        <div id="default-carousel" className="relative w-full" data-carousel="slide">
-           
-             <div>
-                <div className="relative mx-20 h-56 overflow-hidden rounded-lg md:h-96">
-              
-                   <div className="hidden bg-[#242424] rounded-[10px] duration-700 ease-in-out" data-carousel-item>
-                  
-                        <div className="flex px-10 py-12">
-                        <div className="w-1/4 flex justify-center">
-                           <Image src="/images/index/women.svg" alt="Логотип ITsphera" width={200} height={50} />
-                          </div>
-                          <div className="w-3/4">
-                             <p className="text-white text-xl font-semibold">Екатерина Мельникова</p>
-                             <p className="text-[#BADE4F] text-xl ">Екатерина Мельникова</p>
-                             <p className="text-white text-xl">Обожаю этот сервис за реальные задачи, которые помогают не только улучшить навыки, но и чувствовать себя частью чего-то большого. Особенно нравится, что можно сразу получить обратную связь по решениям. Это помогает учиться быстрее. А система рейтингов и достижений мотивирует расти. Советую всем, кто хочет начать карьеру в IT!</p>
-                          </div>
-                        </div>
-                   </div>
-                  
-                   <div className="hidden bg-[#242424] rounded-[10px] duration-700 ease-in-out" data-carousel-item>
-                        <div className="flex px-10 py-12">
-                          <div className="w-1/4 flex justify-center">
-                           <Image src="/images/index/women.svg" alt="Логотип ITsphera" width={200} height={50} />
-                          </div>
-                          <div className="w-3/4">
-                             <p className="text-white text-xl font-semibold">Екатерина Мельникова</p>
-                             <p className="text-[#BADE4F] text-xl ">Екатерина Мельникова</p>
-                             <p className="text-white text-xl">Обожаю этот сервис за реальные задачи, которые помогают не только улучшить навыки, но и чувствовать себя частью чего-то большого. Особенно нравится, что можно сразу получить обратную связь по решениям. Это помогает учиться быстрее. А система рейтингов и достижений мотивирует расти. Советую всем, кто хочет начать карьеру в IT!</p>
-                          </div>
-                        </div>
-                   </div>
-                 
-                   <div className="hidden bg-[#242424] inset-px[!important] rounded-[10px] duration-700 ease-in-out" data-carousel-item>
-                   
-                        <div className="flex px-10 py-12">
-                        <div className="w-1/4 flex justify-center">
-                           <Image src="/images/index/women.svg" alt="Логотип ITsphera" width={200} height={50} />
-                          </div>
-                          <div className="w-3/4">
-                             <p className="text-white text-xl font-semibold">Екатерина Мельникова</p>
-                             <p className="text-white text-xl">Обожаю этот сервис за реальные задачи, которые помогают не только улучшить навыки, но и чувствовать себя частью чего-то большого. Особенно нравится, что можно сразу получить обратную связь по решениям. Это помогает учиться быстрее. А система рейтингов и достижений мотивирует расти. Советую всем, кто хочет начать карьеру в IT!</p>
-                          </div>
-                        </div>
-                        
-                   </div>
-                   <div className="hidden bg-[#242424] inset-px[!important] rounded-[10px] duration-700 ease-in-out" data-carousel-item>
-                   
-                        <div className="flex px-10 py-12">
-                        <div className="w-1/4 flex justify-center">
-                           <Image src="/images/index/women.svg" alt="Логотип ITsphera" width={200} height={50} />
-                          </div>
-                          <div className="w-3/4">
-                             <p className="text-white text-xl font-semibold">Екатерина Мельникова</p>
-                             <p className="text-white text-xl">Обожаю этот сервис за реальные задачи, которые помогают не только улучшить навыки, но и чувствовать себя частью чего-то большого. Особенно нравится, что можно сразу получить обратную связь по решениям. Это помогает учиться быстрее. А система рейтингов и достижений мотивирует расти. Советую всем, кто хочет начать карьеру в IT!</p>
-                          </div>
-                        </div>
-                        
-                   </div>
-                   <div className="hidden bg-[#242424] inset-px[!important] rounded-[10px] duration-700 ease-in-out" data-carousel-item>
-                   
-                        <div className="flex px-10 py-12">
-                        <div className="w-1/4 flex justify-center">
-                           <Image src="/images/index/women.svg" alt="Логотип ITsphera" width={200} height={50} />
-                          </div>
-                          <div className="w-3/4">
-                             <p className="text-white text-xl font-semibold">Екатерина Мельникова</p>
-                             <p className="text-white text-xl">Обожаю этот сервис за реальные задачи, которые помогают не только улучшить навыки, но и чувствовать себя частью чего-то большого. Особенно нравится, что можно сразу получить обратную связь по решениям. Это помогает учиться быстрее. А система рейтингов и достижений мотивирует расти. Советую всем, кто хочет начать карьеру в IT!</p>
-                          </div>
-                        </div>
-                        
-                   </div>
-               </div>
-
-                <div>
-                    <button type="button" className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                            <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" d="M5 1 1 5l4 4"/>
-                            </svg>
-                            <span className="sr-only">Previous</span>
-                        </span>
-                    </button>
-                    <button type="button" className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                            <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" strokeLinecap="round"  strokeWidth="2" d="m1 9 4-4-4-4"/>
-                            </svg>
-                            <span className="sr-only">Next</span>
-                        </span>
-                    </button>
-                </div>
-                
-             </div>
-           
-
-           
-            <div className="absolute z-30 flex -translate-x-1/2 bottom-10 left-1/2 space-x-3 rtl:space-x-reverse">
-                <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-            </div>
-        
-            
-        </div>
-
-      </section>
-     {/* Cta */}
-
-     <section className="mt-20 mb-30 container mx-auto">
-        <div className="text-center mb-10">
-            <p className="text-4xl md:text-5xl xl:text-7xl text-white text-center font-semibold">Начни свой путь
-                в <span className="text-[#BADE4F]"><span></span>it сфере<span></span></span> <span className="border-r-6 border-[#BADE4F] pr-3">уже сегодня</span></p>
-        </div>
-        <div className="flex justify-center">
-            <button className="shadow-[0_0_60px_30px_rgba(186,222,79,0.2)] border-[#BADE4F] bg-[#BADE4F] text-xl lg:text-2xl border-2 border-solid rounded-[10px] px-7 py-4 transition-all duration-300 hover:border-[1px] hover:border-solid hover:border-[#BADE4F] hover:shadow-none hover:cursor-pointer hover:bg-[#ffffff00] hover:text-[#bade4f]">Решить свой первый кейс</button>
-        </div>
-        </section>
-
-      {/* Call to Action */}
-      {/* <section>
-        <h1>Начни свой путь в IT сфере уже сегодня</h1>
-        <a href="#" className="underline">Решить свой первый кейс</a>
-      </section> */}
+      <HeroSegment />
+      <FourStepsSegment />
+      <WhyAreWeSegment />
+      <TrendingSegment />
+      <UserReviewsSegment />
+      <CallToActionSegment />
     </>
   );
 }

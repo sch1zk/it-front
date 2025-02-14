@@ -15,12 +15,13 @@
   --border-color-main: #F2F2F2;
   --border-color-alt: #4D4D4D;
   --border-color-error: #DE5D4F;
+  --border-color-panel: #242424;
   --radius-lg: 20px;
   --radius-md: 10px;
+  --shadow-glow: 0 0 50px 20px rgb(0 0 0 / 0.1);
 }
 
 :root {
-  --font-ibm: 'IBM Plex Sans', 'IBM Plex Sans Fallback';
   --header-height: 120px;
   font-family: var(--font-ibm);
 }
@@ -35,80 +36,33 @@ body {
 
 .container {
   max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
 
+.title {
+  font-family: var(--font-dela);
+}
+
 .hr-mute {
   border-color: var(--background-color-panel);
 }
 
-.cov_left{
-  margin: 0 10px;
-}
-
-.cov_left::before {
-  content: "<";
-  font-size: 60px; 
-  color: #BADE4F;
-  display: inline-block;
-}
-
-.cov_left::after {
-  content: ">";
-  font-size: 60px; 
-  color: #BADE4F;
-  display: inline-block;
-}
-
 @media (min-width: 640px) { /* sm */
-  .cov_left::before,
-  .cov_left::after {
-    font-size: 70px;
-  }
   .container{
     max-width: 610px;
   }
 }
 
 @media (min-width: 768px) { /* md */
-  .cov_left::before,
-  .cov_left::after {
-    font-size: 90px;
-  }
   .container{
     max-width: 720px;
   }
   .text_mob_features{
     display: block;
   }
-}
-
-@media (min-width: 1024px) { /* lg */
-  .cov_left::before,
-  .cov_left::after {
-    font-size: 120px;
-  }
-  .container{
-    max-width: 980px;
-  }
-}
-
-@media (min-width: 1280px) { /* xl */
-  .cov_left::before,
-  .cov_left::after {
-    font-size: 165px; 
-  }
-  .container{
-    max-width: 1200px;
-  }
-}
-
-@media (max-width: 768px) { /* md */
   .text_mob_features{
     flex-wrap: wrap;
     display: flex;
@@ -125,12 +79,27 @@ body {
     font-size: 16px;
   }
 }
+
+@media (min-width: 1024px) { /* lg */
+  .container{
+    max-width: 980px;
+  }
+}
+
+@media (min-width: 1280px) { /* xl */
+  .container{
+    max-width: 1200px;
+  }
+}
+
 .bg-\[url\(\/images\/index\/cart-steps\.svg\)\] { 
   background-image: url('/images/index/cart-steps.svg');
 }
+
 .bg-\[url\(\/images\/index\/main-bg\.jpg\)\] { 
   background-image: url('/images/index/main-bg.jpg');
 }
+
 .bg-\[url\(\/images\/index\/trending_bottem\.svg\)\] { 
   background-image: url('/images/index/trending_bottem.svg');
 }

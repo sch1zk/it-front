@@ -1,24 +1,18 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Roboto, Space_Grotesk } from "next/font/google";
+import { Dela_Gothic_One, IBM_Plex_Sans } from "next/font/google";
 import "@/styles/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-extra",
-})
-
-const roboto = Roboto({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-roboto",
-  weight: ["100", "300", "400", "500", "700", "900"]
-})
-
 const ibm = IBM_Plex_Sans({
   subsets: ["latin", "cyrillic"],
-  variable: "--font-ibm",
   weight: ["100", "200", "300", "400", "500", "600", "700"]
+})
+
+const dela = Dela_Gothic_One({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-dela",
+  weight: "400"
 })
 
 export const metadata: Metadata = {
@@ -33,7 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`bg-[url(/images/index/main-bg.jpg)] ${ibm.variable}`}>
+      {/* <body className={`bg-[url(/images/index/main-bg.jpg)] ${ibm.className} ${dela.variable}`}> */}
+      <body className={`${ibm.className} ${dela.variable}`}>
         <Header/>
         <main>{children}</main>
         <Footer/>
