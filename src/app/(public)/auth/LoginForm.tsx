@@ -7,6 +7,9 @@ import Image from 'next/image';
 import { socialButtons } from "./page";
 import ErrorPanel from "@/components/ui/ErrorPanel";
 import { useState } from "react";
+import Cookies from 'js-cookie';
+import { BACKEND_URL } from '@/lib/config';
+import { useRouter } from "next/navigation";
 
 interface LoginFormProps {
   onSwitch: () => void;
@@ -16,21 +19,38 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitch }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch('/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-      credentials: 'include',
-    });
+    if (!email || !password) {
+      setError("Не все поля были заполнены")
+      return;
+    }
 
-    if (res.ok) {
-      console.log('Успешный вход');
-    } else {
-      console.error('Ошибка авторизации');
+    try {
+      const res = await fetch(`${BACKEND_URL}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+        credentials: 'include',
+      });
+  
+      if (res.ok) {
+        console.log("Успешный вход");
+        const data = await res.json();
+        console.log(data);
+        if (data.access_token) {
+          Cookies.set("access_token", data.access_token, { path: '/', secure: true });
+          console.log("setting token in cookie")
+          router.push('/profile');
+        }
+      } else {
+        setError("Ошибка авторизации")
+      }
+    } catch (err) {
+      setError("Ой, что-то пошло не так!")
     }
   };
 

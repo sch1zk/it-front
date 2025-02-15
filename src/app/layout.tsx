@@ -3,6 +3,7 @@ import { Dela_Gothic_One, IBM_Plex_Sans } from "next/font/google";
 import "@/styles/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import useAuth from "@/hooks/useAuth";
 
 const ibm = IBM_Plex_Sans({
   subsets: ["latin", "cyrillic"],
@@ -25,6 +26,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const isAuthenticated = useAuth();
+
   return (
     <html lang="ru">
       {/* <body className={`bg-[url(/images/index/main-bg.jpg)] ${ibm.className} ${dela.variable}`}> */}

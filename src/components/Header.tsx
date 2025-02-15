@@ -1,8 +1,14 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
+import Cookies from 'js-cookie';
 
 export default function Header() {
+  const handleLogout = () => {
+    Cookies.remove('token');
+    console.log('Выход из системы');
+  };
+
   return (
    <header className="container p-5 mx-auto" style={{ height: "var(--header-height)" }}>
     <div className="relative flex items-center justify-between h-full text-lg">
@@ -28,11 +34,11 @@ export default function Header() {
                 </li>
             </ul>
         </nav>
-        <button className={clsx(
+        <a href="/auth" className={clsx(
           "text-main bg-transparent border border-main rounded-md px-5 py-2 cursor-pointer",
           "transition-colors transition-bg",
           "hover:text-light hover:bg-[var(--text-color-main)]"
-        )}>Войти</button>
+        )}>Войти</a>
       </div>
     </header>
   );

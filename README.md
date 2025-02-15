@@ -7,7 +7,7 @@ npm install
 И заполнить `.env`
 
 ```
-BACKEND_URL=*backend url, like http://localhost:9999*
+NEXT_PUBLIC_BACKEND_URL=*backend url, like http://localhost:9999*
 ```
 
 ## Getting Started
