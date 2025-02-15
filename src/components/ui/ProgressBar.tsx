@@ -21,13 +21,13 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ bgColor, lineColor, max, curr
   return (
     <div className="flex justify-between w-full overflow-hidden rounded-md text-base/5" style={{ backgroundColor: bgColor }}>
       <div
-        className="h-full pr-3 font-semibold text-right transition-all duration-300 rounded-md text-light"
+        className="h-full min-w-10 px-3 font-semibold text-right transition-all duration-300 rounded-md text-light"
         style={{ width: `${progress}%`, backgroundColor: lineColor }}
       >
-        <span>{currentValue}</span>
+        {currentValue}
       </div>
       {progress < 100 && (
-        <span className="ml-2 mr-3">{max}</span>
+        <span className="ml-2 mr-3 ">{max}</span>
       )}
     </div>
   );

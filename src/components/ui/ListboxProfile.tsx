@@ -29,7 +29,7 @@ const ListboxProfile: React.FC<ListboxProfileProps> = ({ items, label, multiple 
       >
         <ListboxButton
           className={clsx(
-            "min-h-9 w-full group relative flex my-2 cursor-pointer rounded-md flex-1 bg-main py-1.5 text-left text-sm/6",
+            "min-h-9 w-full group relative flex mt-1 cursor-pointer rounded-md flex-1 bg-main py-1.5 text-left text-sm/6",
             multiple ? "flex-wrap gap-1 px-1.5" : "px-3"
           )}
         >

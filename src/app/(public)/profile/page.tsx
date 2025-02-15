@@ -60,9 +60,12 @@ const Sidebar: React.FC = () => {
 
 export default function ProfilePage() {
   return (
-    <div className="container flex min-h-[100vh] gap-10">
+    <div
+      className="container flex gap-10"
+      style={{ minHeight: "calc(100vh - var(--header-height))" }}
+    >
       <Sidebar/>
-      <section className="flex flex-col gap-5">
+      <section className="flex flex-col gap-5 max-w-[800px] mx-auto">
         <InfoSection/>
       </section>
     </div>

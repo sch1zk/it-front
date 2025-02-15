@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import "@/styles/profile.css";
 import ProgressBar from '@/components/ui/ProgressBar';
-import { MdGroups, MdLightbulb, MdOutlineArrowOutward, MdVisibility, MdWork } from 'react-icons/md';
+import { MdAccessTime, MdGroups, MdLabel, MdLightbulb, MdOutlineArrowOutward, MdVisibility, MdWork } from 'react-icons/md';
 import ListboxProfile from '@/components/ui/ListboxProfile';
 
 const InfoSection: React.FC = () => {
@@ -56,62 +56,138 @@ const InfoSection: React.FC = () => {
 
       <div className="flex gap-5">
 
-        <div className="flex flex-col gap-2 p-5 panel flex-1">
-          <a href="" className="inline-flex gap-1 items-center text-primary">
+        <div className="p-5 panel flex-1">
+          <a href="" className="inline-flex gap-1 items-center mb-3 text-primary">
             <span>138 решенных кейсов</span>
             <MdOutlineArrowOutward size={24}/>
           </a>
-          <div className="text-primary">
-            <p className="text-sm mb-1">Легко</p>
-  
-            <ProgressBar bgColor="var(--background-color-main)" lineColor="var(--color-primary)" max={341} current={28}/>
-          </div>
-  
-          <div className="text-medium">
-            <p className="text-sm mb-1">Средне</p>
-  
-            <ProgressBar bgColor="var(--background-color-main)" lineColor="var(--color-medium)" max={248} current={43}/>
-          </div>
-  
-          <div className="text-hard">
-            <p className="text-sm mb-1">Сложно</p>
-  
-            <ProgressBar bgColor="var(--background-color-main)" lineColor="var(--color-hard)" max={903} current={67}/>
+          <div className="flex flex-col gap-2">
+            <div className="text-primary">
+              <p className="text-sm mb-1">Легко</p>
+    
+              <ProgressBar bgColor="var(--background-color-main)" lineColor="var(--color-primary)" max={341} current={28}/>
+            </div>
+    
+            <div className="text-medium">
+              <p className="text-sm mb-1">Средне</p>
+    
+              <ProgressBar bgColor="var(--background-color-main)" lineColor="var(--color-medium)" max={248} current={43}/>
+            </div>
+    
+            <div className="text-hard">
+              <p className="text-sm mb-1">Сложно</p>
+    
+              <ProgressBar bgColor="var(--background-color-main)" lineColor="var(--color-hard)" max={903} current={67}/>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-col p-5 panel justify-between">
-          <a href="" className="inline-flex gap-1 items-center text-primary">
+        <div className="p-5 panel flex flex-col">
+          <a href="" className="inline-flex gap-1 mb-3 items-center text-primary">
             <span>Статистика за неделю</span>
             <MdOutlineArrowOutward size={24}/>
           </a>
-          <div className="flex items-center justify-between gap-5">
-            <div className="flex items-center gap-2 text-sm"><MdVisibility size={24} color="var(--color-primary)"/>Просмотры профиля</div>
-            <span>37</span>
-          </div>
-          <div className="flex items-center justify-between gap-5">
-            <div className="flex items-center gap-2 text-sm"><MdLightbulb size={24} color="var(--color-primary)"/>Решенные кейсы</div>
-            <span>61</span>
-          </div>
-          <div className="flex items-center justify-between gap-5">
-            <div className="flex items-center gap-2 text-sm"><MdGroups size={24} color="var(--color-primary)"/>Вклад в комьюнити</div>
-            <span>15</span>
-          </div>
-          <div className="flex items-center justify-between gap-5">
-            <div className="flex items-center gap-2 text-sm"><MdWork size={24} color="var(--color-primary)"/>Отклики на вакансии</div>
-            <span>12</span>
+          <div className="flex flex-col h-full justify-between">
+            <div className="flex items-center justify-between gap-5">
+              <div className="flex items-center gap-2 text-sm"><MdVisibility size={24} color="var(--color-primary)"/>Просмотры профиля</div>
+              <span>37</span>
+            </div>
+            <div className="flex items-center justify-between gap-5">
+              <div className="flex items-center gap-2 text-sm"><MdLightbulb size={24} color="var(--color-primary)"/>Решенные кейсы</div>
+              <span>61</span>
+            </div>
+            <div className="flex items-center justify-between gap-5">
+              <div className="flex items-center gap-2 text-sm"><MdGroups size={24} color="var(--color-primary)"/>Вклад в комьюнити</div>
+              <span>15</span>
+            </div>
+            <div className="flex items-center justify-between gap-5">
+              <div className="flex items-center gap-2 text-sm"><MdWork size={24} color="var(--color-primary)"/>Отклики на вакансии</div>
+              <span>12</span>
+            </div>
           </div>
         </div>
 
       </div>
 
-      <div className="flex flex-col p-5 panel w-[400px]">
-        <p className="text-primary">Обучение</p>
+      <div className="flex gap-5">
+        <div className="p-5 panel min-w-[300px] h-fit">
+          <p className="text-primary mb-3">Обучение</p>
+  
+          <div className="flex flex-col gap-2">
+            <ListboxProfile items={itDirection} label="Основное направление"/>
+            <ListboxProfile items={programmingLanguages} label="Выбранные языки" multiple={true}/>
+  
+            <div>
+              <span className="text-sm text-primary">Использованные языки</span>
+              <div className="flex flex-col gap-2 mt-1">
+  
+                <div className="flex justify-between">
+                  <span className="px-2 bg-panel rounded-sm">C++</span>
+                  <span><span className="font-semibold">10</span>{" "}кейсов</span>
+                </div>
+  
+                <div className="flex justify-between">
+                  <span className="px-2 bg-panel rounded-sm">Python</span>
+                  <span><span className="font-semibold">26</span>{" "}кейсов</span>
+                </div>
+  
+                <div className="flex justify-between">
+                  <span className="px-2 bg-panel rounded-sm">JavaScript</span>
+                  <span><span className="font-semibold">13</span>{" "}кейсов</span>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <ListboxProfile items={itDirection} label="Основное направление"/>
-        <ListboxProfile items={programmingLanguages} label="Выбранные языки" multiple={true}/>
+        <div className="p-5 panel flex-1 h-full">
 
-        <p>Использованные языки</p>
+          <a href="" className="inline-flex gap-1 mb-3 items-center text-primary">
+            <span>История кейсов</span>
+            <MdOutlineArrowOutward size={24}/>
+          </a>
+
+          <div className="flex flex-col gap-3 h-[300px] scroll-hidden scroll-smooth ">
+            <div className="bg-panel rounded-md p-5">
+              <p className="flex items-center gap-2 mb-4"><MdAccessTime size={20}/>27 февраля, 2025</p>
+              <p>Название кейса</p>
+              <div className="flex gap-2 mt-4 items-center text-muted">
+                <MdLabel size={20}/>
+                <p className="bg-main rounded-sm px-1">Основы</p>
+                <p className="bg-main rounded-sm px-1">Алгоритмы</p>
+                <p className="bg-main rounded-sm px-1">Строки</p>
+                <p className="bg-main rounded-sm px-1">Массивы</p>
+              </div>
+            </div>
+
+            <div className="bg-panel rounded-md p-5">
+              <p className="flex items-center gap-2 mb-4"><MdAccessTime size={20}/>27 февраля, 2025</p>
+              <p>Название кейса</p>
+              <div className="flex gap-2 mt-4 items-center text-muted">
+                <MdLabel size={20}/>
+                <p className="bg-main rounded-sm px-1">Основы</p>
+                <p className="bg-main rounded-sm px-1">Алгоритмы</p>
+                <p className="bg-main rounded-sm px-1">Строки</p>
+                <p className="bg-main rounded-sm px-1">Массивы</p>
+              </div>
+            </div>
+
+            <div className="bg-panel rounded-md p-5">
+              <p className="flex items-center gap-2 mb-4"><MdAccessTime size={20}/>27 февраля, 2025</p>
+              <p>Название кейса</p>
+              <div className="flex gap-2 mt-4 items-center text-muted">
+                <MdLabel size={20}/>
+                <p className="bg-main rounded-sm px-1">Основы</p>
+                <p className="bg-main rounded-sm px-1">Алгоритмы</p>
+                <p className="bg-main rounded-sm px-1">Строки</p>
+                <p className="bg-main rounded-sm px-1">Массивы</p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
       </div>
     </>
   );

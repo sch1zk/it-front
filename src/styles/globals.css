@@ -77,6 +77,16 @@ body::before {
   border-color: var(--background-color-panel);
 }
 
+.scroll-hidden {
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE, Edge */
+}
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 @media (min-width: 640px) { /* sm */
   .container{
     max-width: 610px;
