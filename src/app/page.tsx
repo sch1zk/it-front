@@ -270,7 +270,7 @@ const TrendingSegment: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-6 grid-rows-[auto] gap-10">
         {/* <div className="flex gap-10 mb-10"> */}
-          <a className="panel flex flex-col w-full gap-2 lg:col-span-3">
+          <a className="flex flex-col w-full gap-2 px-10 py-8 panel lg:col-span-3">
             <MdOutlineDesktopWindows size={40} color="var(--color-primary)" />
             <p className="text-3xl font-semibold">Frontend</p>
             <p className="text-xl">
@@ -279,7 +279,7 @@ const TrendingSegment: React.FC = () => {
               Angular и Vue.
             </p>
           </a>
-          <a className="panel flex flex-col w-full gap-2 lg:col-span-3">
+          <a className="flex flex-col w-full gap-2 px-10 py-8 panel lg:col-span-3">
             <MdOutlineDns size={40} color="var(--color-primary)" />
             <p className="text-3xl font-semibold">Backend</p>
             <p className="text-xl">
@@ -291,7 +291,7 @@ const TrendingSegment: React.FC = () => {
         {/* </div> */}
 
         {/* <div className="flex gap-10 mb-10"> */}
-          <a className="panel-inv flex flex-col w-full gap-2 lg:col-span-2">
+          <a className="flex flex-col w-full gap-2 px-10 py-8 panel-inv lg:col-span-2">
             <MdOutlineDataset size={40} color="var(--color-primary)" />
             <p className="text-3xl font-semibold">Data Science</p>
             <p className="text-xl">
@@ -300,7 +300,7 @@ const TrendingSegment: React.FC = () => {
               задач.
             </p>
           </a>
-          <a className="panel-inv flex flex-col w-full gap-2 lg:col-span-2">
+          <a className="flex flex-col w-full gap-2 px-10 py-8 panel-inv lg:col-span-2">
             <MdOutlineCloud size={40} color="var(--color-primary)" />
             <p className="text-3xl font-semibold">DevOps</p>
             <p className="text-xl">
@@ -309,7 +309,7 @@ const TrendingSegment: React.FC = () => {
               Cloud.
             </p>
           </a>
-          <a className="panel-inv flex flex-col w-full gap-2 lg:col-span-2">
+          <a className="flex flex-col w-full gap-2 px-10 py-8 panel-inv lg:col-span-2">
             <MdOutlinePhoneAndroid size={40} color="var(--color-primary)" />
             <p className="text-3xl font-semibold">Mobile</p>
             <p className="text-xl">
@@ -319,7 +319,7 @@ const TrendingSegment: React.FC = () => {
           </a>
         {/* </div> */}
 
-        <div className="panel flex lg:col-span-6">
+        <div className="flex px-10 py-8 panel lg:col-span-6">
           <div className="flex flex-col gap-5 max-w-[750px]">
             <MdHelpCenter size={40} color="var(--color-primary)" />
             <span className="text-3xl font-semibold">
@@ -343,7 +343,7 @@ const TrendingSegment: React.FC = () => {
             </button>
           </div>
 
-          <div className="hidden lg:flex items-center justify-end w-full">
+          <div className="items-center justify-end hidden w-full lg:flex">
             <Image
               src="/images/index/puzzle_piece.svg"
               alt="Кусочек паззла"
@@ -428,7 +428,7 @@ const UserReviewsSegment: React.FC = () => {
       <p className="text-center mb-25 title text-7xl ">
         Что о нас говорят?
       </p>
-      <div className="noise-overlay rounded-lg bg-alt">
+      <div className="rounded-lg noise-overlay bg-alt">
         <Carousel content={reviewCards} />
       </div>
     </section>

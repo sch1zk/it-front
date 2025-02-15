@@ -3,6 +3,8 @@
 @theme {
   --color-primary: #BADE4F;
   --color-secondary: #83D216;
+  --color-medium: #DBBF51;
+  --color-hard: #E3595B;
   --background-color-main: #1C1C1C;
   --background-color-alt: #242424;
   --background-color-panel: #383838;
@@ -18,6 +20,7 @@
   --border-color-panel: #242424;
   --radius-lg: 20px;
   --radius-md: 10px;
+  --radius-sm: 5px;
   --shadow-glow: 0 0 50px 20px rgb(0 0 0 / 0.1);
 }
 
@@ -34,33 +37,28 @@ body {
   background-color: var(--background-color-main);
 }
 
-.noise-overlay {
-  background-image: url("/images/noise.avif");
-  background-position: 0 0;
-  background-size: 200px;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("/images/noise.avif");
+  background-size: 200px 200px;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 9999;
 }
 
 .panel {
-  background-image: url("/images/noise.avif");
-  background-position: 0 0;
-  background-size: 200px;
   border-radius: var(--radius-lg);
   background-color: var(--background-color-alt);
-  padding-inline: calc(var(--spacing) * 10);
-  padding-block: calc(var(--spacing) * 8);
 }
 
 .panel-inv {
-  background-image: url("/images/noise.avif");
-  background-position: 0 0;
-  background-size: 200px;
   border-radius: var(--radius-lg);
   background-color: var(--background-color-main);
   border-style: var(--tw-border-style);
   border-width: 2px;
   border-color: var(--border-color-panel);
-  padding-inline: calc(var(--spacing) * 10);
-  padding-block: calc(var(--spacing) * 8);
 }
 
 .container {
