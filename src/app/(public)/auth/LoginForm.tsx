@@ -13,7 +13,26 @@ interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ onSwitch }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+      credentials: 'include',
+    });
+
+    if (res.ok) {
+      console.log('Успешный вход');
+    } else {
+      console.error('Ошибка авторизации');
+    }
+  };
 
   return (
     <div className="p-10 rounded-lg bg-alt w-fit">
@@ -23,11 +42,14 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitch }) => {
           {error && (
             <ErrorPanel description={error}/>
           )}
-          <InputField name="email" type="email" placeholder="Электронная почта"/>
-          <InputField name="password" type="password" placeholder="Пароль"/>
-          <Button className="rounded-md cursor-pointer bg-primary text-light text-base/10">
-            Войти
-          </Button>
+          <form onSubmit={handleSubmit} className="inline-flex flex-col gap-3">
+            <InputField name="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Электронная почта" required/>
+            <InputField name="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Пароль" required/>
+            <Button type="submit" className="rounded-md cursor-pointer bg-primary text-light text-base/10">
+              Войти
+            </Button>
+          </form>
+
           <div className="flex justify-between">
             <button className="cursor-pointer">Забыли пароль?</button>
             <button onClick={onSwitch} className="cursor-pointer text-primary">Регистрация</button>

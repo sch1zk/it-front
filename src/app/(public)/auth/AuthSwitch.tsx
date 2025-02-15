@@ -24,9 +24,6 @@ const AuthSwitch: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 0, 1] }}
             exit={{ opacity: [1, 0, 0] }}
-            // initial={{ rotateY: -90 }}
-            // animate={{ rotateY: [-90, -90, -90, 0] }}
-            // exit={{ rotateY: [0, 90, 90, 90] }}
             transition={{
               duration: 1.0,
               ease: "easeOut",
@@ -42,9 +39,6 @@ const AuthSwitch: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 0, 1] }}
             exit={{ opacity: [1, 0, 0] }}
-            // initial={{ rotateY: -90 }}
-            // animate={{ rotateY: [-90, -90, -90, 0] }}
-            // exit={{ rotateY: [0, 90, 90, 90] }}
             transition={{
               duration: 1.0,
               ease: "easeOut",

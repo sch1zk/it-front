@@ -6,26 +6,59 @@ import clsx from "clsx";
 import Image from 'next/image';
 import { socialButtons } from "./page";
 import { useState } from "react";
+import ErrorPanel from "@/components/ui/ErrorPanel";
 
 interface RegisterFormProps {
   onSwitch: () => void;
 }
 
 const RegisterForm: React.FC<RegisterFormProps> = ({ onSwitch }) => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
   const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (password !== passwordConfirm) {
+      setError('Пароли не совпадают');
+      return;
+    }
+
+    const res = await fetch('/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, email, password }),
+      credentials: 'include',
+    });
+
+    if (res.ok) {
+      console.log('Успешная регистрация');
+    } else {
+      console.error('Ошибка регистрации');
+    }
+  };
 
   return (
     <div className="p-10 rounded-lg bg-alt w-fit">
       <div className="flex flex-col items-center w-[350px]">
         <Image src="/images/it-logo_min.svg" alt="Логотип" width={225} height={72} className="pointer-events-none select-none"/>
         <div className="inline-flex flex-col w-full gap-3 mt-8 mb-3">
-          <InputField name="username" type="text" placeholder="Имя пользователя"/>
-          <InputField name="email" type="email" placeholder="Электронная почта"/>
-          <InputField name="password" type="password" placeholder="Пароль"/>
-          <InputField name="password" type="password" placeholder="Подтвердите пароль"/>
-          <Button className="rounded-md cursor-pointer bg-primary text-light text-base/10">
-            Зарегистрироваться
-          </Button>
+          {error && (
+            <ErrorPanel description={error}/>
+          )}
+          <form onSubmit={handleSubmit} className="inline-flex flex-col gap-3">
+            <InputField name="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Имя пользователя" required/>
+            <InputField name="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Электронная почта" required/>
+            <InputField name="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Пароль" required/>
+            <InputField name="passwordConfirm" type="password" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)} placeholder="Подтвердите пароль" required/>
+            <Button type="submit" className="rounded-md cursor-pointer bg-primary text-light text-base/10">
+              Зарегистрироваться
+            </Button>
+          </form>
+
           <div className="flex gap-2.5 justify-center">
             <span>Уже есть аккаунт?</span>
             <button onClick={onSwitch} className="cursor-pointer text-primary">Войти</button>

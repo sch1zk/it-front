@@ -4,6 +4,12 @@
 npm install
 ```
 
+И заполнить `.env`
+
+```
+BACKEND_URL=*backend url, like http://localhost:9999*
+```
+
 ## Getting Started
 
 First, run the development server:

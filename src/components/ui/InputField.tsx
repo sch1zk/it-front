@@ -2,7 +2,7 @@
 
 import { Field, Input, Label } from "@headlessui/react";
 import clsx from "clsx";
-import { useState } from "react";
+import { ChangeEventHandler, useState } from "react";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
 interface InputFieldProps {
@@ -10,9 +10,12 @@ interface InputFieldProps {
   type: string;
   title?: string;
   placeholder?: string;
+  value?: string | number | readonly string[];
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+  required?: boolean;
 }
 
-const InputField: React.FC<InputFieldProps> = ({ name, type, title, placeholder }) => {
+const InputField: React.FC<InputFieldProps> = ({ name, type, title, placeholder, value, onChange, required = false }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   
   const handleMouseDown = () => setIsPasswordVisible(true);
@@ -27,6 +30,9 @@ const InputField: React.FC<InputFieldProps> = ({ name, type, title, placeholder 
       <Input
         name={name}
         type={type === "password" && !isPasswordVisible ? "password" : "text"}
+        value={value}
+        onChange={onChange}
+        required={required}
         placeholder={placeholder}
         className={clsx(
           "block w-full px-4 border rounded-md bg-main text-sm/10 border-alt",
