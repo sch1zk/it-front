@@ -10,15 +10,15 @@ export default async function middleware(request: NextRequest) {
   const isProtectedRoute = protectedRoutes.includes(path)
   const isPublicRoute = publicRoutes.includes(path)
 
-  const access_token = request.cookies.get('access_token')?.value;
+  const jwt_token = request.cookies.get('jwt')?.value;
 
-  if (isProtectedRoute && !access_token) {
+  if (isProtectedRoute && !jwt_token) {
     return NextResponse.redirect(new URL('/auth', request.nextUrl))
   }
 
   if (
     isPublicRoute &&
-    access_token &&
+    jwt_token &&
     !request.nextUrl.pathname.startsWith('/profile')
   ) {
     return NextResponse.redirect(new URL('/profile', request.nextUrl))

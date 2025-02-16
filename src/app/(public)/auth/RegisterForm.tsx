@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { socialButtons } from "./page";
 import { useState } from "react";
 import ErrorPanel from "@/components/ui/ErrorPanel";
+import { register } from "@/services/api";
 
 interface RegisterFormProps {
   onSwitch: () => void;
@@ -27,17 +28,15 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSwitch }) => {
       return;
     }
 
-    const res = await fetch('/api/auth/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, email, password }),
-      credentials: 'include',
-    });
-
-    if (res.ok) {
-      console.log('Успешная регистрация');
-    } else {
-      console.error('Ошибка регистрации');
+    try {
+      const res = await register(username, email, password);
+      if (res.ok) {
+        console.log('Успешная регистрация');
+      } else {
+        console.error('Ошибка регистрации');
+      }
+    } catch (err) {
+      setError("Ой, что-то пошло не так!");
     }
   };
 
