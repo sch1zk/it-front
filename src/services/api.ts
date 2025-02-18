@@ -17,14 +17,14 @@ export const login = async (email: string, password: string) => {
 
 export const register = async (username: string, email: string, password: string) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/auth/login`, {
+    const res = await fetch(`${BACKEND_URL}/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, email, password }),
       credentials: 'include',
     });
     if (!res.ok) throw new Error('Failed to register');
-    return await res.json();
+    return await res;
   } catch (err) {
     throw new Error('Failed to register');
   }
