@@ -3,7 +3,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import { MdLocationOn, MdSend } from "react-icons/md";
 
-export default function Footer() {
+export default function IndexFooter() {
   return (
     <footer className="bg-alt">
       

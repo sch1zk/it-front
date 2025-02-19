@@ -1,4 +1,5 @@
-import CaseEditor from "@/components/CaseEditor";
+import CaseComponent from "./CaseComponent";
+
 export default async function CasePage({
   params,
 }: {
@@ -7,7 +8,7 @@ export default async function CasePage({
   const id = (await params).id
   return (
     <>
-      <CaseEditor case_id={id}/>
+      <CaseComponent/>
     </>
   );
 };

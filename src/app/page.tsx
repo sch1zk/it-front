@@ -1,3 +1,5 @@
+import IndexFooter from "@/components/IndexFooter";
+import IndexHeader from "@/components/IndexHeader";
 import Carousel from "@/components/ui/Carousel";
 import TypingSpan from "@/components/ui/TypingSpan";
 import clsx from "clsx";
@@ -462,12 +464,17 @@ const CallToActionSegment: React.FC = () => {
 export default function HomePage() {
   return (
     <>
-      <HeroSegment />
-      <FourStepsSegment />
-      <WhyAreWeSegment />
-      <TrendingSegment />
-      <UserReviewsSegment />
-      <CallToActionSegment />
+      <IndexHeader/>
+      <main>
+        <HeroSegment />
+        <FourStepsSegment />
+        <WhyAreWeSegment />
+        <TrendingSegment />
+        <UserReviewsSegment />
+        <CallToActionSegment />
+      </main>
+      <IndexFooter/>
     </>
+
   );
 }

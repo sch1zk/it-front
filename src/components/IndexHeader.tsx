@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
 
-export default function Header() {
+export default function IndexHeader() {
   const handleLogout = () => {
     Cookies.remove('token');
     console.log('Выход из системы');

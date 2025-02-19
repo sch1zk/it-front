@@ -1,0 +1,79 @@
+.flexlayout__layout {
+  --text-color-main: #eeeeee;
+  --color-background: var(--background-color-alt);
+  --color-base: green;
+  --color-1: var(--background-color-panel);
+  --color-2: transparent;
+  --color-3: transparent;
+  --color-4: var(--background-color-panel-alt);
+  --color-5: blue;
+  --color-6: var(--background-color-panel);
+  --color-drag1: var(--color-primary);
+  --color-drag2: var(--color-primary);
+  --color-drag1-background: transparent;
+  --color-drag2-background: transparent;
+  --color-overflow: blue;
+  --color-icon: var(--text-color-muted);
+  --color-tabset-background: var(--color-1);
+  --color-tabset-background-selected: var(--color-1);
+  --color-tabset-background-maximized: var(--color-6);
+  --color-tabset-divider-line: var(--color-4);
+  --color-tabset-header-background: var(--color-1);
+  --color-tabset-header: var(--color-text);
+  --color-border-tab-content: var(--color-background);
+  --color-border-background: var(--color-1);
+  --color-border-divider-line: var(--color-4);
+  --color-tab-content: var(--color-background);
+  --color-tab-selected: var(--color-text);
+  --color-tab-selected-background: var(--color-4);
+  --color-tab-unselected: var(--text-color-muted);
+  --color-tab-unselected-background: transparent;
+  --color-tab-textbox: var(--color-text);
+  --color-tab-textbox-background: var(--color-3);
+  --color-border-tab-selected: var(--color-text);
+  --color-border-tab-selected-background: var(--color-4);
+  --color-border-tab-unselected: var(--text-color-muted);
+  --color-border-tab-unselected-background: var(--color-2);
+  --color-splitter: var(--color-2);
+  --color-splitter-hover: var(--color-4);
+  --color-splitter-drag: var(--color-5);
+  --color-drag-rect-border: var(--color-4);
+  --color-drag-rect-background: var(--color-1);
+  --color-drag-rect: var(--color-text);
+  --color-popup-border: var(--color-6);
+  --color-popup-unselected: var(--color-text);
+  --color-popup-unselected-background: var(--color-background);
+  --color-popup-selected: var(--color-text);
+  --color-popup-selected-background: var(--color-4);
+  --color-edge-marker: var(--color-primary);
+  --color-edge-icon: red;
+}
+
+.flexlayout__layout {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.flexlayout__tabset-selected {
+  background-color: var(--color-tabset-background);
+  background-image: none;
+}
+
+.flexlayout__tabset {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--color-tabset-background);
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  overflow: hidden;
+  flex-grow: 1;
+  border-width: 3px;
+  border-color: var(--border-color-panel);
+  border-radius: var(--radius-sm);
+}
+
+.flexlayout__tab_toolbar_button {
+  cursor: pointer;
+}

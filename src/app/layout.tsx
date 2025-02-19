@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Dela_Gothic_One, IBM_Plex_Sans } from "next/font/google";
 import "@/styles/globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import IndexHeader from "@/components/IndexHeader";
+import IndexFooter from "@/components/IndexFooter";
 import useAuth from "@/hooks/useAuth";
 
 const ibm = IBM_Plex_Sans({
@@ -32,9 +32,10 @@ export default function RootLayout({
     <html lang="ru">
       {/* <body className={`bg-[url(/images/index/main-bg.jpg)] ${ibm.className} ${dela.variable}`}> */}
       <body className={`noise-overlay ${ibm.className} ${dela.variable}`}>
-        <Header/>
+        {/* <Header/>
         <main>{children}</main>
-        <Footer/>
+        <Footer/> */}
+        {children}
       </body>
     </html>
   );
