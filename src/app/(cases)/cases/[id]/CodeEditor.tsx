@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { editorTheme } from "./EditorTheme";
-import CodeMirror, { Compartment, EditorView, ViewUpdate } from '@uiw/react-codemirror';
+import CodeMirror, { EditorView, ViewUpdate } from '@uiw/react-codemirror';
 import { langs } from '@uiw/codemirror-extensions-langs';
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
 import { MdArrowDropUp } from "react-icons/md";

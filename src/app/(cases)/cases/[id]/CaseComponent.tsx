@@ -1,10 +1,10 @@
 "use client"
 
-import { Layout, Model, TabNode, IJsonModel, TabSetNode, BorderNode, ITabSetRenderValues, ITabRenderValues, IIcons, I18nLabel, Actions } from 'flexlayout-react';
+import { Layout, Model, TabNode, IJsonModel, TabSetNode, BorderNode, ITabSetRenderValues, ITabRenderValues, IIcons, I18nLabel } from 'flexlayout-react';
 import 'flexlayout-react/style/dark.css';
 import '@/styles/flexlayout.css'
 import { JSX, useCallback, useMemo, useState } from 'react';
-import { MdClose, MdCode, MdDescription, MdExpandLess, MdExpandMore, MdFullscreen, MdFullscreenExit, MdHistory, MdMoreVert, MdOpenInNew, MdPlayArrow, MdPublish, MdSchool, MdTask, MdTerminal } from 'react-icons/md';
+import { MdCode, MdDescription, MdFullscreen, MdFullscreenExit, MdHistory, MdPlayArrow, MdPublish, MdSchool, MdTask, MdTerminal } from 'react-icons/md';
 import CodeEditor from './CodeEditor';
 import DescriptionTab from './DescriptionTab';
 import ResultsTab from './ResultsTab';

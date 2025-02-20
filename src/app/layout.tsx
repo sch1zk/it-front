@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Dela_Gothic_One, IBM_Plex_Sans } from "next/font/google";
 import "@/styles/globals.css";
-import IndexHeader from "@/components/IndexHeader";
-import IndexFooter from "@/components/IndexFooter";
-import useAuth from "@/hooks/useAuth";
 
 const ibm = IBM_Plex_Sans({
   subsets: ["latin", "cyrillic"],
