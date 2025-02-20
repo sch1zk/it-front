@@ -1,18 +1,16 @@
 .flexlayout__layout {
-  --text-color-main: #eeeeee;
   --color-background: var(--background-color-alt);
-  --color-base: green;
   --color-1: var(--background-color-panel);
   --color-2: transparent;
   --color-3: transparent;
   --color-4: var(--background-color-panel-alt);
-  --color-5: blue;
+  --color-5: var(--background-color-panel-alt);
   --color-6: var(--background-color-panel);
   --color-drag1: var(--color-primary);
   --color-drag2: var(--color-primary);
   --color-drag1-background: transparent;
   --color-drag2-background: transparent;
-  --color-overflow: blue;
+  --color-overflow: var(--text-color-muted);
   --color-icon: var(--text-color-muted);
   --color-tabset-background: var(--color-1);
   --color-tabset-background-selected: var(--color-1);
@@ -76,4 +74,8 @@
 
 .flexlayout__tab_toolbar_button {
   cursor: pointer;
+}
+
+.flexlayout__splitter {
+  border-radius: 5px;
 }

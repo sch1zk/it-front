@@ -6,7 +6,6 @@ const DescriptionTab: React.FC = () => {
     <div className="p-4">
       <MarkdownViewer/>
     </div>
-    
   );
 }
 

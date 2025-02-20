@@ -9,12 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@codemirror/lang-javascript": "^6.2.3",
     "@headlessui/react": "^2.2.0",
     "@tailwindcss/postcss": "^4.0.2",
+    "@uiw/codemirror-extensions-langs": "^4.23.8",
+    "@uiw/codemirror-themes": "^4.23.8",
+    "@uiw/react-codemirror": "^4.23.8",
     "axios": "^1.7.9",
     "clsx": "^2.1.1",
-    "codemirror": "^6.0.1",
     "flexlayout-react": "^0.8.2",
     "framer-motion": "^12.4.2",
     "js-cookie": "^3.0.5",

@@ -1,71 +1,93 @@
 "use client"
 
-import { useEffect, useRef } from "react";
-import { crosshairCursor, drawSelection, dropCursor, EditorView, highlightActiveLine, highlightActiveLineGutter, highlightSpecialChars, keymap, lineNumbers, rectangularSelection } from "@codemirror/view"
-import { EditorState } from '@codemirror/state';
-import { editorTheme, editorHighlightStyle } from "./EditorTheme";
-import { defaultKeymap, history, historyKeymap, indentWithTab } from "@codemirror/commands"
-import { javascript } from "@codemirror/lang-javascript"
-import { foldGutter, syntaxHighlighting, defaultHighlightStyle, indentOnInput, bracketMatching, foldKeymap } from "@codemirror/language";
-import { autocompletion, completionKeymap, closeBrackets, closeBracketsKeymap } from "@codemirror/autocomplete"
-import { searchKeymap, highlightSelectionMatches, search } from "@codemirror/search"
-import { lintKeymap } from "@codemirror/lint"
+import { useCallback, useState } from "react";
+import { editorTheme } from "./EditorTheme";
+import CodeMirror, { Compartment, EditorView, ViewUpdate } from '@uiw/react-codemirror';
+import { langs } from '@uiw/codemirror-extensions-langs';
+import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
+import { MdArrowDropUp } from "react-icons/md";
+
+const LANGUAGES = {
+  javascript: "JavaScript",
+  python: "Python",
+  java: "Java",
+  cpp: "C++",
+};
+
+interface BottomPanelProps {
+  line: number;
+  col: number;
+  language: keyof typeof LANGUAGES;
+  setLanguage: (lang: keyof typeof LANGUAGES) => void;
+}
+
+const BottomPanel: React.FC<BottomPanelProps> = ({ line, col, language, setLanguage }) => {
+  return (
+    <div className="flex justify-between">
+      <span className="text-muted text-xs/8 px-2.5">
+        Ln {line}, Col {col}
+      </span>
+      <Listbox value={language} onChange={setLanguage}>
+        <ListboxButton className="w-fit group flex items-center mx-2.5 cursor-pointer text-xs/8 text-muted">
+          {LANGUAGES[language]}
+          <MdArrowDropUp
+            size={16}
+            className="group-data-[open]:rotate-180 transition-transform"
+          />
+        </ListboxButton>
+        <ListboxOptions
+          anchor="top end"
+          transition
+          className="w-fit bg-main rounded-sm text-xs/6 empty:invisible transition data-[leave]:data-[closed]:opacity-0"
+        >
+          {Object.entries(LANGUAGES).map(([key, name]) => (
+            <ListboxOption
+              key={key}
+              value={key}
+              className="cursor-pointer select-none px-1.5 data-[focus]:bg-panel rounded-sm"
+            >
+              {name}
+            </ListboxOption>
+          ))}
+        </ListboxOptions>
+      </Listbox>
+    </div>
+
+  );
+};
 
 const CodeEditor: React.FC = () => {
-  const editorRef = useRef<HTMLDivElement>(null);
+  const [value, setValue] = useState('console.log("hello world!");');
+  const [cursor, setCursor] = useState({ line: 1, col: 1 });
 
-  useEffect(() => {
-    if (editorRef.current) {
-      const startState = EditorState.create({
-        doc: 'console.log("Hello, world!");',
-        extensions: [
-          // minimalSetup,
-          lineNumbers(),
-          foldGutter(),
-          highlightSpecialChars(),
-          history(),
-          drawSelection(),
-          dropCursor(),
-          EditorState.allowMultipleSelections.of(true),
-          indentOnInput(),
-          syntaxHighlighting(editorHighlightStyle),
-          bracketMatching(),
-          closeBrackets(),
-          autocompletion(),
-          rectangularSelection(),
-          crosshairCursor(),
-          highlightActiveLine(),
-          highlightActiveLineGutter(),
-          highlightSelectionMatches(),
-          bracketMatching(),
-          search(),
-          keymap.of([
-            ...closeBracketsKeymap,
-            ...defaultKeymap,
-            ...searchKeymap,
-            ...historyKeymap,
-            ...foldKeymap,
-            ...completionKeymap,
-            ...lintKeymap,
-            indentWithTab
-          ]),
-          editorTheme,
-          javascript(),
-        ],
-      });
+  const [language, setLanguage] = useState<keyof typeof LANGUAGES>("javascript");
 
-      const view = new EditorView({
-        state: startState,
-        parent: editorRef.current,
-      });
-
-      return () => {
-        view.destroy();
-      };
-    }
+  const onChange = useCallback((val: string, viewUpdate: ViewUpdate) => {
+    setValue(val);
   }, []);
 
-  return <div ref={editorRef}/>;
+  return (
+    <div className="flex flex-col h-full">
+      <CodeMirror
+        value={value}
+        theme={editorTheme}
+        extensions={[
+          langs[language](),
+          EditorView.updateListener.of((update: ViewUpdate) => {
+            if (update.selectionSet) {
+              const view = update.view;
+              const cursor = view.state.selection.main.head;
+              const line = view.state.doc.lineAt(cursor).number;
+              const col = cursor - view.state.doc.line(line).from + 1;
+              setCursor({ line, col });
+            }
+          }),
+        ]}
+        onChange={onChange}
+      />
+      <BottomPanel line={cursor.line} col={cursor.col} language={language} setLanguage={setLanguage} />
+    </div>
+  );
 }
 
 export default CodeEditor;

@@ -7,6 +7,8 @@ import { JSX, useCallback, useMemo, useState } from 'react';
 import { MdClose, MdCode, MdDescription, MdExpandLess, MdExpandMore, MdFullscreen, MdFullscreenExit, MdHistory, MdMoreVert, MdOpenInNew, MdPlayArrow, MdPublish, MdSchool, MdTask, MdTerminal } from 'react-icons/md';
 import CodeEditor from './CodeEditor';
 import DescriptionTab from './DescriptionTab';
+import ResultsTab from './ResultsTab';
+import TestcasesTab from './TestcasesTab';
 
 const jsonModel: IJsonModel = {
   global: {
@@ -92,26 +94,21 @@ const CaseComponent: React.FC = () => {
     const component = node.getComponent();
 
     if (!component) {
-      return <div className="p-4 ">Компонент не найден</div>;
+      return <div className="p-4">Компонент не найден</div>;
     }
 
     const componentsMap: Record<string, JSX.Element> = {
       description: <DescriptionTab/>,
+      testcases: <TestcasesTab/>,
+      results: <ResultsTab/>,
       code: <CodeEditor/>,
-      panel2: <div className="p-4">Контент Панели 2</div>,
     };
 
-    return componentsMap[component] || <div className="p-4 ">Неизвестный компонент</div>;
+    return componentsMap[component] || <div className="p-4">Неизвестный компонент</div>;
   }, []);
 
   const icons: IIcons = {
-    // close: <MdClose />,
-    // closeTabset: <MdClose />,
     maximize: <MdFullscreen size={20}/>, 
-    // more: (tabSetNode: TabSetNode | BorderNode, hiddenTabs) => (
-      // <MdMoreVert title={`Скрытые вкладки: ${hiddenTabs.length}`} />
-    // ),
-    // popout: (tabNode: TabNode) => <MdOpenInNew title={`Открыть в новом окне: ${tabNode.getName()}`} />,
     restore: <MdFullscreenExit size={20}/>,
   };
 
