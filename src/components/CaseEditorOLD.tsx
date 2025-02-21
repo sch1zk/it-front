@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
-import { fetchCase, runCode } from "@/services/api";
+import { fetchCase, runCase } from "@/services/api";
 
 interface Testcase {
   input: any;
@@ -133,7 +133,7 @@ const CaseEditor: React.FC<CaseEditorProps> = ({ case_id }) => {
     setError(null);
 
     try {
-      const data = await runCode(case_id, code, lang);
+      const data = await runCase(case_id, code, lang);
       console.log(data.output)
       setOutput(data.output);
     } catch (err: any) {

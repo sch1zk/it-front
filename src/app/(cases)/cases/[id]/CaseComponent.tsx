@@ -3,12 +3,28 @@
 import { Layout, Model, TabNode, IJsonModel, TabSetNode, BorderNode, ITabSetRenderValues, ITabRenderValues, IIcons, I18nLabel } from 'flexlayout-react';
 import 'flexlayout-react/style/dark.css';
 import '@/styles/flexlayout.css'
-import { JSX, useCallback, useMemo, useState } from 'react';
+import { JSX, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { MdCode, MdDescription, MdFullscreen, MdFullscreenExit, MdHistory, MdPlayArrow, MdPublish, MdSchool, MdTask, MdTerminal } from 'react-icons/md';
-import CodeEditor from './CodeEditor';
+import CodeEditor, { CodeEditorHandle } from './CodeEditor';
 import DescriptionTab from './DescriptionTab';
-import ResultsTab from './ResultsTab';
+import ResultsTab, { ResultsTabHandle } from './ResultsTab';
 import TestcasesTab from './TestcasesTab';
+
+export type CaseData = {
+  id: number;
+  title: string;
+  difficulty: 'easy' | 'medium' | 'hard';
+  description: string;
+  initial_code: string;
+  testcases: { params: Record<string, any>; expected?: any }[];
+}
+
+export type TestResult = {
+  params: Record<string, any>;
+  expected?: any;
+  output: string;
+  passed: boolean;
+}
 
 const jsonModel: IJsonModel = {
   global: {
@@ -87,7 +103,14 @@ const jsonModel: IJsonModel = {
   },
 };
 
-const CaseComponent: React.FC = () => {
+interface CaseComponentProps {
+  caseData: CaseData;
+}
+
+const CaseComponent: React.FC<CaseComponentProps> = ({ caseData }) => {
+  const editorRef = useRef<CodeEditorHandle>(null);
+  const resultsTabRef = useRef<ResultsTabHandle>(null);
+
   const [layoutModel] = useState(() => Model.fromJson(jsonModel));
 
   const factory = useCallback((node: TabNode) => {
@@ -98,10 +121,10 @@ const CaseComponent: React.FC = () => {
     }
 
     const componentsMap: Record<string, JSX.Element> = {
-      description: <DescriptionTab/>,
-      testcases: <TestcasesTab/>,
-      results: <ResultsTab/>,
-      code: <CodeEditor/>,
+      description: <DescriptionTab title={caseData.title} difficulty={caseData.difficulty} description={caseData.description}/>,
+      testcases: <TestcasesTab testcases={caseData.testcases}/>,
+      results: <ResultsTab ref={resultsTabRef}/>,
+      code: <CodeEditor ref={editorRef} caseId={caseData.id} initialValue={caseData.initial_code}/>,
     };
 
     return componentsMap[component] || <div className="p-4">Неизвестный компонент</div>;
@@ -129,6 +152,21 @@ const CaseComponent: React.FC = () => {
     return translations[id] || id;
   };
 
+  const handleRun = async () => {
+    if (editorRef.current) {
+      try {
+        const res = await editorRef.current.runCode();
+        console.log(res);
+
+        if (resultsTabRef.current) {
+          resultsTabRef.current.updateResults(res.results);
+        }
+      } catch (err) {
+        console.error("Error executing code:", err);
+      }
+    }
+  };
+
   const onRenderTabSet = useCallback(
     (tabSetNode: TabSetNode | BorderNode, renderValues: ITabSetRenderValues) => {
       if (!(tabSetNode instanceof TabSetNode)) return;
@@ -139,8 +177,8 @@ const CaseComponent: React.FC = () => {
       const tabSetId = tabSetNode.getId();
 
       const buttonsMap: Record<string, JSX.Element> = {
-        coding: <MdPlayArrow size={20} title="Запустить" />,
-        testing: <MdPublish size={20} title="Опубликовать" />,
+        coding: <MdPlayArrow size={20} title="Запустить" onClick={handleRun}/>,
+        testing: <MdPublish size={20} title="Опубликовать"/>,
       };
 
       if (buttonsMap[tabSetId]) {

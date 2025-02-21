@@ -71,7 +71,6 @@ interface MarkdownViewerProps {
 }
 
 const MarkdownViewer: React.FC<MarkdownViewerProps> = ({ content }) => {
-
   return (
     <div className="markdown-body">
       <Markdown
@@ -81,7 +80,6 @@ const MarkdownViewer: React.FC<MarkdownViewerProps> = ({ content }) => {
         {content ?? testingContent}
       </Markdown>
     </div>
-    
   );
 }
 

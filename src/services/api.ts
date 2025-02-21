@@ -40,9 +40,9 @@ export const fetchArticles = async (page: number = 1, limit: number = 10) => {
   }
 };
 
-export const fetchArticle = async (article_id: string) => {
+export const fetchArticle = async (articleId: string) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/media/${article_id}`);
+    const res = await fetch(`${BACKEND_URL}/media/${articleId}`);
     if (!res.ok) throw new Error('Failed to fetch article');
     return await res.json();
   } catch (err) {
@@ -61,10 +61,9 @@ export const fetchCases = async (page: number = 1, limit: number = 10) => {
   }
 };
 
-export const fetchCase = async (case_id: string) => {
+export const fetchCase = async (caseId: string) => {
   try {
-    const token = localStorage.getItem("access_token");
-    const res = await fetch(`${BACKEND_URL}/cases/${case_id}`);
+    const res = await fetch(`${BACKEND_URL}/cases/${caseId}`);
     if (!res.ok) throw new Error('Failed to fetch case details');
     return await res.json();
   } catch (err) {
@@ -72,10 +71,9 @@ export const fetchCase = async (case_id: string) => {
   }
 };
 
-export const runCode = async (case_id: string, code: string, lang: string) => {
+export const runCase = async (caseId: number, code: string, lang: string) => {
   try {
-    const token = localStorage.getItem("access_token");
-    const res = await fetch(`${BACKEND_URL}/cases/${case_id}/run`, {
+    const res = await fetch(`${BACKEND_URL}/cases/${caseId}/run`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

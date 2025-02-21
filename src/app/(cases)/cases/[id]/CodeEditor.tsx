@@ -1,11 +1,12 @@
 "use client"
 
-import { useCallback, useState } from "react";
+import { ForwardedRef, forwardRef, useCallback, useImperativeHandle, useState } from "react";
 import { editorTheme } from "./EditorTheme";
 import CodeMirror, { EditorView, ViewUpdate } from '@uiw/react-codemirror';
 import { langs } from '@uiw/codemirror-extensions-langs';
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
 import { MdArrowDropUp } from "react-icons/md";
+import { runCase } from "@/services/api";
 
 const LANGUAGES = {
   javascript: "JavaScript",
@@ -56,38 +57,62 @@ const BottomPanel: React.FC<BottomPanelProps> = ({ line, col, language, setLangu
   );
 };
 
-const CodeEditor: React.FC = () => {
-  const [value, setValue] = useState('console.log("hello world!");');
-  const [cursor, setCursor] = useState({ line: 1, col: 1 });
-
-  const [language, setLanguage] = useState<keyof typeof LANGUAGES>("javascript");
-
-  const onChange = useCallback((val: string, viewUpdate: ViewUpdate) => {
-    setValue(val);
-  }, []);
-
-  return (
-    <div className="flex flex-col h-full">
-      <CodeMirror
-        value={value}
-        theme={editorTheme}
-        extensions={[
-          langs[language](),
-          EditorView.updateListener.of((update: ViewUpdate) => {
-            if (update.selectionSet) {
-              const view = update.view;
-              const cursor = view.state.selection.main.head;
-              const line = view.state.doc.lineAt(cursor).number;
-              const col = cursor - view.state.doc.line(line).from + 1;
-              setCursor({ line, col });
-            }
-          }),
-        ]}
-        onChange={onChange}
-      />
-      <BottomPanel line={cursor.line} col={cursor.col} language={language} setLanguage={setLanguage} />
-    </div>
-  );
+interface CodeEditorProps {
+  caseId: number;
+  initialValue?: string;
 }
+
+export interface CodeEditorHandle {
+  runCode: () => Promise<any>;
+}
+
+const CodeEditor = forwardRef(
+  ({ caseId, initialValue }: CodeEditorProps, ref: ForwardedRef<CodeEditorHandle>) => {
+    const [value, setValue] = useState(initialValue ?? '');
+    const [cursor, setCursor] = useState({ line: 1, col: 1 });
+
+    const [language, setLanguage] = useState<keyof typeof LANGUAGES>("javascript");
+
+    const onChange = useCallback((val: string, viewUpdate: ViewUpdate) => {
+      setValue(val);
+    }, []);
+    
+    const runCode = async () => {
+      try {
+        const res = await runCase(caseId, value, language);
+        return res;
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    useImperativeHandle(ref, () => ({
+      runCode,
+    }));
+
+    return (
+      <div className="flex flex-col h-full">
+        <CodeMirror
+          value={value}
+          theme={editorTheme}
+          extensions={[
+            langs[language](),
+            EditorView.updateListener.of((update: ViewUpdate) => {
+              if (update.selectionSet) {
+                const view = update.view;
+                const cursor = view.state.selection.main.head;
+                const line = view.state.doc.lineAt(cursor).number;
+                const col = cursor - view.state.doc.line(line).from + 1;
+                setCursor({ line, col });
+              }
+            }),
+          ]}
+          onChange={onChange}
+        />
+        <BottomPanel line={cursor.line} col={cursor.col} language={language} setLanguage={setLanguage} />
+      </div>
+    );
+  }
+)
 
 export default CodeEditor;
