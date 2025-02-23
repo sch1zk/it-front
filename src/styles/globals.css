@@ -15,7 +15,7 @@
   --text-color-light: #1C1C1C;
   --text-color-error: #DE5D4F;
   --border-color-main: #F2F2F2;
-  --border-color-alt: #4D4D4D;
+  --border-color-alt: #242424;
   --border-color-error: #DE5D4F;
   --border-color-panel: #383838;
   --border-color-panel-alt: #242424;
@@ -150,4 +150,26 @@ body::before {
 .bg-\[url\(\/images\/index\/trending_bottem\.svg\)\] { 
   background-image: url('/images/index/trending_bottem.svg');
 }
-
+.placeholder-main::placeholder {
+  color: #F2F2F2 !important;
+}
+.mrl-text-cart span{
+  margin: 0 5px;
+}
+@media (max-width: 768px) { /* md */
+  .mrl-text-cart span{
+    margin: 0;
+  }
+}
+.mrl-text-cart-single span{
+  margin-right: 10px;
+}
+.icon_star svg{
+  width: 30px;
+  height: 30px;
+  fill: #BADE4F;
+}
+.three-dots svg{
+  width: 30px;
+  height: 30px;
+}
