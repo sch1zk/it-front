@@ -102,25 +102,19 @@ const ListallcasesSection = ({ sortBy }) => {
            </div>
            <div className="mrl-text-cart-single w-1/2 flex">
                   <span>
-                  <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={7} height={7} />
+                  <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={25} height={25} />
                   </span>
                   <span>
-                  <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={7} height={7} />
+                  <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={25} height={25} />
                   </span>
                   <span>
-                  <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={7} height={7} />
+                  <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={25} height={25} />
                   </span>
                   <span>
-                  <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={7} height={7} />
+                  <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={25} height={25} />
                   </span>
                   <span>
-                  <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={7} height={7} />
-                  </span>
-                
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                    <path d="M3 3.625H21V21.625H3V3.625ZM7.73 18.665C8.13 19.515 8.92 20.215 10.27 20.215C11.77 20.215 12.8 19.415 12.8 17.665V11.885H11.1V17.625C11.1 18.485 10.75 18.705 10.2 18.705C9.62 18.705 9.38 18.305 9.11 17.835L7.73 18.665ZM13.71 18.485C14.21 19.465 15.22 20.215 16.8 20.215C18.4 20.215 19.6 19.385 19.6 17.855C19.6 16.445 18.79 15.815 17.35 15.195L16.93 15.015C16.2 14.705 15.89 14.495 15.89 13.995C15.89 13.585 16.2 13.265 16.7 13.265C17.18 13.265 17.5 13.475 17.79 13.995L19.1 13.125C18.55 12.165 17.77 11.795 16.7 11.795C15.19 11.795 14.22 12.755 14.22 14.025C14.22 15.405 15.03 16.055 16.25 16.575L16.67 16.755C17.45 17.095 17.91 17.305 17.91 17.885C17.91 18.365 17.46 18.715 16.76 18.715C15.93 18.715 15.45 18.285 15.09 17.685L13.71 18.485Z" fill="#F2F2F2"/>
-                    </svg>
+                  <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={25} height={25} />
                   </span>
                  </div>
               </div>
