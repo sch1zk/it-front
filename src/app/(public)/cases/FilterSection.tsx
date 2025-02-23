@@ -3,65 +3,61 @@ import '@/styles/index.css';
 import MultiSelectFilterDropdown from '@/components/ui/MultiSelectFilterDropdown';
 import FilterDropdown from '@/components/ui/FilterDropdown';
 import { useState } from 'react';
-import { button } from 'framer-motion/client';
-import React from 'react';
 
+interface FilterSectionProps {
+    options: string[];
+    placeholder?: string;
+    onChange: (value: string | null) => void;
+    className?: string; 
+    dropdownClassName?: string; 
+    inputClassName?: string;
+    optionClassName?: string;
+}
 
-   
-
-
-const FilterSection = () => {
+const FilterSection: React.FC<FilterSectionProps> = ({  onChange, optionClassName, dropdownClassName, inputClassName }) => {
+    const handleSelection = (option: string) => {
+        onChange(option); 
+    };
     const [isFilterVisible, setIsFilterVisible] = useState(false);
-  
-    const handleClick = () => { // Defined inside the component
+    const handleClick = () => { 
       setIsFilterVisible(!isFilterVisible);
     };
+    const singleSelectOptionsСomplication = ["Любая", "Сильная", "Агрессивная", "Слабая"];
+    const singleSelectOptionsProgress = ["Только нерешенные", "Только решенные", "Только начатые"];
+    const singleSelectOptionsStatus = ["Одобрено платформой", "Не одобрено платформой", "Я не рекомендую", "Я рекомендую", "Я лев"];
+   
+    const [selectedValueСomplication, setSelectedValueСomplication] = useState<string | null>(null);
+    const [selectedValueProgress, setSelectedValueProgress] = useState<string | null>(null);
+    const [selectedValueStatus, setSelectedValueStatus] = useState<string | null>(null);
 
-    const singleSelectOptions1 = ["Любая", "Сильная", "Агрессивная", "Слабая"];
-    const singleSelectOptions2 = ["Только нерешенные", "Только решенные", "Только начатые"];
-    const singleSelectOptions3 = ["Одобрено платформой", "Не одобрено платформой", "Я не рекомендую", "Я рекомендую", "Я лев"];
-    
-    const multiSelectOptions1 = ["C++", "C#", "Java", "Kotlin", "php", "CSS"];
-    const multiSelectOptions2 = ["Основы", "Массивы", "Это база", "Новое", "Популярное"];
-
-
-    const [selectedValues1, setSelectedValues1] = useState<string[]>([]);
-    const [selectedValues2, setSelectedValues2] = useState<string[]>([]);
-
-    const [selectedValue1, setSelectedValue1] = useState<string | null>(null);
-    const [selectedValue2, setSelectedValue2] = useState<string | null>(null);
-    const [selectedValue3, setSelectedValue3] = useState<string | null>(null);
-    
-    const handleMultiSelectChange1 = (values: string[]) => {
-        setSelectedValues1(values);
-        console.log("MultiSelect 1 Selected Values:", values);
+    const multiSelectOptionsLanguages = ["C++", "C#", "Java", "Kotlin", "php", "CSS"];
+    const multiSelectOptionsTags = ["Основы", "Массивы", "Это база", "Новое", "Популярное"];
+  
+    const [selectedValuesLanguages, setSelectedValuesLanguages] = useState<string[]>([]);
+    const [selectedValuesTags, setSelectedValuesTags] = useState<string[]>([]);
+   
+    const handleMultiSelectChangeLanguages = (values: string[]) => {
+        setSelectedValuesLanguages(values);
     };
 
-    const handleMultiSelectChange2 = (values: string[]) => {
-        setSelectedValues2(values);
-        console.log("MultiSelect 2 Selected Values:", values);
+    const handleMultiSelectChangeTags = (values: string[]) => {
+        setSelectedValuesTags(values);
     };
 
-    const handleSingleSelectChange1 = (value: string | null) => {
-        setSelectedValue1(value);
-        console.log("SingleSelect 1 Selected Value:", value);
+    const handleSingleSelectChangeСomplication = (value: string | null) => {
+        setSelectedValueСomplication(value);
     };
 
-    const handleSingleSelectChange2 = (value: string | null) => {
-        setSelectedValue2(value);
-        console.log("SingleSelect 2 Selected Value:", value);
+    const handleSingleSelectChangeProgress = (value: string | null) => {
+        setSelectedValueProgress(value);
     };
-    const handleSingleSelectChange3 = (value: string | null) => {
-        setSelectedValue2(value);
-        console.log("SingleSelect 3 Selected Value:", value);
+    const handleSingleSelectChangeStatus = (value: string | null) => {
+        setSelectedValueStatus(value);
     };
-
     const multiSelectInputStyle = "bg-yellow-100 border-2 border-yellow-500"; 
     const dropdownStyle = "bg-gray-100 rounded-lg"; 
     const optionStyle = "hover:bg-green-100 text-green-700"; 
-
     return (
-        
         <div className='w-full lg:w-1/4'>
              <button onClick={handleClick} className="p-2 w-full bg-alt text-main text-xl block lg:hidden hover:cursor-pointer">
              {isFilterVisible ? 'Скрыть Фильтр' : 'Показать Фильтр'}
@@ -69,57 +65,57 @@ const FilterSection = () => {
       <div className={`border-2 lg:block border-alt px-2 py-3 border-solid rounded-0 lg:rounded-md ${ isFilterVisible ? 'block' : 'hidden'}`}>
              <p className='text-base text-text-color-main'>Сложность</p>
                 <FilterDropdown
-                    options={singleSelectOptions1}
-                    onChange={handleSingleSelectChange1}
+                    options={singleSelectOptionsСomplication}
+                    onChange={handleSingleSelectChangeСomplication}
                     placeholder="Любая"
                     inputClassName="text-text-color-main placeholder-main"
                     dropdownClassName="border-alt border-2 bg-transparent"
                     optionClassName="z-[99]"
                 />
-                {selectedValue1 && <p></p>}
+                {selectedValueСomplication && <p></p>}
               <p className='text-base text-text-color-main'>Прогресс</p>
                 <FilterDropdown
-                    options={singleSelectOptions2}
-                    onChange={handleSingleSelectChange2}
+                    options={singleSelectOptionsProgress}
+                    onChange={handleSingleSelectChangeProgress}
                     placeholder="Только нерешенные"
                     inputClassName="text-text-color-main placeholder-main"
                     dropdownClassName="border-alt border-2 bg-transparent"
                     optionClassName="z-[99]"
                 />
-                {selectedValue2 && <p></p>}
+                {selectedValueProgress && <p></p>}
 
                 <p className='text-base text-text-color-main'>Статус</p>
                 <FilterDropdown
-                    options={singleSelectOptions3}
-                    onChange={handleSingleSelectChange3}
+                    options={singleSelectOptionsStatus}
+                    onChange={handleSingleSelectChangeStatus}
                     placeholder="Одобрено платформой"
                     inputClassName="text-text-color-main placeholder-main"
                     dropdownClassName="border-alt border-2 bg-transparent"
                     optionClassName="z-[99]"
                 />
-                {selectedValue3 && <p></p>}
+                {selectedValueStatus && <p></p>}
 
                 <p className='text-base text-text-color-main'>Языки</p>
                 <MultiSelectFilterDropdown
-                    options={multiSelectOptions1}
-                    onChange={handleMultiSelectChange1}
+                    options={multiSelectOptionsLanguages}
+                    onChange={handleMultiSelectChangeLanguages}
                     placeholder="C++"
                     inputClassName="text-text-color-main placeholder-main"
                     dropdownClassName="border-alt border-2 bg-transparent"
                     optionClassName="z-[99]"
                 />
-                {selectedValues1.length > 0 && <p></p>}
+                {selectedValuesLanguages.length > 0 && <p></p>}
 
-                <p className='text-base text-text-color-main'>Языки</p>
+                <p className='text-base text-text-color-main'>Теги</p>
                 <MultiSelectFilterDropdown
-                    options={multiSelectOptions2}
-                    onChange={handleMultiSelectChange2}
-                    placeholder="C++"
+                    options={multiSelectOptionsTags}
+                    onChange={handleMultiSelectChangeTags}
+                    placeholder="Массивы"
                     inputClassName="text-text-color-main placeholder-main"
                     dropdownClassName="border-alt border-2 bg-transparent"
                     optionClassName="z-[99]"
                 />
-                {selectedValues2.length > 0 && <p></p>}
+                {selectedValuesTags.length > 0 && <p></p>}
             </div>
         </div>
     );

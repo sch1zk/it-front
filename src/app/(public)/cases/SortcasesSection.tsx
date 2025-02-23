@@ -1,14 +1,13 @@
 'use client';
 import '@/styles/index.css';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SearchInput from '@/components/SearchInput';
-import SortcasesButtons from '@/components/SortcasesButtons';
-import ListallcasesSection from './ListallcasesSection'; // Import ListallcasesSection
+import ListallcasesSection from './ListallcasesSection';
 
 const SortcasesSection = () => {
   const [sortBy, setSortBy] = useState('newest');
 
-  const handleSortChange = (event) => {
+  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSortBy(event.target.value);
   };
 

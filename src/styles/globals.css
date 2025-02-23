@@ -148,3 +148,12 @@ body {
 .mrl-text-cart-single span{
   margin-right: 10px;
 }
+.icon_star svg{
+  width: 30px;
+  height: 30px;
+  fill: #BADE4F;
+}
+.three-dots svg{
+  width: 30px;
+  height: 30px;
+}
