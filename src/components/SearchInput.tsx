@@ -36,9 +36,12 @@ export default function SearchInput() {
             </div>
         </div>
       </div>
-      <div className='flex flex-col md:flex-row gap-3 w-full md:w-2/5'>
-        <div className='w-full md:w-2/4'>
+      <div className='flex flex-row-reverse md:flex-row gap-3 w-full md:w-2/5'>
+        <div className='hidden md:block w-1/2 md:w-2/4'>
           <button className='p-2 w-full bg-alt text-main text-base rounded-md hover:cursor-pointer'>Найти</button>
+        </div>
+        <div className='md:hidden w-1/2 md:w-2/4'>
+          <button className='border-1 border-error border-solid p-2 w-full bg-alt  text-main text-base rounded-md hover:cursor-pointer'>Очистить</button>
         </div>
         <div className='flex gap-3 w-2/4'>
           <div className='flex justify-center p-2 w-full rounded-md bg-alt hover:cursor-pointer'>

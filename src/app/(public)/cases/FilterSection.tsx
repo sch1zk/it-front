@@ -97,10 +97,10 @@ const FilterSection: React.FC<FilterSectionProps> = ({  onChange, optionClassNam
                 ))}
             </select>
             <button className="absolute inset-y-0 right-0 flex items-center pr-2 hover:cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 25" fill="none">
-                        <path d="M8.70663 11.5381L11.2966 14.1281C11.6866 14.5181 12.3166 14.5181 12.7066 14.1281L15.2966 11.5381C15.9266 10.9081 15.4766 9.82812 14.5866 9.82812H9.40663C8.51663 9.82812 8.07663 10.9081 8.70663 11.5381Z" fill="#F2F2F2" />
-                    </svg>
-                </button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 25" fill="none">
+                    <path d="M8.70663 11.5381L11.2966 14.1281C11.6866 14.5181 12.3166 14.5181 12.7066 14.1281L15.2966 11.5381C15.9266 10.9081 15.4766 9.82812 14.5866 9.82812H9.40663C8.51663 9.82812 8.07663 10.9081 8.70663 11.5381Z" fill="#F2F2F2" />
+                </svg>
+            </button>
         </div>
        
         {selectedValueProgress && <p></p>}
@@ -117,7 +117,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({  onChange, optionClassNam
                 <option className='bg-alt text-main' key={option} value={option}>{option}</option>
             ))}
         </select>
-        <button className="absolute inset-y-0 right-0 flex items-center pr-2 hover:cursor-pointer">
+               <button className="absolute inset-y-0 right-0 flex items-center pr-2 hover:cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 25" fill="none">
                         <path d="M8.70663 11.5381L11.2966 14.1281C11.6866 14.5181 12.3166 14.5181 12.7066 14.1281L15.2966 11.5381C15.9266 10.9081 15.4766 9.82812 14.5866 9.82812H9.40663C8.51663 9.82812 8.07663 10.9081 8.70663 11.5381Z" fill="#F2F2F2" />
                     </svg>
