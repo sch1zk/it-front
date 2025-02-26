@@ -25,9 +25,9 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({ options, optionClassNam
     return (
         <div className="relative w-full text-left mb-3">
         <div className="relative mt-1">
-            <div className={`relative w-full cursor-default overflow-hidden rounded-lg text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm`}>
+            <div className={`border-alt rounded-sm border-2 bg-transparent relative w-full cursor-default overflow-hidden text-left shadow-md focus:outline-none`}>
                 <input
-                    className={`w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-text-color-main focus:ring-0`}
+                    className={`w-full border-none py-2 pl-3 pr-10 text-sm leading-5 focus:ring-0 text-main placeholder-main`}
                     value={selected || query}
                     onChange={(event) => {
                         setQuery(event.target.value);
@@ -36,15 +36,6 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({ options, optionClassNam
                     placeholder={placeholder}
                     onFocus={() => setIsOpen(true)}
                 />
-                <button
-                    type="button"
-                    className="absolute inset-y-0 right-0 flex items-center pr-2 hover:cursor-pointer"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 25" fill="none">
-                        <path d="M8.70663 11.5381L11.2966 14.1281C11.6866 14.5181 12.3166 14.5181 12.7066 14.1281L15.2966 11.5381C15.9266 10.9081 15.4766 9.82812 14.5866 9.82812H9.40663C8.51663 9.82812 8.07663 10.9081 8.70663 11.5381Z" fill="#F2F2F2"/>
-                    </svg>
-                </button>
             </div>
             <Transition
                 as={Fragment}
@@ -54,7 +45,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({ options, optionClassNam
                 leaveTo="opacity-0"
                 afterLeave={() => setQuery('')}
             >
-                <div className={`absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-alt py-1 text-sm shadow-lg ring-1 ring-black/5 focus:outline-none z-[99]`}>
+                <div className={`absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-alt py-1 text-sm shadow-lg ring-1 ring-black/5 focus:outline-none z-[99] ${optionClassName}`}>
                     {filteredOptions.length === 0 && query !== "" ? (
                         <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                             Nothing found.
@@ -63,7 +54,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({ options, optionClassNam
                         filteredOptions.map((option) => (
                             <div
                                 key={option}
-                                className={`relative cursor-default select-none py-2 pl-10 pr-4 hover:cursor-pointer ${selected === option ? 'bg-[#bade4f] text-alt' : 'text-text-color-main'}`}
+                                className={`relative cursor-default select-none py-2 pl-10 pr-4 hover:cursor-pointer ${selected === option ? 'bg-[#bade4f] text-alt' : 'text-main'}`}
                                 onClick={() => handleSelection(option)}
                             >
                                 <span className={`block truncate ${selected === option ? 'font-medium' : 'font-normal'}`}>

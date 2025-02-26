@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { FaCheck } from 'react-icons/fa';
-import { IoClose } from 'react-icons/io5'; 
+import { IoClose } from 'react-icons/io5';
 
 interface FilterDropdownProps {
     options: string[];
@@ -57,48 +57,48 @@ const MultiSelectFilterDropdown: React.FC<FilterDropdownProps> = ({
             inputRef.current.focus();
         }
     };
+
     return (
         <div className="relative w-full text-left mb-3">
-            <div className={`${dropdownClassName} relative w-full cursor-default overflow-hidden rounded-lg text-left shadow-md focus:outline-none`}>
-                <input
-                    ref={inputRef}
-                    className={`w-full border-none py-2 pl-3 pr-10 text-sm leading-5 focus:ring-0 ${inputClassName}`}
-                    onChange={(event) => {
-                        setQuery(event.target.value);
-                        setIsOpen(true); // Open dropdown on input change
-                    }}
-                    placeholder={placeholder}
-                    onFocus={() => setIsOpen(true)}
-                />
-                <button className="absolute inset-y-0 right-0 flex items-center pr-2 hover:cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 25" fill="none">
-                        <path d="M8.70663 11.5381L11.2966 14.1281C11.6866 14.5181 12.3166 14.5181 12.7066 14.1281L15.2966 11.5381C15.9266 10.9081 15.4766 9.82812 14.5866 9.82812H9.40663C8.51663 9.82812 8.07663 10.9081 8.70663 11.5381Z" fill="#F2F2F2" />
-                    </svg>
-                </button>
-            </div>
-            <div className="mt-4 flex flex-wrap gap-2">
-                {selected.map((selectedValue) => (
-                    <button
-                        key={selectedValue}
-                        className="inline-flex items-center text-[#F2F2F2] border-2 border-solid rounded-md px-3 py-0.5 text-sm font-medium hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-400"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            removeSelection(selectedValue);
+            <div className={`${dropdownClassName} relative w-full rounded-sm cursor-default overflow-hidden text-left shadow-md focus:outline-none`}>
+                <div className={`w-full border-none py-2 pl-3 pr-10 text-sm leading-5 focus:ring-0 gap-2 ${inputClassName} flex flex-wrap items-center`}>
+                    {selected.map((selectedValue) => (
+                        <div
+                            key={selectedValue}
+                            className="inline-flex items-center mr-1 px-2 py-0.5 text-sm font-medium bg-alt text-main rounded-sm"
+                        >
+                            {selectedValue}
+                            <button
+                                type="button"
+                                className="ml-1 text-muted hover:text-main hover:cursor-pointer focus:outline-none"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    removeSelection(selectedValue);
+                                }}
+                            >
+                                <IoClose className="h-4 w-4" />
+                            </button>
+                        </div>
+                    ))}
+                    {!selected.length && <span className="text-main">{placeholder}</span>}
+                    <input
+                        ref={inputRef}
+                        className=" border-none py-0 pl-1 pr-0 text-sm leading-5 focus:ring-0 outline-none"
+                        type="text"
+                        value={query}
+                        onChange={(e) => {
+                            setQuery(e.target.value);
+                            setIsOpen(true);
                         }}
-                    >
-                        {selectedValue}
-                        <IoClose className="ml-1 h-4 w-4 flex-shrink-0 text-white" aria-hidden="true" />
-                    </button>
-                ))}
-                {selected.length > 0 && (
-                    <button
-                        className="text-sm text-gray-500 hover:text-gray-700"
-                        onClick={clearAllSelections}
-                    >
-                       Очистить
-                    </button>
-                )}
+                        onFocus={() => setIsOpen(true)}
+                        onClick={(e) => e.stopPropagation()}
+                    />
+                     <button className="absolute inset-y-0 right-0 flex items-center pr-2 hover:cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 25" fill="none">
+                            <path d="M8.70663 11.5381L11.2966 14.1281C11.6866 14.5181 12.3166 14.5181 12.7066 14.1281L15.2966 11.5381C15.9266 10.9081 15.4766 9.82812 14.5866 9.82812H9.40663C8.51663 9.82812 8.07663 10.9081 8.70663 11.5381Z" fill="#F2F2F2" />
+                        </svg>
+                       </button>
+                </div>
             </div>
             {isOpen && (
                 <div className={`absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-alt py-1 text-sm shadow-lg ring-1 ring-black/5 focus:outline-none z-[99] ${optionClassName}`}>
@@ -110,7 +110,7 @@ const MultiSelectFilterDropdown: React.FC<FilterDropdownProps> = ({
                         filteredOptions.map((option) => (
                             <div
                                 key={option}
-                                className={`relative cursor-default select-none py-2 pl-10 pr-4 hover:cursor-pointer ${selected.includes(option) ? 'bg-[#bade4f] text-alt' : 'text-text-color-main'}`}
+                                className={`relative cursor-default select-none py-2 pl-10 pr-4 hover:cursor-pointer hover:bg-primary ${selected.includes(option) ? 'bg-[#bade4f] text-alt' : 'text-main'}`}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     e.stopPropagation();

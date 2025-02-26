@@ -17,6 +17,7 @@
   --border-color-error: #DE5D4F;
   --radius-lg: 20px;
   --radius-md: 10px;
+  --radius-sm: 5px;
 }
 
 :root {
@@ -148,7 +149,18 @@ body {
 .mrl-text-cart-single span{
   margin-right: 10px;
 }
+.mrl-text-cart-single img{
+  filter: brightness(0.6);
+}
 .icon_star svg{
+  width: 30px;
+  height: 30px;
+  fill: #BADE4F;
+}
+.icon_star, .icon_star2 :hover{
+  cursor: pointer;
+}
+.icon_star2 svg{
   width: 30px;
   height: 30px;
   fill: #BADE4F;
@@ -156,4 +168,13 @@ body {
 .three-dots svg{
   width: 30px;
   height: 30px;
+}
+.ml-text-filter{
+  margin-left: 14px;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+
 }

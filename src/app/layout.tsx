@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`bg-[url(/images/index/main-bg.jpg)] ${ibm.variable}`}>
+      <body className={`${ibm.variable}`}>
         <Header/>
         <main>{children}</main>
         <Footer/>

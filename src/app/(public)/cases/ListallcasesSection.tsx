@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
-import {FaEllipsisVertical,FaRegStar,FaStar,FaCheck,FaRegThumbsUp,} from "react-icons/fa6";
+import { MdOutlineStar, MdMoreVert, MdThumbUp, MdCheck, MdOutlineStarBorder } from "react-icons/md";
 interface CasesImgProps {
     cases_img: string;
     name: string;
@@ -54,7 +54,7 @@ interface CaseData {
       views: 250,
     },
   ];
-  
+ 
   const ListallcasesSection: React.FC<ListallcasesSectionProps> = ({ sortBy }) => {
     const sortedCases = useMemo(() => {
       const casesToSort = [...initialCasesData]; 
@@ -71,12 +71,16 @@ interface CaseData {
           return casesToSort;
       }
     }, [sortBy]);
+    const [isStarred, setIsStarred] = useState(false);
   
+    const toggleStar = () => {
+      setIsStarred(!isStarred);
+    };
     const getDifficultyColor = (difficulty: CaseData["difficulty"]) => {
       const colorMap: { [key: string]: string } = {
-        'Легко': 'text-green-500',
+        'Легко': 'text-primary',
         'Средне': 'text-yellow-500',
-        'Сложно': 'text-red-500',
+        'Сложно': 'text-[#E3595B]',
       };
       return colorMap[difficulty] || 'text-gray-500';
     };
@@ -84,71 +88,106 @@ interface CaseData {
     return (
         <div>
         {sortedCases.map((caseItem) => (
-        <div key={caseItem.id} className="p-6 flex mb-5 rounded-md bg-alt">
-          <div className="w-1/2">
-         <span className="text-2xl text-main">{caseItem.title}</span>
+        <div key={caseItem.id} className="p-6 mb-5 rounded-md bg-alt">
+            
+           <div className='flex justify-between'>
+                <div>
+                    <span className="text-xl text-main">{caseItem.title}</span>
+                </div>
+                <div className='flex gap-2 justify-end'>
+                  
+                      {/* <span className='icon_star2' onClick={toggleStar}>
+                          <MdOutlineStar />
+                      </span> */}
+                
+                      <span className='icon_star' onClick={toggleStar}>
+                          <MdOutlineStarBorder />
+                      </span>
+                  
+                    <span className='three-dots text-muted'>
+                        <MdMoreVert />
+                    </span>
+                </div>
+            </div>
+
+
+             <div className="w-full">
+      
          <div className="mt-2 mb-2">
          <p className={`${getDifficultyColor(caseItem.difficulty)} text-base`}>{caseItem.difficulty}</p>
          </div>
-        <div className="flex mb-3 items-center">
+        <div className="flex mb-4 items-center">
          <div className="mr-2">
            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 20 15" fill="none">
-           <path d="M15.13 1.465C14.77 0.955 14.17 0.625 13.5 0.625L2.5 0.635C1.4 0.635 0.5 1.525 0.5 2.625V12.625C0.5 13.725 1.4 14.615 2.5 14.615L13.5 14.625C14.17 14.625 14.77 14.295 15.13 13.785L19.5 7.625L15.13 1.465Z" fill="#F2F2F2"/>
+           <path d="M15.13 1.465C14.77 0.955 14.17 0.625 13.5 0.625L2.5 0.635C1.4 0.635 0.5 1.525 0.5 2.625V12.625C0.5 13.725 1.4 14.615 2.5 14.615L13.5 14.625C14.17 14.625 14.77 14.295 15.13 13.785L19.5 7.625L15.13 1.465Z" fill="#868686"/>
            </svg>
          </div>
          <div className="mrl-text-cart">
-           <span className="p-1 w-full bg-[#1C1C1C] text-main text-sm rounded-md">Основы</span>
-           <span className="p-1 w-full bg-[#1C1C1C] text-main text-sm rounded-md">Алгоритмы</span>
-           <span className="p-1 w-full bg-[#1C1C1C] text-main text-sm rounded-md">Строки</span>
-           <span className="p-1 w-full bg-[#1C1C1C] text-main text-sm rounded-md">Массивы</span>
+           <span className="px-1 py-0.5 w-full bg-[#1C1C1C] text-muted text-sm rounded-sm">Основы</span>
+           <span className="px-1 py-0.5 w-full bg-[#1C1C1C] text-muted text-sm rounded-sm">Алгоритмы</span>
+           <span className="px-1 py-0.5 w-full bg-[#1C1C1C] text-muted text-sm rounded-sm">Строки</span>
+           <span className="px-1 py-0.5 w-full bg-[#1C1C1C] text-muted text-sm rounded-sm">Массивы</span>
          </div>
 
         </div>
-        <div className="mrl-text-cart-single w-1/2 flex">
-               <span>
-               <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={25} height={25} />
-               </span>
-               <span>
-               <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={25} height={25} />
-               </span>
-               <span>
-               <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={25} height={25} />
-               </span>
-               <span>
-               <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={25} height={25} />
-               </span>
-               <span>
-               <Image src="/images/icons/js-icon.svg" alt="Логотип ITsphera" width={25} height={25} />
-               </span>
-              </div>
-           </div>
-           <div className="mrl-text-cart w-1/2 flex flex-col justify-between text-right">
-              <div className='flex gap-3 justify-end'>
-                 <span className='icon_star'>
-                  <FaRegStar />
-                 </span>
-                  <span className='three-dots'>
-                   <FaEllipsisVertical />
-                  </span>
-              </div>
-               <div className='flex justify-end'>
-                   <div className="flex gap-2">
+        <div className="mrl-text-cart-single gap-2 md:gap-px items-baseline md:items-center  justify-between flex flex-col md:flex-row">
+            <div className='flex items-center'>
+                <span>
+                    <Image src="/images/icons/go-cart.svg" alt="Логотип ITsphera" width={40} height={25} />
+                    </span>
+                    <span>
+                    <Image src="/images/icons/c-cart.svg" alt="Логотип ITsphera" width={20} height={25} />
+                    </span>
+                    <span>
+                    <Image src="/images/icons/cpp-cart.svg" alt="Логотип ITsphera" width={20} height={25} />
+                    </span>
+                    
+                    <span>
+                    <Image src="/images/icons/csharp-cart.svg" alt="Логотип ITsphera" width={20} height={25} />
+                    </span>
+                    <span>
+                    <Image src="/images/icons/js-cart.svg" alt="Логотип ITsphera" width={20} height={25} />
+                    </span>
+                    <span>
+                    <Image src="/images/icons/typeScript-cart.svg" alt="Логотип ITsphera" width={20} height={25} />
+                    </span>
+                    <span>
+                    <Image src="/images/icons/kotlin-cart.svg" alt="Логотип ITsphera" width={20} height={25} />
+                    </span>
+                    <span>
+                    <Image src="/images/icons/python-cart-icon.svg" alt="Логотип ITsphera" width={20} height={25} />
+                    </span>
+                    <span>
+                    <Image src="/images/icons/php-cart.svg" alt="Логотип ITsphera" width={40} height={25} />
+                    </span>
+                    <span>
+                    <Image src="/images/icons/ruby-cart.svg" alt="Логотип ITsphera" width={20} height={25} />
+                    </span>
+                    <span>
+                    <Image src="/images/icons/swift-cart.svg" alt="Логотип ITsphera" width={20} height={25} />
+                    </span>
+                    <span>
+                    <Image src="/images/icons/java-cart.svg" alt="Логотип ITsphera" width={20} height={25} />
+                    </span>
+                 </div>
+                  <div className="flex gap-2 text-muted">
                      <div className="flex items-center gap-1"> 
-                       <FaStar />
-                       <span className="text-main">247</span>
+                       <MdOutlineStar />
+                       <span className="text-muted">247</span>
                      </div>
                      <div className="flex items-center gap-1"> 
-                       <FaRegThumbsUp />
-                       <span className="text-main">95%</span>
+                     <MdThumbUp />
+                       <span className="text-muted">95%</span>
                      </div>
                      <div className="flex items-center gap-1"> 
-                       <FaCheck />
-                       <span className="text-main">4514</span>
+                     <MdCheck />
+                       <span className="text-muted">4514</span>
                      </div>
                    </div>
-
-               </div>
+              
               </div>
+              
+             </div>
            </div>
          ))}
      </div>
