@@ -1,12 +1,12 @@
 "use client"
 
-import InputField from "@/components/ui/InputField";
+import CInputField from "@/components/ui/CInputField";
 import { Button } from "@headlessui/react";
 import clsx from "clsx";
 import Image from 'next/image';
 import { socialButtons } from "./page";
 import { useState } from "react";
-import ErrorPanel from "@/components/ui/ErrorPanel";
+import CErrorPanel from "@/components/ui/CErrorPanel";
 import { register } from "@/services/api";
 
 interface RegisterFormProps {
@@ -46,13 +46,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSwitch }) => {
         <Image src="/images/it-logo_min.svg" alt="Логотип" width={225} height={72} className="pointer-events-none select-none"/>
         <div className="inline-flex flex-col w-full gap-3 mt-8 mb-3">
           {error && (
-            <ErrorPanel description={error}/>
+            <CErrorPanel description={error}/>
           )}
           <form onSubmit={handleSubmit} className="inline-flex flex-col gap-3">
-            <InputField name="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Имя пользователя" required/>
-            <InputField name="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Электронная почта" required/>
-            <InputField name="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Пароль" required/>
-            <InputField name="passwordConfirm" type="password" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)} placeholder="Подтвердите пароль" required/>
+            <CInputField name="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Имя пользователя" required/>
+            <CInputField name="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Электронная почта" required/>
+            <CInputField name="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Пароль" required/>
+            <CInputField name="passwordConfirm" type="password" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)} placeholder="Подтвердите пароль" required/>
             <Button type="submit" className="rounded-md cursor-pointer bg-primary text-light text-base/10">
               Зарегистрироваться
             </Button>

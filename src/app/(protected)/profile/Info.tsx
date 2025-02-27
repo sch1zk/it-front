@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import "@/styles/profile.css";
-import ProgressBar from '@/components/ui/ProgressBar';
+import CProgressBar from '@/components/ui/CProgressBar';
 import { MdAccessTime, MdGroups, MdLabel, MdLightbulb, MdOutlineArrowOutward, MdVisibility, MdWork } from 'react-icons/md';
-import ListboxProfile from '@/components/ui/ListboxProfile';
+import CListbox from '@/components/ui/CListbox';
 
 const InfoSection: React.FC = () => {
   const itDirection = [
@@ -65,19 +65,19 @@ const InfoSection: React.FC = () => {
             <div className="text-primary">
               <p className="text-sm mb-1">Легко</p>
     
-              <ProgressBar bgColor="var(--background-color-main)" lineColor="var(--color-primary)" max={341} current={28}/>
+              <CProgressBar bgColor="var(--background-color-main)" lineColor="var(--color-primary)" max={341} current={28}/>
             </div>
     
             <div className="text-medium">
               <p className="text-sm mb-1">Средне</p>
     
-              <ProgressBar bgColor="var(--background-color-main)" lineColor="var(--color-medium)" max={248} current={43}/>
+              <CProgressBar bgColor="var(--background-color-main)" lineColor="var(--color-medium)" max={248} current={43}/>
             </div>
     
             <div className="text-hard">
               <p className="text-sm mb-1">Сложно</p>
     
-              <ProgressBar bgColor="var(--background-color-main)" lineColor="var(--color-hard)" max={903} current={67}/>
+              <CProgressBar bgColor="var(--background-color-main)" lineColor="var(--color-hard)" max={903} current={67}/>
             </div>
           </div>
         </div>
@@ -114,8 +114,8 @@ const InfoSection: React.FC = () => {
           <p className="text-primary mb-3">Обучение</p>
   
           <div className="flex flex-col gap-2">
-            <ListboxProfile items={itDirection} label="Основное направление"/>
-            <ListboxProfile items={programmingLanguages} label="Выбранные языки" multiple={true}/>
+            <CListbox items={itDirection} label="Основное направление"/>
+            <CListbox items={programmingLanguages} label="Выбранные языки" multiple={true}/>
   
             <div>
               <span className="text-sm text-primary">Использованные языки</span>

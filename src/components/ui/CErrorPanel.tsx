@@ -1,10 +1,10 @@
 import clsx from "clsx";
 
-interface ErrorPanelProps {
+interface CErrorPanelProps {
   description: string;
 }
 
-const ErrorPanel: React.FC<ErrorPanelProps> = ({ description }) => {
+const CErrorPanel: React.FC<CErrorPanelProps> = ({ description }) => {
   return (
     <div className={clsx(
       "border border-error text-sm/10 text-error rounded-md flex justify-center"
@@ -14,4 +14,4 @@ const ErrorPanel: React.FC<ErrorPanelProps> = ({ description }) => {
   )
 }
 
-export default ErrorPanel
+export default CErrorPanel

@@ -1,11 +1,11 @@
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 
-interface DropdownMenuProps {
+interface CDropdownMenuProps {
   items: { label: string }[];
 }
 
-const DropdownMenu: React.FC<DropdownMenuProps> = ({ items }) => {
+const CDropdownMenu: React.FC<CDropdownMenuProps> = ({ items }) => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <MenuButton className="px-4 py-2 text-white bg-blue-600 rounded-md">
@@ -32,4 +32,4 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ items }) => {
   );
 };
 
-export default DropdownMenu;
+export default CDropdownMenu;

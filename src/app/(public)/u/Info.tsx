@@ -1,5 +1,5 @@
-import CollapsablePanel from '@/components/ui/CollapsablePanel';
-import ComboBox, { ComboBoxItem } from '@/components/ui/ComboBox';
+import CCollapsablePanel from '@/components/ui/CCollapsablePanel';
+import CComboBox, { CComboBoxItem } from '@/components/ui/CComboBox';
 import { Button } from '@headlessui/react';
 import Image from 'next/image';
 import { MdEdit, MdDownload, MdAttachFile } from "react-icons/md";
@@ -151,7 +151,7 @@ export const InfoContacts: React.FC = () => {
   )
 
   return (
-    <CollapsablePanel
+    <CCollapsablePanel
       className="inline-flex flex-col rounded-lg bg-alt"
       padding={40}
       firstPart={firstPart}
@@ -161,7 +161,7 @@ export const InfoContacts: React.FC = () => {
 };
 
 export const InfoPerformance: React.FC = () => {
-  const items: ComboBoxItem[] = [
+  const items: CComboBoxItem[] = [
     { id: 1, name: "Frontend-разработка" },
     { id: 2, name: "Backend-разработка" },
     { id: 3, name: "Data Science" },
@@ -173,7 +173,7 @@ export const InfoPerformance: React.FC = () => {
     <div className="inline-flex gap-10">
       <div className="w-1/3 p-10 rounded-lg bg-alt">
         <p className="text-xl text-primary">Обучение</p>
-        <ComboBox items={items} />
+        <CComboBox items={items} />
         <p className="text-primary">Основное направление</p>
         <p className="text-primary">Выбранные языки</p>
         <p className="text-primary">Использованные языки</p>

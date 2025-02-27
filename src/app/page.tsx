@@ -1,7 +1,7 @@
 import IndexFooter from "@/components/IndexFooter";
 import IndexHeader from "@/components/IndexHeader";
-import Carousel from "@/components/ui/Carousel";
-import TypingSpan from "@/components/ui/TypingSpan";
+import CCarousel from "@/components/ui/CCarousel";
+import CTypingSpan from "@/components/ui/CTypingSpan";
 import clsx from "clsx";
 import Image from "next/image";
 import {
@@ -431,7 +431,7 @@ const UserReviewsSegment: React.FC = () => {
         Что о нас говорят?
       </p>
       <div className="rounded-lg noise-overlay bg-alt">
-        <Carousel content={reviewCards} />
+        <CCarousel content={reviewCards} />
       </div>
     </section>
   );
@@ -441,7 +441,7 @@ const CallToActionSegment: React.FC = () => {
   return (
     <section className="container flex flex-col items-start justify-center min-h-[50vh] mb-40">
       <div className="mb-20 font-semibold text-left text-7xl max-w-[550px]">
-        <TypingSpan
+        <CTypingSpan
           text="Начни свой путь в IT сфере уже сегодня"
         />
       </div>

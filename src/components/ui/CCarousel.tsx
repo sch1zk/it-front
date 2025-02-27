@@ -6,11 +6,11 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import clsx from 'clsx';
 import { useState } from 'react';
 
-interface CarouselProps {
+interface CCarouselProps {
   content: React.ReactNode[];
 }
 
-const Carousel: React.FC<CarouselProps> = ({ content }) => {
+const CCarousel: React.FC<CCarouselProps> = ({ content }) => {
   const [itemAnimation, setItemAnimation] = useState(false);
   const [itemIndex, setItemIndex] = useState(0);
 
@@ -70,4 +70,4 @@ const Carousel: React.FC<CarouselProps> = ({ content }) => {
   );
 };
 
-export default Carousel;
+export default CCarousel;

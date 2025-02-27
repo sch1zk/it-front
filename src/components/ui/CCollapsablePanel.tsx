@@ -1,14 +1,14 @@
 import { MdArrowDropDown } from "react-icons/md";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 
-interface CollapsablePanelProps {
+interface CCollapsablePanelProps {
   className?: string;
   padding?: number;
   firstPart?: React.ReactNode;
   secondPart?: React.ReactNode;
 }
 
-const CollapsablePanel: React.FC<CollapsablePanelProps> = ({ className, padding = 0, firstPart, secondPart }) => {
+const CCollapsablePanel: React.FC<CCollapsablePanelProps> = ({ className, padding = 0, firstPart, secondPart }) => {
   const buttonSize: number = 40;
   
   return (
@@ -34,4 +34,4 @@ const CollapsablePanel: React.FC<CollapsablePanelProps> = ({ className, padding 
   )
 };
 
-export default CollapsablePanel;
+export default CCollapsablePanel;

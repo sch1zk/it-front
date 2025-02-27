@@ -1,22 +1,22 @@
 "use client";
 
-import { Checkbox, Field, Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
+import { Field, Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
 import clsx from 'clsx';
 import { useState } from 'react';
-import { MdAdd, MdArrowDropDown, MdCancel, MdCheck } from 'react-icons/md';
+import { MdAdd, MdArrowDropDown, MdCancel } from 'react-icons/md';
 
-export interface ListboxProfileItem {
+export interface CListboxItem {
   id: number;
   name: string;
 }
 
-interface ListboxProfileProps {
-  items: ListboxProfileItem[];
+interface CListboxProps {
+  items: CListboxItem[];
   label?: string;
   multiple?: boolean;
 }
 
-const ListboxProfile: React.FC<ListboxProfileProps> = ({ items, label, multiple = false }) => {
+const CListbox: React.FC<CListboxProps> = ({ items, label, multiple = false }) => {
   const [selectedItem, setSelectedItem] = useState(multiple ? [] : items[0]);
 
   return (
@@ -34,10 +34,10 @@ const ListboxProfile: React.FC<ListboxProfileProps> = ({ items, label, multiple 
           )}
         >
           {multiple
-            ? (selectedItem as ListboxProfileItem[]).map((item) => (
+            ? (selectedItem as CListboxItem[]).map((item) => (
               <span key={item.id} className="px-2 bg-panel rounded-sm">{item.name}</span>
             ))
-            : (selectedItem as ListboxProfileItem)?.name}
+            : (selectedItem as CListboxItem)?.name}
           {multiple ? (
             <MdAdd
               size={24}
@@ -86,4 +86,4 @@ const ListboxProfile: React.FC<ListboxProfileProps> = ({ items, label, multiple 
   );
 };
 
-export default ListboxProfile;
+export default CListbox;

@@ -3,8 +3,13 @@ import CaseList from "@/components/CaseList";
 export default function CasesPage() {
   return (
     <>
-      <p>Кейсы</p>
-      <CaseList />
+      <div>
+        <p>Сложность</p>
+        
+      </div>
+
+
+      {/* <CaseList /> */}
     </>
   );
 };

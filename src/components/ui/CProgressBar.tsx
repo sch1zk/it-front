@@ -2,15 +2,14 @@
 
 import { useEffect, useState } from "react";
 
-interface ProgressBarProps {
+interface CProgressBarProps {
   bgColor: string;
   lineColor: string;
   max: number;
   current?: number;
-
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ bgColor, lineColor, max, current }) => {
+const CProgressBar: React.FC<CProgressBarProps> = ({ bgColor, lineColor, max, current }) => {
   const [currentValue, setCurrentValue] = useState(current ?? 0);
   const [progress, setProgress] = useState(0);
 
@@ -33,4 +32,4 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ bgColor, lineColor, max, curr
   );
 }
 
-export default ProgressBar;
+export default CProgressBar;

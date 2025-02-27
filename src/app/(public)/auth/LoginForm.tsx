@@ -1,11 +1,11 @@
 "use client"
 
-import InputField from "@/components/ui/InputField";
+import CInputField from "@/components/ui/CInputField";
 import { Button } from "@headlessui/react";
 import clsx from "clsx";
 import Image from 'next/image';
 import { socialButtons } from "./page";
-import ErrorPanel from "@/components/ui/ErrorPanel";
+import CErrorPanel from "@/components/ui/CErrorPanel";
 import { useState } from "react";
 import Cookies from 'js-cookie';
 import { BACKEND_URL } from '@/lib/config';
@@ -55,11 +55,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitch }) => {
         <Image src="/images/it-logo_min.svg" alt="Логотип" width={225} height={72} className="pointer-events-none select-none"/>
         <div className="inline-flex flex-col w-full gap-3 mt-8 mb-3">
           {error && (
-            <ErrorPanel description={error}/>
+            <CErrorPanel description={error}/>
           )}
           <form onSubmit={handleSubmit} className="inline-flex flex-col gap-3">
-            <InputField name="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Электронная почта" required/>
-            <InputField name="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Пароль" required/>
+            <CInputField name="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Электронная почта" required/>
+            <CInputField name="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Пароль" required/>
             <Button type="submit" className="rounded-md cursor-pointer bg-primary text-light text-base/10">
               Войти
             </Button>

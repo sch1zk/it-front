@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 
-interface TypingSpanProps {
+interface CTypingSpanProps {
   text: string;
 }
 
-const TypingSpan: React.FC<TypingSpanProps> = ({ text }) => {
+const CTypingSpan: React.FC<CTypingSpanProps> = ({ text }) => {
   const splittedText = text.split("");
 
   return (
@@ -26,4 +26,4 @@ const TypingSpan: React.FC<TypingSpanProps> = ({ text }) => {
   );
 };
 
-export default TypingSpan;
+export default CTypingSpan;

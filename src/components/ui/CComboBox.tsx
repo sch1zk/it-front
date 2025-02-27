@@ -11,18 +11,18 @@ import {
 import { useState, Fragment } from 'react';
 import clsx from 'clsx';
 
-export interface ComboBoxItem {
+export interface CComboBoxItem {
   id: number;
   name: string;
 }
 
-interface ComboBoxProps {
-  items: ComboBoxItem[];
+interface CComboBoxProps {
+  items: CComboBoxItem[];
 }
 
-const ComboBox: React.FC<ComboBoxProps> = ({ items }) => {
+const CComboBox: React.FC<CComboBoxProps> = ({ items }) => {
   const [query, setQuery] = useState('');
-  const [selected, setSelected] = useState<ComboBoxItem | null>(items.length > 0 ? items[0] : null);
+  const [selected, setSelected] = useState<CComboBoxItem | null>(items.length > 0 ? items[0] : null);
 
   const filteredItems =
     query === ''
@@ -38,7 +38,7 @@ const ComboBox: React.FC<ComboBoxProps> = ({ items }) => {
               'w-full bg-main py-1.5 pr-8 pl-3 text-sm/6 text-white',
               'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25'
             )}
-            displayValue={(item: ComboBoxItem | null) => item?.name ?? ''}
+            displayValue={(item: CComboBoxItem | null) => item?.name ?? ''}
             onChange={(event) => setQuery(event.target.value)}
           />
 
@@ -80,4 +80,4 @@ const ComboBox: React.FC<ComboBoxProps> = ({ items }) => {
   );
 };
 
-export default ComboBox;
+export default CComboBox;

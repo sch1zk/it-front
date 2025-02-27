@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { ChangeEventHandler, useState } from "react";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
-interface InputFieldProps {
+interface CInputFieldProps {
   name: string;
   type: string;
   title?: string;
@@ -15,7 +15,7 @@ interface InputFieldProps {
   required?: boolean;
 }
 
-const InputField: React.FC<InputFieldProps> = ({ name, type, title, placeholder, value, onChange, required = false }) => {
+const CInputField: React.FC<CInputFieldProps> = ({ name, type, title, placeholder, value, onChange, required = false }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   
   const handleMouseDown = () => setIsPasswordVisible(true);
@@ -56,4 +56,4 @@ const InputField: React.FC<InputFieldProps> = ({ name, type, title, placeholder,
   );
 };
 
-export default InputField;
+export default CInputField;
