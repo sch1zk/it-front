@@ -14,14 +14,32 @@ interface CListboxProps {
   items: CListboxItem[];
   label?: string;
   multiple?: boolean;
+  buttonBackground?: string;
+  optionsBackground?: string;
+  optionBackground?: string;
+  labelClass?: string;
+  buttonClass?: string;
+  optionsClass?: string;
+  optionClass?: string;
 }
 
-const CListbox: React.FC<CListboxProps> = ({ items, label, multiple = false }) => {
-  const [selectedItem, setSelectedItem] = useState(multiple ? [] : items[0]);
+const CListbox: React.FC<CListboxProps> = ({
+  items,
+  label,
+  multiple = false,
+  buttonBackground = "bg-main",
+  optionsBackground = "bg-main",
+  optionBackground = "bg-panel",
+  labelClass = "text-primary",
+  buttonClass = "w-full mt-1 rounded-md py-1.5",
+  optionsClass = "rounded-md p-1.5 mt-2",
+  optionClass = "rounded-md px-1.5",
+}) => {
+  const [selectedItem, setSelectedItem] = useState<CListboxItem | CListboxItem[]>(multiple ? [] : items[0]);
 
   return (
     <Field>
-      {label && (<Label className="text-sm text-primary">{label}</Label>)}
+      {label && (<Label className={clsx("text-sm", labelClass)}>{label}</Label>)}
       <Listbox
         value={selectedItem}
         onChange={setSelectedItem}
@@ -29,13 +47,15 @@ const CListbox: React.FC<CListboxProps> = ({ items, label, multiple = false }) =
       >
         <ListboxButton
           className={clsx(
-            "min-h-9 w-full group relative flex mt-1 cursor-pointer rounded-md flex-1 bg-main py-1.5 text-left text-sm/6",
-            multiple ? "flex-wrap gap-1 px-1.5" : "px-3"
+            buttonBackground,
+            buttonClass,
+            "min-h-9 text-left text-sm/6 group relative flex cursor-pointer",
+            multiple ? "flex-wrap gap-1 px-1.5" : "px-3",
           )}
         >
           {multiple
-            ? (selectedItem as CListboxItem[]).map((item) => (
-              <span key={item.id} className="px-2 bg-panel rounded-sm">{item.name}</span>
+            ? Array.isArray(selectedItem) && selectedItem.map((item) => (
+              <span key={item.id} className={clsx("px-2 rounded-sm", optionBackground)}>{item.name}</span>
             ))
             : (selectedItem as CListboxItem)?.name}
           {multiple ? (
@@ -54,9 +74,11 @@ const CListbox: React.FC<CListboxProps> = ({ items, label, multiple = false }) =
           anchor="bottom"
           transition
           className={clsx(
-            "w-[var(--button-width)] bg-main rounded-md p-1.5 mt-2 text-sm/8 empty:invisible",
+            optionsBackground,
+            optionsClass, 
+            "w-[var(--button-width)] text-sm/8 empty:invisible",
             "transition data-[leave]:data-[closed]:opacity-0",
-            multiple && "inline-flex flex-wrap gap-1"
+            multiple && "inline-flex flex-wrap gap-1",
           )}
         >
           {items.map((item) => (
@@ -64,8 +86,9 @@ const CListbox: React.FC<CListboxProps> = ({ items, label, multiple = false }) =
               key={item.id}
               value={item}
               className={clsx(
-                "cursor-pointer select-none px-1.5 data-[focus]:bg-panel rounded-md",
-                multiple && "w-fit data-[selected]:bg-panel relative group"
+                optionClass, 
+                `cursor-pointer select-none data-[focus]:${optionBackground}`, 
+                multiple && `w-fit data-[selected]:${optionBackground} relative group`,
               )}
             >
               {multiple ? (
