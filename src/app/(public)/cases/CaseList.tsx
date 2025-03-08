@@ -47,7 +47,7 @@ const CasePanel: React.FC<CasePanelProps> = ({ caseItem }) => {
 
           <div className="flex gap-2.5">
             <MdFavoriteBorder size={24} color="var(--color-primary)"/>
-            <button className="overflow-hidden w-4 h-fit">
+            <button className="overflow-hidden w-4 h-fit cursor-pointer">
               <MdMoreVert size={24} className="ml-[-4px]" />
             </button>
             
